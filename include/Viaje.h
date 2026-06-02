@@ -31,7 +31,7 @@ public:
     std::string getDestino();
     int getAsientosPublicados();
     float getPrecio();
-    /*hmm*/
+    /*duda*/
     Vehiculo getVehiculo();
     Set<Reserva> getReservas();
     int getAsientosDisponibles();
@@ -42,7 +42,7 @@ public:
     void setDestino(std::string destino);
     void setAsientosPublicados(int asientosPublicados);
     void setPrecio(int precio);
-    /*hmm*/
+    /*duda*/
     void setVehiculo(Vehiculo vehiculo);
     void setReservas(Set<Reserva> reseva);
     void setAsientosDisponibles(int asientosDisponibles);
