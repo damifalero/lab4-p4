@@ -7,6 +7,7 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     this->contrasena = contrasena;
     this->email = email;
     this->caliPromedio = 0;
+    this->tipo = NULL;
 }
 
 Usuario::~Usuario() {}
@@ -17,9 +18,10 @@ std::string Usuario::getNombre(){ return this->nombre; }
 std::string Usuario::getContrasenia(){ return this->contrasena; }
 std::string Usuario::getEmail(){ return this->email; }
 float Usuario::getPromedio(){ return this->caliPromedio; }
+TipoUsuario* Usuario::getTipo(){ return this->tipo; }
 
 //Funciones
-bool Usuario::esPasajero(){} //¿Como se si el usuario es conductor o pasajero?(solo se me ocurre poner un atributo booleano)
+bool Usuario::esPasajero(){ return (*this->tipo == Pasajero); }
 
 DTUsuario Usuario::getDTUsuario(){
     DTUsuario datos(this->nickname, this->nombre);
@@ -35,7 +37,7 @@ void Usuario::actualizarPromedio(){
     std::set<Calificacion>::iterator it;
     for(it = this->calificaciones.begin(); it != this->calificaciones.end(); ++it){
         Calificacion current = *it;
-        promedio = promedio + current.getPuntaje();
+        promedio = promedio + current.getPuntaje();           //Falta el get en calificacion
     }
     this->caliPromedio = promedio / calificaciones.size();
 }

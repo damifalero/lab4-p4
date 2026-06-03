@@ -3,6 +3,7 @@
 
 #include "../include/DTUsuario.h"
 #include "../include/Calificacion.h"
+#include "../include/TipoUsuario.h"
 #include <string>
 #include <set>
 
@@ -14,6 +15,7 @@ protected:
     std::string email;
     float caliPromedio;
     std::set<Calificacion> calificaciones;
+    TipoUsuario* tipo;
 
 public:
     Usuario(std::string nickname, std::string nombre, std::string contrasena, std::string email);
@@ -25,6 +27,7 @@ public:
     std::string getContrasenia();
     std::string getEmail();
     float getPromedio();
+    TipoUsuario* getTipo();
 
     //Funciones
     bool esPasajero();
