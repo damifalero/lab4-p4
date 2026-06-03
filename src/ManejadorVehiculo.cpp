@@ -20,7 +20,7 @@ bool ManejadorVehiculo::existeVehiculo(std::strign matricula){
 }
 
 Vehiculo* ManejadorVehiculo::obtenerVehiculo(std::string matriucla){
-    auto it = vehiculos.find(matricula);
+    std::map<std::string, Vehiculo*>::iterador it = vehiculos.find(matricula);
 
     if (it != veiculos.end())
         return it->second;
