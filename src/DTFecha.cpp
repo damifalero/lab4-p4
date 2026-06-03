@@ -12,6 +12,10 @@ DTFecha::DTFecha(int dia, int mes, int anio) {
     this->anio = anio;
 }
 
+void DTFecha::setDia(int d){ this->dia = d; }
+void DTFecha::setMes(int m){ this->mes = m; }
+void DTFecha::setAnio(int a){ this->anio = a; }
+
 int DTFecha::getDia() { return dia; }
 int DTFecha::getMes() { return mes; }
 int DTFecha::getAnio() { return anio; }

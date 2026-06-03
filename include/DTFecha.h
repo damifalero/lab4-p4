@@ -13,6 +13,9 @@ public:
     DTFecha();
     DTFecha(int dia, int mes, int anio);
 
+    void setDia(int);
+    void setMes(int);
+    void setAnio(int);
     int getDia();
     int getMes();
     int getAnio();
