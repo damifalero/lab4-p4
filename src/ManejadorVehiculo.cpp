@@ -1,19 +1,30 @@
 #include "../include/ManejadorVehiculo.h"
+#include "../include/Vehiculo.h"
 
-ManejadorVehiculo::ManejadorVehiculo(){
+ManejadorVehiculo* ManejadorVehiculo::instancia = NULL;
 
+ManejadorVehiculo::ManejadorVehiculo(){ }  
+
+ManejadorVehiculo* ManejadorVehiculo::getInstancia(){
+    if (instancia == NULL)
+        instancia = new ManejadorVehiculo();
+    return instancia;
 }
 
-ManejadorVehiculo ManejadorVehiculo::getInstancia(){
-
+void ManejadorVehiculo::agregarVehiculo(Vehiculo* v){
+    vehiculos[v->getMatricula()] = v;
 }
 
-void ManejadorVehiculo::agregarVehiculo(Vehiculo v){
+bool ManejadorVehiculo::existeVehiculo(std::strign matricula){
+    return vehiculos.find(matricula) != vehiculos.end();
+}
 
-}
-bool ManejadorVehiculo::existeVehiculo(std::string matricula){
+Vehiculo* ManejadorVehiculo::obtenerVehiculo(std::string matriucla){
+    auto it = vehiculos.find(matricula);
 
+    if (it != veiculos.end())
+        return it->second;
+
+    return NULL;
 }
-Vehiculo ManejadorVehiculo::obtenerVehiculo(std::string matricula){
-    
-}
+

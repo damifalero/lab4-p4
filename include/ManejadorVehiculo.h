@@ -1,20 +1,25 @@
 #ifndef MANEJADORVEHICULO_H
 #define MANEJADORVEHICULO_H
 
-#include "Vehiculo.h"
 #include <string>
+#include <map>
+
+class Vehiculo;
 
 class ManejadorVehiculo {
     private:
-        ManejadorVehiculo instancia;
-        Map<std::string, Vehiculo> vehiculos;
+        static ManejadorVehiculo* instancia;
+        std::map<std::string, Vehiculo*> vehiculos;
+
+        ManejadorVehiculo();
     
     public: 
-        ManejadorVehiculo();
         
-        ManejadorVehiculo getInstancia();
+        ManejadorVehiculo* getInstancia();
 
-        void agregarVehiculo(Vehiculo v);
+        void agregarVehiculo(Vehiculo* v);
         bool existeVehiculo(std::string matricula);
-        Vehiculo obtenerVehiculo(std::string matricula);
+        Vehiculo* obtenerVehiculo(std::string matricula);
 }
+
+#endif
