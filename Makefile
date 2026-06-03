@@ -9,10 +9,10 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 # Nombre del ejecutable
-EJECUTABLE = lab0
+EJECUTABLE = lab4
 
 # Archivo a entregar
-ENTREGABLE = 70_lab0.zip 
+ENTREGABLE = 70_parte2_lab4.zip
 
 # Archivos fuente y objetos
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
