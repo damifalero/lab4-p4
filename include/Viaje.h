@@ -15,9 +15,8 @@ private:
     std::string destino;
     int asientosPublicados;
     float precio;
-    /*faltan*/
-    Vehiculo vehiculo;
-    Set<Reserva> reseva;
+    Vehiculo* vehiculo;
+    std::set<Reserva> reserva;
     int asientosDisponibles;
 
 public:
@@ -31,9 +30,8 @@ public:
     std::string getDestino();
     int getAsientosPublicados();
     float getPrecio();
-    /*duda*/
     Vehiculo getVehiculo();
-    Set<Reserva> getReservas();
+    std::set<Reserva> getReservas();
     int getAsientosDisponibles();
 
     void setCodigo(int codigo);
@@ -42,9 +40,8 @@ public:
     void setDestino(std::string destino);
     void setAsientosPublicados(int asientosPublicados);
     void setPrecio(int precio);
-    /*duda*/
     void setVehiculo(Vehiculo vehiculo);
-    void setReservas(Set<Reserva> reseva);
+    void setReservas(std::set<Reserva> reserva);
     void setAsientosDisponibles(int asientosDisponibles);
 
     std::string getConductor();
@@ -56,11 +53,9 @@ public:
     void agregarReserva(Reserva r);
     /*estas son las funciones que faltarian en el diagrama*/
     int obtenerCodigo();
-    //int getAsientosOfrecidos();
-    //Reserva getReserva();
-    //Vehiculo getVehiculo;
-    //Viaje next();
-    //add();
+    int getAsientosOfrecidos();
+    Reserva getReserva();
+    Vehiculo getVehiculo;
 };
 
 #endif
