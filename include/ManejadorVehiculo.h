@@ -10,12 +10,13 @@ class ManejadorVehiculo {
     private:
         static ManejadorVehiculo* instancia;
         std::map<std::string, Vehiculo*> vehiculos;
-
-        ManejadorVehiculo();
     
     public: 
-        
+        ManejadorVehiculo();
+        ~ManejadorVehiculo();
+
         ManejadorVehiculo* getInstancia();
+        std::map<std::string, Vehiculo> getVehiculos();
 
         void agregarVehiculo(Vehiculo* v);
         bool existeVehiculo(std::string matricula);

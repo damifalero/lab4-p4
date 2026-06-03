@@ -4,12 +4,15 @@
 ManejadorVehiculo* ManejadorVehiculo::instancia = NULL;
 
 ManejadorVehiculo::ManejadorVehiculo(){ }  
+ManejadorVehiculo::~ManejadorVehiculo(){ }
 
 ManejadorVehiculo* ManejadorVehiculo::getInstancia(){
     if (instancia == NULL)
         instancia = new ManejadorVehiculo();
     return instancia;
 }
+
+std::map<std::string, Vehiculo> ManejadorVehiculo::getVehiculos(){ return this->vehiculos; }
 
 void ManejadorVehiculo::agregarVehiculo(Vehiculo* v){
     vehiculos[v->getMatricula()] = v;
