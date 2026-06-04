@@ -33,14 +33,23 @@ void Viaje::setPrecioPorAsiento(float precioPorAsiento){ this->precioPorAsiento 
 void Viaje::setVehiculo(Vehiculo* vehiculo){ this->vehiculo = vehiculo; }
 void Viaje::setReservas(std::set<Reserva*> reservas){ this->reservas = reservas; }
 
+//devuelve el conductor asignado al vehiculo del viaje
 std::string Viaje::getConductor(){}
+//devuelve true si el viaje coincide con los parametros ingresados, pero no estaria faltando tambien un paramentro para conocer el viaje y compararlo?
 bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados){}
+//no entiendo que hace, preuntar
 int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){}
+//devuelve un DTListarViaje "dtvi" que contiene el codigo, la fecha, el origen, el desino, y el conductor asociados al vehiculo  del conductor, no le faltan atributos? tipo el usuario y el viaje? hmm
 DTListarViaje Viaje::getDTListarViaje(){}
+//imagino que devueleve asientos disponibles
 int Viaje::cantAsientosRes(){}
+//devuelve un DTConsultaViaje con la infomracion que necesita
 DTConsultaViaje Viaje::getDataViaje(){}
+//agrega la nueva reserva al set de reservas
 void Viaje::agregarReserva(Reserva* r){}
+//obtiene el codigo de viaje y lo incrementa en 1
 int Viaje::obtenerCodigo(){}
+//no es lo mismo que getAsientosPublicados(?
 int Viaje::getAsientosOfrecidos(){}
 
 
