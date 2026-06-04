@@ -61,16 +61,26 @@ bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, in
     }
     return true;
 }
-//no entiendo que hace, preuntar
-int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){}
+int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){
+    if (asientosRes + asientos <= asientosPublic) {
+        return true;
+    } else {
+        return false;
+    }
+}
 DTListarViaje Viaje::getDTListarViaje(){
     std::string nicknameConductor = this->getConductor();
     DTListarViaje dtvi(this->codigo, this->origen, this->destino, nicknameConductor);
     return dtvi;
 }
-//imagino que devueleve asientos disponibles
-int Viaje::cantAsientosRes(){}
-//devuelve un DTConsultaViaje con la infomracion que necesita
+int Viaje::cantAsientosRes(){
+    int totalAsientosReservados = 0;
+    for(std::set<Reserva*>::iterator it = this->reservas.begin(); it != this->reservas.end(); it++){
+        Reserva* r = *it;
+        totalAsientosReservados += r->getAsientosReservados();
+    }
+    return totalAsientosReservados;
+}
 DTConsultaViaje Viaje::getDataViaje(){
     std::string marcaVehiculo = this->vehiculo->getMarca();
     std::string modeloVehiculo = this->vehiculo->getModelo();
@@ -80,10 +90,10 @@ DTConsultaViaje Viaje::getDataViaje(){
     float precioT =this->getPrecioPorAsiento();
     DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califProedio, precioT);
     return dtcv;
-
 }
-//agrega la nueva reserva al set de reservas
-void Viaje::agregarReserva(Reserva* r){}
+void Viaje::agregarReserva(Reserva* r){
+    this->reservas.insert(r);
+}
 int Viaje::obtenerCodigo(){
     int nuevoCodigo = this->codigo + 1;
     return nuevoCodigo;
