@@ -1,10 +1,10 @@
 #ifndef MANEJADORVEHICULO_H
 #define MANEJADORVEHICULO_H
 
+#include "Vehiculo.h"
 #include <string>
 #include <map>
 
-class Vehiculo;
 
 class ManejadorVehiculo {
     private:

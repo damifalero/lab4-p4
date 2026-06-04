@@ -12,7 +12,7 @@ ManejadorVehiculo* ManejadorVehiculo::getInstancia(){
     return instancia;
 }
 
-std::map<std::string, Vehiculo*> ManejadorVehiculo::getVehiculos(){ return this->vehiculos; }
+std::map<std::string, Vehiculo*> ManejadorVehiculo::getVehiculos(){ return vehiculos; }
 
 void ManejadorVehiculo::agregarVehiculo(Vehiculo* v){
     vehiculos[v->getMatricula()] = v;

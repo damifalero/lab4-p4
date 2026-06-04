@@ -5,7 +5,9 @@
 #include "DTListarViaje.h"
 #include "DTConsultaViaje.h"
 #include "Reserva.h"
+#include "Vehiculo.h"
 #include <string>
+#include <set>
 
 class Viaje {
 private:
@@ -14,48 +16,51 @@ private:
     std::string origen;
     std::string destino;
     int asientosPublicados;
-    float precio;
-    Vehiculo* vehiculo;
-    std::set<Reserva> reserva;
     int asientosDisponibles;
+    float precioPorAsiento;
+    Vehiculo* vehiculo;
+    std::set<Reserva*> reservas;
 
 public:
-    /*agregar atributos*/
-    Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, float precio);
+    //Constructor y Destructor
+    Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados,int asientosDisponibles, float precioPorAsiento, Vehiculo* vehiculo);
     ~Viaje();
 
+    //Getters
     int getCodigo();
     DTFecha getFecha();
     std::string getOrigen();
     std::string getDestino();
     int getAsientosPublicados();
-    float getPrecio();
-    Vehiculo getVehiculo();
-    std::set<Reserva> getReservas();
     int getAsientosDisponibles();
+    float getPrecioPorAsiento();
+    Vehiculo* getVehiculo();
+    std::set<Reserva*> getReservas();
+    
 
+    //Setters
     void setCodigo(int codigo);
     void setFecha(DTFecha fecha);
     void setOrigen(std::string origen);
     void setDestino(std::string destino);
     void setAsientosPublicados(int asientosPublicados);
-    void setPrecio(int precio);
-    void setVehiculo(Vehiculo vehiculo);
-    void setReservas(std::set<Reserva> reserva);
     void setAsientosDisponibles(int asientosDisponibles);
+    void setPrecioPorAsiento(float precioPorAsiento);
+    void setVehiculo(Vehiculo* vehiculo);
+    void setReservas(std::set<Reserva*> reservas );
 
+    //Operaciones de la clase Viaje
     std::string getConductor();
     bool esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados);
     int cantAsientosValida(int asientosRes, int asientos, int asientosPublicados);
     DTListarViaje getDTListarViaje();
     int cantAsientosRes();
     DTConsultaViaje getDataViaje();
-    void agregarReserva(Reserva r);
-    /*estas son las funciones que faltarian en el diagrama*/
+    void agregarReserva(Reserva* r);
     int obtenerCodigo();
+    //getAsientosOfrecidos no es lo mismo que getasientosPublicados
     int getAsientosOfrecidos();
-    Reserva getReserva();
-    Vehiculo getVehiculo;
+    
 };
 
 #endif
