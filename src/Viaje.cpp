@@ -1,4 +1,8 @@
 #include "../include/Viaje.h"
+#include "../include/Reserva.h"
+#include "../include/Vehiculo.h"
+#include "../include/Conductor.h"
+//agregar los include que correspondan
 
 Viaje::Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precioPorAsiento, Vehiculo* vehiculo){
     this->codigo = codigo;
@@ -33,22 +37,57 @@ void Viaje::setPrecioPorAsiento(float precioPorAsiento){ this->precioPorAsiento 
 void Viaje::setVehiculo(Vehiculo* vehiculo){ this->vehiculo = vehiculo; }
 void Viaje::setReservas(std::set<Reserva*> reservas){ this->reservas = reservas; }
 
-//devuelve el conductor asignado al vehiculo del viaje
-std::string Viaje::getConductor(){}
-//devuelve true si el viaje coincide con los parametros ingresados, pero no estaria faltando tambien un paramentro para conocer el viaje y compararlo?
-bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados){}
+std::string Viaje::getConductor(){
+    if (this->vehiculo != NULL){
+        Conductor* cond = this->vehiculo->getConductor();
+        if (cond != NULL){
+            return cond->getNickname();
+        }
+    }
+    return "";
+}
+bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientos){
+    if (this->origen != origen){
+        return false;
+    }
+    if (this->destino != destino){
+        return false;
+    }
+    if (!(this->fecha == fecha)){
+        return false;
+    }
+    if (this->asientosDisponibles < asientos) {
+        return false;
+    }
+    return true;
+}
 //no entiendo que hace, preuntar
 int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){}
-//devuelve un DTListarViaje "dtvi" que contiene el codigo, la fecha, el origen, el desino, y el conductor asociados al vehiculo  del conductor, no le faltan atributos? tipo el usuario y el viaje? hmm
-DTListarViaje Viaje::getDTListarViaje(){}
+DTListarViaje Viaje::getDTListarViaje(){
+    std::string nicknameConductor = this->getConductor();
+    DTListarViaje dtvi(this->codigo, this->origen, this->destino, nicknameConductor);
+    return dtvi;
+}
 //imagino que devueleve asientos disponibles
 int Viaje::cantAsientosRes(){}
 //devuelve un DTConsultaViaje con la infomracion que necesita
-DTConsultaViaje Viaje::getDataViaje(){}
+DTConsultaViaje Viaje::getDataViaje(){
+    std::string marcaVehiculo = this->vehiculo->getMarca();
+    std::string modeloVehiculo = this->vehiculo->getModelo();
+    Conductor* cond = this->vehiculo->getConductor();
+    std::string nicknameConductor = cond->getNickname();
+    float califPromedio = cond->getCalificacionPormedio();
+    float precioT =this->getPrecioPorAsiento();
+    DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califProedio, precioT);
+    return dtcv;
+
+}
 //agrega la nueva reserva al set de reservas
 void Viaje::agregarReserva(Reserva* r){}
-//obtiene el codigo de viaje y lo incrementa en 1
-int Viaje::obtenerCodigo(){}
+int Viaje::obtenerCodigo(){
+    int nuevoCodigo = this->codigo + 1;
+    return nuevoCodigo;
+}
 //no es lo mismo que getAsientosPublicados(?
 int Viaje::getAsientosOfrecidos(){}
 
