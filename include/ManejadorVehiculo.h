@@ -10,17 +10,23 @@ class ManejadorVehiculo {
     private:
         static ManejadorVehiculo* instancia;
         std::map<std::string, Vehiculo*> vehiculos;
-    
-    public: 
+
+        //El constructor debe de ser privado para el Singleton
         ManejadorVehiculo();
+
+    public:
+
+        //Destructor
         ~ManejadorVehiculo();
 
-        ManejadorVehiculo* getInstancia();
-        std::map<std::string, Vehiculo> getVehiculos();
+        //Getters
+        static ManejadorVehiculo* getInstancia();
+        std::map<std::string, Vehiculo*> getVehiculos();
 
+        //Operaciones del Manejador
         void agregarVehiculo(Vehiculo* v);
         bool existeVehiculo(std::string matricula);
         Vehiculo* obtenerVehiculo(std::string matricula);
-}
+};
 
 #endif
