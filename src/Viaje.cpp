@@ -99,7 +99,9 @@ int Viaje::obtenerCodigo(){
     return nuevoCodigo;
 }
 //no es lo mismo que getAsientosPublicados(?
-int Viaje::getAsientosOfrecidos(){}
+int Viaje::getAsientosOfrecidos(){
+    return this->asientosPublicados;
+}
 
 
 
