@@ -7,7 +7,7 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     this->contrasena = contrasena;
     this->email = email;
     this->caliPromedio = 0;
-    this->tipo = NULL;
+    /*this->tipo = NULL;*/
 }
 
 Usuario::~Usuario() {}
@@ -18,10 +18,10 @@ std::string Usuario::getNombre(){ return this->nombre; }
 std::string Usuario::getContrasenia(){ return this->contrasena; }
 std::string Usuario::getEmail(){ return this->email; }
 float Usuario::getPromedio(){ return this->caliPromedio; }
-TipoUsuario* Usuario::getTipo(){ return this->tipo; }
+/*TipoUsuario* Usuario::getTipo(){ return this->tipo; }*/
 
 //Funciones
-bool Usuario::esPasajero(){ return (*this->tipo == Pasajero); }
+bool Usuario::esPasajero(){/* return (*this->tipo == Pasajero); */}
 
 DTUsuario Usuario::getDTUsuario(){
     DTUsuario datos(this->nickname, this->nombre);

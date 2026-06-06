@@ -15,7 +15,7 @@ protected:
     std::string email;
     float caliPromedio;
     std::set<Calificacion> calificaciones;
-    TipoUsuario* tipo;
+    /*TipoUsuario* tipo;*/
 
 public:
     Usuario(std::string nickname, std::string nombre, std::string contrasena, std::string email);
@@ -27,7 +27,7 @@ public:
     std::string getContrasenia();
     std::string getEmail();
     float getPromedio();
-    TipoUsuario* getTipo();
+    /*TipoUsuario* getTipo();*/
 
     //Funciones
     bool esPasajero();
