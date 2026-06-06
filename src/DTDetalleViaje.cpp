@@ -8,7 +8,7 @@ DTDetalleViaje::DTDetalleViaje(int codigo, DTFecha fecha, std::string origen, st
     this->destino = destino;
     this->asientosPublicados = asientosPublicados;
     this->precio = precio;
-}, vehiculo(vehi), reservas(res) {}
+}, vehiculo(vehi), reservas(res) {} //esto vino así pero me marca error
 
 int DTDetalleViaje::getCodigo() { return codigo; }
 DTFecha DTDetalleViaje::getFecha() { return fecha; }
@@ -18,3 +18,12 @@ int DTDetalleViaje::getAsientosPublicados() { return asientosPublicados; }
 float DTDetalleViaje::getPrecio() { return precio; }
 DTDetalleVehiculo DTDetalleViaje::getVehiculo() { return vehiculo; }
 std::vector<DTDetalleReserva> DTDetalleViaje::getReservas() { return reservas; }
+
+void DTDetalleViaje::setCodigo(int codigo){this->codigo = codigo;}
+void DTDetalleViaje::setFecha(DTFecha fecha){this->fecha = fecha;}
+void DTDetalleViaje::setOrigen(std::string origen){this->origen = origen;}
+void DTDetalleViaje::setDestino(std::string destino){this->destino = destino;}
+void DTDetalleViaje::setAsientosPublicados(int asientosPublicados){this->asientosPublicados = asientosPublicados;}
+void DTDetalleViaje::setPrecio(float precio){this->precio = precio;}
+void DTDetalleViaje::setVehiculo(DTDetalleVehiculo vehiculo){this->vehiculo = vehiculo;}
+void DTDetalleViaje::setReservas(std::vector<DTDetalleReserva> reservas){this->reservas = reservas;}

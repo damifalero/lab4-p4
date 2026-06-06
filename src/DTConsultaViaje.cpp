@@ -15,3 +15,11 @@ std::string DTConsultaViaje::getModelo() { return modelo; }
 std::string DTConsultaViaje::getConductor() { return conductor; }
 float DTConsultaViaje::getCalificacionProm() { return calificacionProm; }
 float DTConsultaViaje::getPrecioTotal() { return precioTotal; }
+
+void DTConsultaViaje::setCodigo(int codigo){this->codigo = codigo;}
+void DTConsultaViaje::setMarca(std::string marca){this->marca = marca;}
+void DTConsultaViaje::setModelo(std::string modelo){this->modelo = modelo;}
+void DTConsultaViaje::setConductor(std::string conductor){this->conductor = conductor;}
+void DTConsultaViaje::setCalificacionProm(float calificacionProm){this->calificacionProm = calificacionProm;}
+void DTConsultaViaje::setPrecioTotal(float precioTotal){this->precioTotal = precioTotal;}
+

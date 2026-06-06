@@ -17,7 +17,7 @@ public:
     virtual int registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo) = 0;
     virtual std::set<DTVehiculosConductor> listarVehiculosConductor(std::string nickname) = 0;
 
-    ~IUsuarioController();
+    virtual ~IUsuarioController(){};
 };
 
 #endif

@@ -22,6 +22,14 @@ public:
   std::string getConductor();
   float getCalificacionProm();
   float getPrecioTotal();
+
+  void setCodigo(int codigo);
+  void setMarca(std::string marca);
+  void setModelo(std::string modelo);
+  void setConductor(std::string conductor);
+  void setCalificacionProm(float calificacionProm);
+  void setPrecioTotal(float precioTotal);
+
 };
 
 #endif

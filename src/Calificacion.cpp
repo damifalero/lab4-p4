@@ -6,3 +6,11 @@ Calificacion::Calificacion(DTFecha fecha, int puntaje) {
 }
 
 Calificacion::~Calificacion() {}
+
+DTFecha Calificacion::getDTFecha(){return this->fecha;}
+
+int Calificacion::getPuntaje(){return this->puntaje;}
+
+void Calificacion::setDTFecha(DTFecha fecha){this->fecha = fecha;}
+
+void Calificacion::setPuntaje(int puntaje){this->puntaje = puntaje;}

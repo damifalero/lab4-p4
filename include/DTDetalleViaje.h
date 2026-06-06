@@ -29,6 +29,16 @@ public:
     float getPrecio();
     DTDetalleVehiculo getVehiculo();
     std::vector<DTDetalleReserva> getReservas();
+
+    void setCodigo(int codigo);
+    void setFecha(DTFecha fecha);
+    void setOrigen(std::string origen);
+    void setDestino(std::string destino);
+    void setAsientosPublicados(int asientosPublicados);
+    void setPrecio(float precio);
+    void setVehiculo(DTDetalleVehiculo vehiculo);
+    void setReservas(std::vector<DTDetalleReserva> reservas);
+
 };
 
 #endif
