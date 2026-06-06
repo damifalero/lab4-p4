@@ -1,0 +1,20 @@
+#include "DTConsultaViaje.h"
+#include "DTDetalleViaje.h"
+#include "DTUsuarioViaje.h"
+#include "DTListarViaje.h"
+#include <set>
+#include <string>
+class IGestionViajeController {
+    public:
+        virtual ~IGestionViajeController() ;
+        virtual std::set<std::string> listarPasajeros();
+        virtual std::set<DTConsultaViaje> consultarViaje(DTFecha fecha, std::string origen, std::string destino, int asientos);
+        virtual bool altaViaje(std::string matricula, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio);
+        virtual DTDetalleViaje detalleViaje(int codigo);
+        virtual std::set<DTUsuarioViaje> listarUsuariosViaje(int codigo);
+        virtual std::set<DTListarViaje> listarViajes(std::string nickname);
+        virtual bool eliminarViaje();
+        virtual bool cancelarEliminarViaje();
+        virtual bool generarReserva(std::string nickname, int codigo, int asientos);
+
+};

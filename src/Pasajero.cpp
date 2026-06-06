@@ -5,4 +5,15 @@ Pasajero::Pasajero(std::string nickname, std::string nombre, std::string contras
     this->ci = documento;
 }
 
-Pasajero::~Pasajero() {}
+Pasajero::~Pasajero() {
+
+}
+
+//getters
+std::string Pasajero::getci(){
+    return this->ci;
+};
+
+std::set<Reserva*> Pasajero::getReservas(){
+    return this->reservas;
+};
