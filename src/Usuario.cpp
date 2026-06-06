@@ -1,10 +1,43 @@
 #include "../include/Usuario.h"
 
+//Constructor y Destructor
 Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasena, std::string email) {
     this->nickname = nickname;
     this->nombre = nombre;
     this->contrasena = contrasena;
     this->email = email;
+    this->caliPromedio = 0;
+    this->tipo = NULL;
 }
 
 Usuario::~Usuario() {}
+
+//Getters
+std::string Usuario::getNickname(){ return this->nickname; }
+std::string Usuario::getNombre(){ return this->nombre; }
+std::string Usuario::getContrasenia(){ return this->contrasena; }
+std::string Usuario::getEmail(){ return this->email; }
+float Usuario::getPromedio(){ return this->caliPromedio; }
+TipoUsuario* Usuario::getTipo(){ return this->tipo; }
+
+//Funciones
+bool Usuario::esPasajero(){ return (*this->tipo == Pasajero); }
+
+DTUsuario Usuario::getDTUsuario(){
+    DTUsuario datos(this->nickname, this->nombre);
+    return datos;
+}
+
+void Usuario::asociarCalificacion(Calificacion cal){
+    this->calificaciones.insert(cal);
+}
+
+void Usuario::actualizarPromedio(){
+    int promedio = 0;
+    std::set<Calificacion>::iterator it;
+    for(it = this->calificaciones.begin(); it != this->calificaciones.end(); ++it){
+        Calificacion current = *it;
+        promedio = promedio + current.getPuntaje();           //Falta el get en calificacion
+    }
+    this->caliPromedio = promedio / calificaciones.size();
+}
