@@ -1,6 +1,7 @@
 #include "../include/DTDetalleViaje.h"
 
 DTDetalleViaje::DTDetalleViaje(int codigo, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, float precio, DTDetalleVehiculo vehi, std::vector<DTDetalleReserva> res)
+    : vehiculo(vehi)
     {
     this->codigo = codigo;
     this->fecha = fecha;
@@ -8,7 +9,8 @@ DTDetalleViaje::DTDetalleViaje(int codigo, DTFecha fecha, std::string origen, st
     this->destino = destino;
     this->asientosPublicados = asientosPublicados;
     this->precio = precio;
-}, vehiculo(vehi), reservas(res) {} //esto vino así pero me marca error
+    this->reservas = res;
+}
 
 int DTDetalleViaje::getCodigo() { return codigo; }
 DTFecha DTDetalleViaje::getFecha() { return fecha; }
