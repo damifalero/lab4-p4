@@ -27,7 +27,7 @@ public:
 
     DTDetalleViaje detalleViaje(int codigo);
 
-    std::set<DTUsuarioViaje> listarUsuariosViaje();
+    std::set<DTUsuarioViaje> listarUsuariosViaje(int codigo);
 
     std::set<DTListarViaje> listarViajes(std::string nick);
 

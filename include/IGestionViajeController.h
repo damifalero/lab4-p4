@@ -8,7 +8,7 @@
 #include <string>
 class IGestionViajeController {
     public:
-        virtual ~IGestionViajeController() = 0;
+        virtual ~IGestionViajeController() {}
         virtual std::set<std::string> listarPasajeros()= 0;
         virtual std::set<DTConsultaViaje> consultarViaje(DTFecha fecha, std::string origen, std::string destino, int asientos)= 0;
         virtual bool altaViaje(std::string matricula, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio)= 0;

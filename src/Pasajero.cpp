@@ -17,3 +17,7 @@ std::string Pasajero::getci(){
 std::set<Reserva*> Pasajero::getReservas(){
     return this->reservas;
 };
+
+bool Pasajero::esPasajero() {
+    return true;
+}

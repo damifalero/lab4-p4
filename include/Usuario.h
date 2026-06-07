@@ -30,7 +30,8 @@ public:
     /*TipoUsuario* getTipo();*/
 
     //Funciones
-    bool esPasajero();
+    virtual bool esPasajero() = 0;
+
     DTUsuario getDTUsuario();
     void asociarCalificacion(Calificacion);
     void actualizarPromedio();

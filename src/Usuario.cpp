@@ -21,7 +21,6 @@ float Usuario::getPromedio(){ return this->caliPromedio; }
 /*TipoUsuario* Usuario::getTipo(){ return this->tipo; }*/
 
 //Funciones
-bool Usuario::esPasajero(){/* return (*this->tipo == Pasajero); */}
 
 DTUsuario Usuario::getDTUsuario(){
     DTUsuario datos(this->nickname, this->nombre);
