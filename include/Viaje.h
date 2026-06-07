@@ -52,14 +52,14 @@ public:
     //Operaciones de la clase Viaje
     std::string getConductor();
     bool esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados);
-    int cantAsientosValida(int asientosRes, int asientos, int asientosPublicados);
+    bool cantAsientosValida(int asientosRes, int asientos, int asientosPublicados);
     DTListarViaje getDTListarViaje();
     int cantAsientosRes();
     DTConsultaViaje getDataViaje();
     void agregarReserva(Reserva* r);
     int obtenerCodigo();
     //getAsientosOfrecidos no es lo mismo que getasientosPublicados
-    int getAsientosOfrecidos();
+    //int getAsientosOfrecidos();
     
 };
 
