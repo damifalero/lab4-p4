@@ -33,7 +33,6 @@ public:
     bool calificarUsuario(std::string nicknameCalificado,int calificacion);
     int registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo);
     std::set<DTVehiculosConductor> listarVehiculosConductor(std::string nickname);
-
 };
 
 #endif

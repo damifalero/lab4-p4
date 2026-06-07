@@ -10,6 +10,7 @@ private:
     DTFecha fecha;
     Usuario* pasajero; 
     Viaje* viaje; //cuando se hace generarReserva hay que vincular el viaje acá para poder hacer getdtlistariviaje
+    std::set<Calificacion*> calificaciones;
 
 public:
     // constructor y destructor
@@ -20,11 +21,18 @@ public:
     int getAsientosReservados();
     DTFecha getDTFecha();
     DTListarViaje getDTListarViaje();
+    std::set<Calificacion*> getCalificaciones();
+    Usuario* getPasajero(); 
 
     //setters
     void setAsientosReservados(int cantAsientos);
     void setDTFecha(DTFecha fecha);
     void setViaje(Viaje viaje);
+    void setCalificaciones(std::set<Calificacion*> calificaciones);
+    void setPasajero(Usuario pasajero);
+
+    //operaciones
+    bool agregarCalificacion(Calificacion calificacion);
 };
 
 #endif
