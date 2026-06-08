@@ -1,4 +1,5 @@
 #include "../include/GestionViajeController.h"
+#include "../include/ManejadorUsuarios.h"
 
 GestionViajeController* GestionViajeController::instancia = NULL;
 

@@ -2,8 +2,8 @@
 #define TIPO_USUARIO_H
 
 enum TipoUsuario {
-    Conductor,
-    Pasajero
+    Tipo_Conductor,
+    Tipo_Pasajero
 };
 
 #endif

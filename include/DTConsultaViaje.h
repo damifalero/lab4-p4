@@ -22,6 +22,9 @@ public:
   std::string getConductor();
   float getCalificacionProm();
   float getPrecioTotal();
+
+  //para comparar en el set, ordenando por precio total, luego por calificacion promedio y finalmente por codigo
+  bool operator<(const DTConsultaViaje& otro) const;
 };
 
 #endif
