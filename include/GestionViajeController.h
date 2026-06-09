@@ -11,6 +11,7 @@ private:
 
     int ultimoViaje;
     int codigoRecordado;
+    std::string nicknameRecordado;
 
     GestionViajeController();
 
