@@ -21,6 +21,9 @@ public:
     std::string getDestino();
     std::string getConductor();
 
+    //criterio de ordenacion para poder insertar en un set
+    bool operator<(const DTListarViaje& otro) const;
+
 };
 
 #endif

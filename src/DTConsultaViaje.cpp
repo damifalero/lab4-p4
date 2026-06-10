@@ -16,6 +16,7 @@ std::string DTConsultaViaje::getConductor() { return conductor; }
 float DTConsultaViaje::getCalificacionProm() { return calificacionProm; }
 float DTConsultaViaje::getPrecioTotal() { return precioTotal; }
 
+<<<<<<< HEAD
 void DTConsultaViaje::setCodigo(int codigo){this->codigo = codigo;}
 void DTConsultaViaje::setMarca(std::string marca){this->marca = marca;}
 void DTConsultaViaje::setModelo(std::string modelo){this->modelo = modelo;}
@@ -23,3 +24,15 @@ void DTConsultaViaje::setConductor(std::string conductor){this->conductor = cond
 void DTConsultaViaje::setCalificacionProm(float calificacionProm){this->calificacionProm = calificacionProm;}
 void DTConsultaViaje::setPrecioTotal(float precioTotal){this->precioTotal = precioTotal;}
 
+=======
+
+bool DTConsultaViaje::operator<(const DTConsultaViaje& otro) const {
+    if (precioTotal != otro.precioTotal)
+        return precioTotal < otro.precioTotal;
+
+    if (calificacionProm != otro.calificacionProm)
+        return calificacionProm > otro.calificacionProm;
+
+    return codigo < otro.codigo;
+}
+>>>>>>> 30cc190797d3cd0c6e0bfac1402ba36d0a369787

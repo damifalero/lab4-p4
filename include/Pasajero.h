@@ -17,6 +17,7 @@ public:
     ~Pasajero();
     std::string getci();
     std::set<Reserva*> getReservas();
+    bool esPasajero();
 };
 
 #endif
