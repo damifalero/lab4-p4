@@ -84,3 +84,6 @@ bool Vehiculo::hayViajesConductor(){
 void Vehiculo::asociarViaje(Viaje* viaje){
     this->viajes.insert(viaje);
 }
+void Vehiculo::desasociarViaje(Viaje* viaje){
+    this->viajes.erase(viaje);
+}
