@@ -20,7 +20,8 @@ bool ManejadorUsuarios::existeUsuario(std::string nickname){ return this->usuari
 
 Usuario* ManejadorUsuarios::obtenerUsuario(std::string nickname){ return this->usuarios[nickname]; }
 
-std::set<Usuario> ManejadorUsuarios::listarUsuarios(){
+/*std::set<Usuario> ManejadorUsuarios::listarUsuarios(){
     std::set<Usuario> lista;
     //De donde sale esta funcion?(me refiero en el DCD)
 }
+*/

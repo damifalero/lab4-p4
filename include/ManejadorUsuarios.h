@@ -24,7 +24,7 @@ class ManejadorUsuarios {
         void agregarUsuario(Usuario* u);
         bool existeUsuario(std::string nickname);
         Usuario* obtenerUsuario(std::string nickname);
-        std::set<Usuario> listarUsuarios();
+        //std::set<Usuario> listarUsuarios();
 };
 
 #endif
