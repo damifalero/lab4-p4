@@ -52,3 +52,14 @@ Reserva::~Reserva(){
     this->viaje = NULL;
     this->calificaciones.clear();
 }
+void Reserva::asociarViaje(Viaje v){this->viaje = &v;}
+
+void Reserva::desasociarViaje(){this->viaje = NULL;}
+
+void Reserva::asociarPasajero(Pasajero p){this->pasajero = &p;}
+
+void Reserva::desasociarPasajero(){this->pasajero = NULL;}
+
+void Reserva::asociarCalificacion(Calificacion* c){this->calificaciones.insert(c);}
+
+void Reserva::desasociarCalificacion(Calificacion* c){this->calificaciones.erase(c);}
