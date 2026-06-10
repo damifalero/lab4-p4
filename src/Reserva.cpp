@@ -2,7 +2,7 @@
 #include "../include/Viaje.h"
 #include "../include/Pasajero.h"
 
-Reserva::Reserva(int asientosReservados, DTFecha fecha, Usuario pasajero,Viaje viaje) {
+Reserva::Reserva(int asientosReservados, DTFecha fecha, Pasajero pasajero,Viaje viaje) {
     this->asientosReservados = asientosReservados;
     this->fecha = fecha;
     this->pasajero = &pasajero;
@@ -38,7 +38,7 @@ void Reserva::setDTFecha(DTFecha fecha){this->fecha = fecha;}
 
 void Reserva::setCalificaciones(std::set<Calificacion*> calificaciones){this->calificaciones = calificaciones;}
 
-void Reserva::setPasajero(Usuario pasajero){this->pasajero = &pasajero;}
+void Reserva::setPasajero(Pasajero pasajero){this->pasajero = &pasajero;}
 
 bool Reserva::agregarCalificacion(Calificacion calificacion){
     this->calificaciones.insert(&calificacion);

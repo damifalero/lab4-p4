@@ -14,7 +14,7 @@ private:
 
 public:
     // constructor y destructor
-    Reserva(int asientosReservados, DTFecha fecha,Usuario pasajero,Viaje viaje);    
+    Reserva(int asientosReservados, DTFecha fecha,Pasajero pasajero,Viaje viaje);    
     ~Reserva();
 
     // getters 
@@ -29,10 +29,10 @@ public:
     void setDTFecha(DTFecha fecha);
     void setViaje(Viaje viaje);
     void setCalificaciones(std::set<Calificacion*> calificaciones);
-    void setPasajero(Usuario pasajero);
+    void setPasajero(Pasajero pasajero);
 
     //operaciones
     bool agregarCalificacion(Calificacion calificacion);
 };
 
-#endif
+#endif RESERVA_H
