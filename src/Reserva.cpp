@@ -47,4 +47,8 @@ bool Reserva::agregarCalificacion(Calificacion calificacion){
     this->calificaciones.insert(&calificacion);
 }
 
-Reserva::~Reserva() {}
+Reserva::~Reserva(){
+    this->pasajero = NULL;
+    this->viaje = NULL;
+    this->calificaciones.clear();
+}
