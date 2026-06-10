@@ -100,7 +100,7 @@ bool GestionViajeController::altaViaje(std::string matricula, DTFecha fecha, std
         vehiculo
     );
 
-    // Crear link Vehiculo <-> Viaje
+    // Crear link entre Vehiculo y Viaje
     vehiculo->asociarViaje(viaje);
 
     // Registrar el viaje en el manejador
@@ -155,7 +155,7 @@ std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo)
     std::set<Reserva*>::iterator it;
     for (it = reservas.begin(); it != reservas.end(); ++it) {
         //hay que castear???
-        Pasajero* pas = (*it)->getPasajero();
+        Pasajero* pas = dynamic_cast<Pasajero*>((*it)->getPasajero());
         if(pas->getNickname() != this->nicknameRecordado){
             DTUsuarioViaje dtuv(pas->getNickname(), TipoUsuario::Tipo_Pasajero);
             resultado.insert(dtuv);
