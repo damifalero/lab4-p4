@@ -1,6 +1,7 @@
 #include "../include/GestionViajeController.h"
 #include "../include/ManejadorUsuarios.h"
 #include "../include/ManejadorViajes.h"
+#include "../include/ManejadorVehiculo.h"
 
 /**********NO ESTOY SEGURO SI VAN O NO *********/
 #include "../include/Reserva.h"
@@ -67,28 +68,49 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     return false;
 }
 
-bool GestionViajeController::altaViaje(
-    std::string matricula,
-    DTFecha fecha,
-    std::string origen,
-    std::string destino,
-    int asientos,
-    float precio) {
+/**********CASO DE USO ALTA VIAJE**********/
+bool GestionViajeController::altaViaje(std::string matricula, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio) {
+    ManejadorVehiculo* mvh = ManejadorVehiculo::getInstancia();
+    Vehiculo* vehiculo = mvh->obtenerVehiculo(matricula);
 
-    return false;
-}
+    if (vehiculo == NULL)
+        return false;
 
-DTDetalleViaje GestionViajeController::detalleViaje(int codigo) {
-    return DTDetalleViaje(
-        0,
-        DTFecha(1,1,2000),
-        "",
-        "",
-        0,
-        0,
-        DTDetalleVehiculo("", "", 0),
-        std::vector<DTDetalleReserva>()
+    // Si se publican más asientos que la capacidad del vehículo
+    if (asientos > vehiculo->getCapacidad())
+        return false;
+
+    // Obtener conductor asociado al vehículo
+    Conductor* conductor = dynamic_cast<Conductor*>(vehiculo->getConductor());
+
+    // Si el conductor ya tiene un viaje ese día
+    if (conductor != NULL && conductor->hayViajesFechaConductor(fecha)){
+        return false;
+    }
+
+    // Crear el viaje
+    Viaje* viaje = new Viaje(
+        ultimoViaje + 1,
+        fecha,
+        origen,
+        destino,
+        asientos,
+        asientos,   // asientos disponibles inicialmente
+        precio,
+        vehiculo
     );
+
+    // Crear link Vehiculo <-> Viaje
+    vehiculo->asociarViaje(viaje);
+
+    // Registrar el viaje en el manejador
+    ManejadorViajes* mv = ManejadorViajes::getInstancia();
+    mv->agregarViaje(viaje);
+
+    // Actualizar último código utilizado
+    ultimoViaje = viaje->getCodigo();
+
+    return true;
 }
 
 /**********CASO DE USO CALIFICAR USUARIO**********/
@@ -175,9 +197,18 @@ DTDetalleViaje GestionViajeController::detalleViaje(int codigo) {
 }
 
 void GestionViajeController::eliminarViaje() {
-    
+    ManejadorViajes* mv = ManejadorViajes::getInstancia();
+    Viaje* viaje = mv->obtenerViaje(codigoRecordado);
+
+    Vehiculo* vehiculo = viaje->getVehiculo();
+
+    // quitar asociación viaje-vehículo
+    // NECESITAS un método en Vehiculo para esto
+
+    delete viaje;
 }
 
 void GestionViajeController::cancelarEliminarViaje() {
+    this->codigoRecordado = 0;
 }
 
