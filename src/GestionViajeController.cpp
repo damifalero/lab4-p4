@@ -203,7 +203,6 @@ void GestionViajeController::eliminarViaje() {
     Vehiculo* vehiculo = viaje->getVehiculo();
 
     // quitar asociación viaje-vehículo
-    // NECESITAS un método en Vehiculo para esto
 
     delete viaje;
 }
