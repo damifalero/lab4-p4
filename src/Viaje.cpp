@@ -130,11 +130,27 @@ DTConsultaViaje Viaje::getDataViaje(){
 void Viaje::addReserva(Reserva* r){
     this->reservas.insert(r);
 }
+
 int Viaje::obtenerCodigo(){
     int nuevoCodigo = this->codigo + 1;
     return nuevoCodigo;
 }
 
+/*Operaciones para asociar y desasociar el link entre Viaje y Vehiculo*/
+void Viaje::asociarVehiculo(Vehiculo* v){
+    this->setVehiculo(v);
+}
+void Viaje::desasociarVehiculo(){
+    this->vehiculo = NULL;
+}
+
+/*Operaciones para asociar y desasociar el link entre Viaje y Reserva*/
+void Viaje::asociarReserva(Reserva* r){
+    this->reservas.insert(r);
+}
+void Viaje::desasociarReserva(Reserva* r){
+    this->reservas.erase(r);
+}
 
 
 

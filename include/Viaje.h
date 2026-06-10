@@ -61,6 +61,14 @@ public:
     void addReserva(Reserva* r);
     int obtenerCodigo();
     
+    /*Operaciones para asociar y desasociar el link entre Viaje y Vehiculo*/
+    void asociarVehiculo(Vehiculo* v);
+    void desasociarVehiculo();
+
+    /*Operaciones para asociar y desasociar el link entre Viaje y Reserva*/
+    void asociarReserva(Reserva* r);
+    void Viaje::desasociarReserva(Reserva* r);
+    
 };
 
 #endif
