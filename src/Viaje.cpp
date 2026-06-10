@@ -65,7 +65,7 @@ bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, in
     }
     return true;
 }
-int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){
+bool Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){
     if (asientosRes + asientos <= asientosPublicados) {
         return true;
     } else {
