@@ -33,14 +33,14 @@ TipoVehiculo Vehiculo::getTipo(){
     return tipo;
 }
 
-Usuario Vehiculo::getConductor(){
-    return *usuario;
+Conductor* Vehiculo::getConductor(){
+    return usuario;
 }
 
 std::set<DTListarViaje> Vehiculo::getSetDTListarViaje(){
     std::set<DTListarViaje> viajes;
     for (Viaje* viaje : this->viajes) {
-        viajes.insert(DTListarViaje(viaje.getCodigo(), viaje.getFecha(), viaje.getOrigen(), viaje.getDestino(), viaje.getConductor()));
+        viajes.insert(DTListarViaje(viaje->getCodigo(), viaje->getFecha(), viaje->getOrigen(), viaje->getDestino(), viaje->getConductor()));
     }
     return viajes;
 }
@@ -71,10 +71,10 @@ void Vehiculo::setTipo(TipoVehiculo tipo){
 }
 
 void Vehiculo::setUsuario(Usuario* usuario){
-    if (usuario != nullptr) {
-        usuario->agregarVehiculoUsuario(this);
+    if (dynamic_cast<Conductor*>(usuario) != nullptr) {
+        dynamic_cast<Conductor*>(usuario)->agregarVehiculoUsuario(this);
     }
-    this->usuario = usuario;
+    this->usuario = dynamic_cast<Conductor*>(usuario);
 }
 
 //metodos

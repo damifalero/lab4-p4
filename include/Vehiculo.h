@@ -7,7 +7,8 @@
 #include "DTVehiculosConductor.h"
 #include "TipoVehiculo.h"
 #include "DTListarViaje.h"
-#include "Usuario.h"
+#include "Conductor.h"
+#include "Viaje.h"
 
 class Viaje;
 class Vehiculo {
@@ -17,7 +18,7 @@ private:
     std::string marca;
     std::string modelo;
     TipoVehiculo tipo;
-    Usuario* usuario;
+    Conductor* usuario;
     std::set<Viaje*> viajes;
 
 public:
@@ -29,7 +30,7 @@ public:
     std::string getMarca();
     std::string getModelo();
     TipoVehiculo getTipo();
-    Usuario getConductor();
+    Conductor* getConductor();
     std::set<DTListarViaje> getSetDTListarViaje();
     DTVehiculosConductor getDTVehiculosConductor();
     //setters

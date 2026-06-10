@@ -1,8 +1,8 @@
 # Compilador a usar
-CC = g++ 
+CC = g++
 
-# Flag c++98
-CFLAGS = -Wall -std=c++98 -Iinclude
+# Flags de compilación
+CFLAGS = -Wall -Iinclude
 
 # Carpetas
 SRC_DIR = src
@@ -39,7 +39,7 @@ run: $(EJECUTABLE)
 clean:
 	rm -rf $(OBJ_DIR) $(EJECUTABLE)
 
-#comprimir todo en un zip para entregar
+# Comprimir todo en un zip para entregar
 entrega:
 	rm -f $(ENTREGABLE)
 	zip -r $(ENTREGABLE) Makefile src include
