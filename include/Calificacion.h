@@ -8,10 +8,8 @@ class Calificacion {
 private:
     DTFecha fecha;
     int puntaje;
-    //
     Usuario* uCalificado;
     Usuario* uCalificador;
-    //
 
 public:
     // Constructor y destructor
