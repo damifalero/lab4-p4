@@ -31,6 +31,10 @@ void Usuario::asociarCalificacion(Calificacion cal){
     this->calificaciones.insert(cal);
 }
 
+void Usuario::desasociarCalificaion(Calificacion cal) {
+    this->calificaciones.erase(this->calificaciones.find(cal));
+}
+
 void Usuario::actualizarPromedio(){
     int promedio = 0;
     std::set<Calificacion>::iterator it;

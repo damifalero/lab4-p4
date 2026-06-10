@@ -2,8 +2,8 @@
 #define CONDUCTOR_H
 
 #include "DTUsuario.h"
-#include "Usuario.h"
 #include "TipoLibreta.h"
+#include "Usuario.h"
 #include "Vehiculo.h"
 #include <set>
 
