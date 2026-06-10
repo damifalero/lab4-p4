@@ -15,7 +15,7 @@ class IGestionViajeController {
         virtual DTDetalleViaje detalleViaje(int codigo)= 0;
         virtual std::set<DTUsuarioViaje> listarUsuariosViaje(int codigo)= 0;
         virtual std::set<DTListarViaje> listarViajes(std::string nickname)= 0;
-        virtual std::set<DTListarViaje> listarViaje()= 0;
+        virtual std::set<DTListarViaje> listarViajes()= 0;
         virtual void eliminarViaje()= 0;
         virtual void cancelarEliminarViaje()= 0;
         virtual bool generarReserva(std::string nickname, int codigo, int asientos)= 0;

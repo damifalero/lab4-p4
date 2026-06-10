@@ -14,6 +14,9 @@ public:
 
     std::string getNickname();
     TipoUsuario getTipo();
+
+    //criterio de ordenacion para poder insertar en un set
+    bool operator<(const DTUsuarioViaje& otro) const;
 };
 
 #endif

@@ -149,7 +149,7 @@ std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo)
     return resultado;
 }
 
-std::set<DTListarViaje> GestionViajeController::listarViaje() {
+std::set<DTListarViaje> GestionViajeController::listarViajes() {
     return std::set<DTListarViaje>();
 }
 

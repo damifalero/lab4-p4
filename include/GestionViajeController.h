@@ -32,7 +32,7 @@ public:
 
     std::set<DTListarViaje> listarViajes(std::string nick);
 
-    std::set<DTListarViaje> listarViaje();
+    std::set<DTListarViaje> listarViajes();
 
     void eliminarViaje();
 
