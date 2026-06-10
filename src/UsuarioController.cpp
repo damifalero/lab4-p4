@@ -18,7 +18,7 @@ bool UsuarioController::altaPasajero(std::string nickname,std::string nombre,std
 
     if (existeUsuario) return false;
     else{
-        Pasajero p(nickname,nombre,contrasena,email,ci); //acá me pasa lo mismo con el enum Pasajero de TipoUsuario
+        Pasajero p(nickname,nombre,contrasena,email,ci);
         manejador->agregarUsuario(&p);
         return true;
     }
@@ -30,8 +30,8 @@ bool UsuarioController::altaConductor(std::string nickname,std::string nombre,st
 
     if (existeUsuario) return false;
     else{
-        Conductor c(nickname,nombre,contrasena,email,libretas); //acá con enum Conductor de TipoUsuario
-        manejador->agregarUsuario(c);
+        Conductor c(nickname,nombre,contrasena,email,libretas);
+        manejador->agregarUsuario(&c);
         return true;
     }
 }
@@ -66,12 +66,12 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     if (!existe){
         Calificacion c(viaje->getFecha(),calificacion);
 
-        c.setUCalificado(*uCalificado);
+        c.setUCalificado((uCalificado));
         uCalificado->asociarCalificacion(c);
-        c.setUCalificador(*uCalificador);
+        c.setUCalificador((uCalificador));
         uCalificador->asociarCalificacion(c);
 
-        if(*(uCalificador->getTipo()) == Pasajero){
+        if((*uCalificador).esPasajero()){
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificador){
@@ -79,10 +79,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                     (*i)->agregarCalificacion(c);
                 }
             }
-        }
-
-        
-        if(*(uCalificador->getTipo()) == Conductor){
+        }else{
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificado){
@@ -91,7 +88,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                 }
             }
         }
-
+        
         //cómo debería borrar el código y el nickname recordado siendo que no son punteros? o los hago punteros?
     }
 
@@ -105,7 +102,7 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
     bool existeV = ManejadorVehiculo->existeVehiculo(matricula);
     if (existeV) return -1;
     else{
-        Conductor* c = ManejadorUsuarios->obtenerUsuario(nickname);
+        Conductor* c = dynamic_cast<Conductor*>(ManejadorUsuarios->obtenerUsuario(nickname));
 
         TipoLibreta libretaAm;
         TipoLibreta libretaProf;
@@ -128,7 +125,7 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
 
 std::set<DTVehiculosConductor> UsuarioController::listarVehiculosConductor(std::string nickname){
         ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
-        Conductor* c = ManejadorUsuarios->obtenerUsuario(nickname);
+        Conductor* c = dynamic_cast<Conductor*>(ManejadorUsuarios->obtenerUsuario(nickname));
         std::set<DTVehiculosConductor> listaVehiculos = c->listarVehiculos();
         return listaVehiculos;
 }

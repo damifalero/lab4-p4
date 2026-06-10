@@ -34,4 +34,4 @@ public:
   bool operator<(const DTConsultaViaje& otro) const;
 };
 
-#endif
+#endif DT_CONSULTA_VIAJE_H

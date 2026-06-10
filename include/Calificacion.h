@@ -28,8 +28,8 @@ public:
     //setters
     void setDTFecha(DTFecha fecha);
     void setPuntaje(int puntaje);
-    void setUCalificador(Usuario usuario);
-    void setUCalificado(Usuario usuario);
+    void setUCalificador(Usuario* usuario);
+    void setUCalificado(Usuario* usuario);
 };
 
-#endif
+#endif CALIFICACION_H

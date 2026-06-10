@@ -19,6 +19,6 @@ void Calificacion::setDTFecha(DTFecha fecha){this->fecha = fecha;}
 
 void Calificacion::setPuntaje(int puntaje){this->puntaje = puntaje;}
 
-void Calificacion::setUCalificado(Usuario usuario){this->uCalificado = &usuario;}
+void Calificacion::setUCalificado(Usuario* usuario){this->uCalificado = usuario;}
 
-void Calificacion::setUCalificador(Usuario usuario){this->uCalificador = &usuario;}
+void Calificacion::setUCalificador(Usuario* usuario){this->uCalificador = usuario;}
