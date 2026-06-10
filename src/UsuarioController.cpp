@@ -64,12 +64,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     }
 
     if (!existe){
-        Calificacion c(viaje->getFecha(),calificacion);
-
-        c.setUCalificado((uCalificado));
-        uCalificado->asociarCalificacion(c);
-        c.setUCalificador((uCalificador));
-        uCalificador->asociarCalificacion(c);
+        Calificacion c(viaje->getFecha(),calificacion,);
 
         if((*uCalificador).esPasajero()){
             bool encontrado = false;
@@ -88,7 +83,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                 }
             }
         }
-        
+
         //cómo debería borrar el código y el nickname recordado siendo que no son punteros? o los hago punteros?
     }
 

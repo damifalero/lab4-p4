@@ -1,11 +1,11 @@
 #include "../include/Calificacion.h"
 
-Calificacion:: Calificacion(DTFecha fecha, int puntaje, Reserva res, Usuario uCalificado,Usuario uCalificador){
+Calificacion:: Calificacion(DTFecha fecha, int puntaje, Reserva res, Usuario* uCalificado, Usuario* uCalificador){
     this->fecha = fecha;
     this->puntaje = puntaje;
     this->asociarReserva(&res);
-    this->asociarUsuarioCalificado(&uCalificado);
-    this->asociarUsuarioCalificador(&uCalificador);
+    this->asociarUsuarioCalificado(uCalificado);
+    this->asociarUsuarioCalificador(uCalificador);
 }
 
 DTFecha Calificacion::getDTFecha(){return this->fecha;}
