@@ -16,7 +16,7 @@ Viaje::Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino,
     this->asientosDisponibles = asientosDisponibles;
     this->precioPorAsiento = precioPorAsiento;
     this->vehiculo= vehiculo;
-    //this->reservas=NULL;
+    this->reservas=NULL;
 }
 
 Viaje::~Viaje(){}
@@ -134,10 +134,7 @@ int Viaje::obtenerCodigo(){
     int nuevoCodigo = this->codigo + 1;
     return nuevoCodigo;
 }
-//no es lo mismo que getAsientosPublicados(?
-/*int Viaje::getAsientosOfrecidos(){
-    return this->asientosPublicados;
-}*/
+
 
 
 
