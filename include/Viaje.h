@@ -4,6 +4,7 @@
 #include "DTFecha.h"
 #include "DTListarViaje.h"
 #include "DTConsultaViaje.h"
+#include "DTDetalleViaje.h"
 #include "Reserva.h"
 #include "Vehiculo.h"
 #include <string>
@@ -53,7 +54,8 @@ public:
     std::string getConductor();
     bool esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados);
     bool cantAsientosValida(int asientosRes, int asientos, int asientosPublicados);
-    DTListarViaje getDTListarViaje();
+    DTListarViaje getDTListarViaje();  
+    DTDetalleViaje getDTDetalleViaje();
     int cantAsientosRes();
     DTConsultaViaje getDataViaje();
     void agregarReserva(Reserva* r);

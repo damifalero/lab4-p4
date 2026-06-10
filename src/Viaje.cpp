@@ -1,6 +1,7 @@
 #include "../include/Viaje.h"
 #include "../include/DTFecha.h"
 #include "../include/DTListarViaje.h"
+#include "../include/DTDetalleVehiculo.h"
 #include "../include/Reserva.h"
 #include "../include/Vehiculo.h"
 #include "../include/Conductor.h"
@@ -73,9 +74,41 @@ int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublica
 }
 DTListarViaje Viaje::getDTListarViaje(){
     std::string nicknameConductor = this->getConductor();
-    DTListarViaje dtvi(this->codigo, this->origen, this->destino, nicknameConductor);
+    DTListarViaje dtvi(this->codigo, this->fecha, this->origen, this->destino, this->asientosPublicados, nicknameConductor);
     return dtvi;
 }
+
+DTDetalleViaje Viaje::getDTDetalleViaje() {
+
+    std::vector<DTDetalleReserva> dtReservas;
+
+    std::set<Reserva*>::iterator it;
+    for (it = reservas.begin(); it != reservas.end(); ++it) {
+        dtReservas.push_back((*it)->getDTDetalleReserva());
+    }
+
+    DTDetalleVehiculo dtVehiculo(
+        vehiculo->getMatricula(),
+        vehiculo->getCapacidad(),
+        vehiculo->getMarca(),
+        vehiculo->getModelo(),
+        vehiculo->getTipo()
+    );
+
+    DTDetalleViaje dtViaje(
+        codigo,
+        fecha,
+        origen,
+        destino,
+        asientosPublicados,
+        precioPorAsiento,
+        dtVehiculo,
+        dtReservas
+    );
+
+    return dtViaje;
+}
+
 int Viaje::cantAsientosRes(){
     int totalAsientosReservados = 0;
     for(std::set<Reserva*>::iterator it = this->reservas.begin(); it != this->reservas.end(); it++){

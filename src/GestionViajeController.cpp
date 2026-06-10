@@ -149,8 +149,29 @@ std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo)
     return resultado;
 }
 
+/**********CASO DE USO ELIMINAR VIAJE**********/
+
 std::set<DTListarViaje> GestionViajeController::listarViajes() {
-    return std::set<DTListarViaje>();
+    ManejadorViajes* mv = ManejadorViajes::getInstancia();
+    std::map<int, Viaje*> viajes = mv->getViajes();
+    
+    std::set<DTListarViaje> resultado;
+    std::map<int, Viaje*>::iterator it;
+    for (it = viajes.begin(); it != viajes.end(); ++it) {
+        Viaje* viaje = it->second;
+        resultado.insert(viaje->getDTListarViaje());
+    }
+
+    return resultado;
+}
+
+DTDetalleViaje GestionViajeController::detalleViaje(int codigo) {
+    ManejadorViajes* mv = ManejadorViajes::getInstancia();
+    Viaje* viaje = mv->obtenerViaje(codigo);
+    //guardo codigo en memoria
+    this->codigoRecordado = codigo;
+
+    return viaje->getDTDetalleViaje();
 }
 
 void GestionViajeController::eliminarViaje() {
