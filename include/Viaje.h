@@ -58,7 +58,7 @@ public:
     DTDetalleViaje getDTDetalleViaje();
     int cantAsientosRes();
     DTConsultaViaje getDataViaje();
-    void agregarReserva(Reserva* r);
+    void addReserva(Reserva* r);
     int obtenerCodigo();
     //getAsientosOfrecidos no es lo mismo que getasientosPublicados
     //int getAsientosOfrecidos();

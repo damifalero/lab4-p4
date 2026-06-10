@@ -127,7 +127,7 @@ DTConsultaViaje Viaje::getDataViaje(){
     DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califPromedio, precioT);
     return dtcv;
 }
-void Viaje::agregarReserva(Reserva* r){
+void Viaje::addReserva(Reserva* r){
     this->reservas.insert(r);
 }
 int Viaje::obtenerCodigo(){
