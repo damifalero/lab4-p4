@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <set>
-#include "Vehiculo.h"
 #include "DTVehiculosConductor.h"
 #include "TipoVehiculo.h"
 #include "DTListarViaje.h"
