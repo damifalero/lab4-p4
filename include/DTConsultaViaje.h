@@ -23,6 +23,13 @@ public:
   float getCalificacionProm();
   float getPrecioTotal();
 
+  void setCodigo(int codigo);
+  void setMarca(std::string marca);
+  void setModelo(std::string modelo);
+  void setConductor(std::string conductor);
+  void setCalificacionProm(float calificacionProm);
+  void setPrecioTotal(float precioTotal);
+
   //para comparar en el set, ordenando por precio total, luego por calificacion promedio y finalmente por codigo
   bool operator<(const DTConsultaViaje& otro) const;
 };
