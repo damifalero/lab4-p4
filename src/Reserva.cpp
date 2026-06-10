@@ -9,7 +9,6 @@ Reserva::Reserva(int asientosReservados, DTFecha fecha, Usuario pasajero,Viaje v
     this->viaje = &viaje;
 }
 
-<<<<<<< HEAD
 int Reserva::getAsientosReservados(){
     return this->asientosReservados;
 }
@@ -46,7 +45,3 @@ bool Reserva::agregarCalificacion(Calificacion calificacion){
 }
 
 Reserva::~Reserva() {}
-=======
-Reserva::~Reserva() {}
-
->>>>>>> 30cc190797d3cd0c6e0bfac1402ba36d0a369787
