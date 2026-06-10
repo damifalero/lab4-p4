@@ -23,6 +23,9 @@ DTListarViaje Reserva::getDTListarViaje(){
 
 std::set<Calificacion*> Reserva::getCalificaciones(){return this->calificaciones;}
 
+Viaje* Reserva::getViaje(){
+    return this->viaje;
+}
 
 Usuario* Reserva::getPasajero(){return this->pasajero;} 
 

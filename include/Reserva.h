@@ -20,6 +20,7 @@ public:
     // getters 
     int getAsientosReservados();
     DTFecha getDTFecha();
+    Viaje* getViaje();
     DTListarViaje getDTListarViaje();
     std::set<Calificacion*> getCalificaciones();
     Usuario* getPasajero(); 
