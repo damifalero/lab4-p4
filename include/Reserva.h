@@ -35,12 +35,12 @@ public:
 
     //operaciones
     bool agregarCalificacion(Calificacion calificacion);
-    void Reserva::asociarViaje(Viaje v);
-    void Reserva::desasociarViaje();
-    void Reserva::asociarPasajero(Pasajero p);
-    void Reserva::desasociarPasajero();
-    void Reserva::asociarCalificacion(Calificacion* c);
-    void Reserva::desasociarCalificacion(Calificacion* c);
+    void asociarViaje(Viaje v);
+    void desasociarViaje();
+    void asociarPasajero(Pasajero p);
+    void desasociarPasajero();
+    void asociarCalificacion(Calificacion* c);
+    void desasociarCalificacion(Calificacion* c);
 };
 
 #endif RESERVA_H

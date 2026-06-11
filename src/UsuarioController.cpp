@@ -5,6 +5,12 @@
 #include "../include/Conductor.h"
 #include "../include/Pasajero.h"
 
+UsuarioController* UsuarioController::getInstancia(){
+    if (instancia == NULL)
+        instancia = new UsuarioController();
+
+    return instancia;
+}
 
 std::string UsuarioController::getNicknameRecordado(){return this->nicknameRecordado;}
 int UsuarioController::getCodigoRecordado(){return this->codigoRecordado;}
@@ -51,7 +57,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     Usuario* uCalificado = ManejadorUsuarios->obtenerUsuario(nicknameCalificado);
     Usuario* uCalificador = ManejadorUsuarios->obtenerUsuario(this->nicknameRecordado);
     
-    ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia(); //en el diagrama de interaccion se comunica con manejadorviajes pero no sé si está bien
+    ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia();
     Viaje* viaje = ManejadorViajes->obtenerViaje(this->codigoRecordado);
     std::set<Reserva*> reservas = viaje->getReservas();
 
@@ -64,14 +70,17 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     }
 
     if (!existe){
-        Calificacion c(viaje->getFecha(),calificacion,);
-
+        
         if((*uCalificador).esPasajero()){
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificador){
                     encontrado = true;
-                    (*i)->agregarCalificacion(c);
+                    Reserva* res = *i; 
+                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
+                    res->asociarCalificacion(&c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
                 }
             }
         }else{
@@ -79,20 +88,23 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificado){
                     encontrado = true;
-                    (*i)->agregarCalificacion(c);
+                    Reserva* res = *i; 
+                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
+                    res->asociarCalificacion(&c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
+                }
                 }
             }
         }
-
-        //cómo debería borrar el código y el nickname recordado siendo que no son punteros? o los hago punteros?
+        this->codigoRecordado = -1;
+        this->nicknameRecordado = "";
+        return !existe;
     }
-
-    return !existe;
-}
 
 int UsuarioController::registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo){
     ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
-    ManejadorVehiculo* ManejadorVehiculo = ManejadorVehiculo::getInstancia(); //en el diagrama de interaccion se comunica con manejadorviajes pero no sé si está bien
+    ManejadorVehiculo* ManejadorVehiculo = ManejadorVehiculo::getInstancia(); 
     
     bool existeV = ManejadorVehiculo->existeVehiculo(matricula);
     if (existeV) return -1;
@@ -102,11 +114,11 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
         TipoLibreta libretaAm;
         TipoLibreta libretaProf;
         if (tipo == Auto){
-            libretaAm = AutoAmateur; 
-            libretaProf = AutoProfesional; 
+            libretaAm = AutoAmateur;
+            libretaProf = AutoProfesional;
         } else if (tipo == Moto){
-            libretaAm = MotoAmateur; 
-            libretaProf = MotoProfesional; 
+            libretaAm = MotoAmateur;
+            libretaProf = MotoProfesional;
         }
         bool tieneL = (c->tieneLibreta(libretaAm) || c->tieneLibreta(libretaProf));
         if (tieneL){
@@ -124,4 +136,3 @@ std::set<DTVehiculosConductor> UsuarioController::listarVehiculosConductor(std::
         std::set<DTVehiculosConductor> listaVehiculos = c->listarVehiculos();
         return listaVehiculos;
 }
-
