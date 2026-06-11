@@ -32,6 +32,7 @@ public:
     bool tieneLibreta(TipoLibreta libreta);
     std::set<DTVehiculosConductor> listarVehiculos();
     bool hayViajesFechaConductor(DTFecha fecha);
+    float getCalificacionPromedio();
 };
 
 #endif
