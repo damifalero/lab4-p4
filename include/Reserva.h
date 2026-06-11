@@ -6,6 +6,8 @@
 #include "Pasajero.h"
 #include "Viaje.h"
 
+class Viaje;
+
 class Reserva {
 private:
     int asientosReservados;

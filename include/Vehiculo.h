@@ -9,8 +9,12 @@
 #include "DTListarViaje.h"
 #include "Conductor.h"
 #include "Viaje.h"
+#include "Usuario.h"
 
 class Viaje;
+class Conductor; 
+class Usuario;
+
 class Vehiculo {
 private:
     std::string matricula;
