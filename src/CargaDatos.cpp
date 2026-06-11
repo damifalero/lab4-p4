@@ -98,7 +98,16 @@ void CargaDatos::cargarDatos() {
     try{
         fa->setFecha(DTFecha(14, 3, 2026));
         gv->generarReserva("santi_90", 9, 2);
-        //faltan agregar los demas
+        gv->generarReserva("mari_b", 9, 1);
+        gv->generarReserva("nacho_f", 10, 5);
+        gv->generarReserva("valen_uy", 10, 3);
+        gv->generarReserva("joaco_r", 10, 1);
+        fa->setFecha(DTFecha(13, 3, 2026));
+        gv->generarReserva("mari_b", 12, 1);
+        gv->generarReserva("nacho_f", 12, 1);
+        gv->generarReserva("nacho_f", 9, 1);
+        fa->setFecha(DTFecha(1, 6, 2026));
+        gv->generarReserva("mari_b", 1, 2);
     } catch(std::exception& e){
         std::cout << "Error en carga de reservas: " << e.what() << "\n";
     }
