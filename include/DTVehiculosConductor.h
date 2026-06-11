@@ -2,6 +2,8 @@
 #define DT_VEHICULOS_CONDUCTOR_H
 
 #include <string>
+//#include "DTDetalleVehiculo.h"
+//#include <set>
 
 class DTVehiculosConductor {
 private:
@@ -19,6 +21,9 @@ public:
   std::string getMatricula();
   std::string getModelo();
   int getCapacidad();
+
+  //pa que funcionaaaa
+  /*std::set<DTDetalleVehiculo> getVehiculos();*/
 
   bool operator<(const DTVehiculosConductor& other) const;
 };

@@ -14,8 +14,9 @@ std::string DTVehiculosConductor::getMatricula(){ return this->matricula; }
 std::string DTVehiculosConductor::getModelo(){ return this->modelo; }
 int DTVehiculosConductor::getCapacidad(){ return this->capacidad; }
 
-std::vector<DTDetalleVehiculo> DTVehiculosConductor::getVehiculos() {
+// pa que funcaaa
+/*std::set<DTDetalleVehiculo> DTVehiculosConductor::getVehiculos() {
     return vehiculos;
-}
+}*/
 
 

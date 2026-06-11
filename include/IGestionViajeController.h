@@ -1,3 +1,6 @@
+#ifndef IGESTIONVIAJECONTROLLER_H
+#define IGESTIONVIAJECONTROLLER_H
+
 #include "DTConsultaViaje.h"
 #include "DTDetalleViaje.h"
 #include "DTUsuarioViaje.h"
@@ -6,6 +9,7 @@
 
 #include <set>
 #include <string>
+
 class IGestionViajeController {
     public:
         virtual ~IGestionViajeController() {}
@@ -21,3 +25,5 @@ class IGestionViajeController {
         virtual bool generarReserva(std::string nickname, int codigo, int asientos)= 0;
 
 };
+
+#endif
