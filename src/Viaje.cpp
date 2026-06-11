@@ -123,7 +123,7 @@ DTConsultaViaje Viaje::getDataViaje(){
     std::string modeloVehiculo = this->vehiculo->getModelo();
     Conductor* cond = this->vehiculo->getConductor();
     std::string nicknameConductor = cond->getNickname();
-    float califPromedio = cond->getCalificacionPromedio();
+    float califPromedio = cond->getPromedio();
     float precioT = this->getPrecioPorAsiento();
     DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califPromedio, precioT);
     return dtcv;
