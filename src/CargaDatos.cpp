@@ -106,7 +106,15 @@ void CargaDatos::cargarDatos() {
     //Carga de Claificaciones
     try{
         //donde se agrega el nickname y el codigo?
-        uc->calificarUsuario("matil92", 4);
+        uc->calificarUsuario("santi_90", 4);
+        uc->calificarUsuario("mari_b", 4);
+        uc->calificarUsuario("matil92", 3);
+        uc->calificarUsuario("ana_silva", 5);
+        uc->calificarUsuario("ana_silva", 5);
+        uc->calificarUsuario("mari_b", 5);
+        uc->calificarUsuario("carlos_r", 5);
+
+
     } catch(std::exception& e){
         std::cout << "Error en carga de calificaciones: " << e.what() << "\n";
     }
