@@ -1,5 +1,5 @@
 #include "../include/Fabrica.h"
-#include "../include/ControladorFechaActual.h"
+
 
 Fabrica* Fabrica::instancia = nullptr;
 
@@ -21,5 +21,5 @@ IGestionViajeController* Fabrica::getIGestionViajeController() {
 }
 
 IUsuarioController* Fabrica::getIUsuarioController() {
-    return UsuarioController::getInstance();
+    return UsuarioController::getInstancia();
 }

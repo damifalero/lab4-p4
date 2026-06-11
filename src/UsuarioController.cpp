@@ -5,6 +5,12 @@
 #include "../include/Conductor.h"
 #include "../include/Pasajero.h"
 
+UsuarioController* UsuarioController::getInstancia(){
+    if (instancia == NULL)
+        instancia = new UsuarioController();
+
+    return instancia;
+}
 
 std::string UsuarioController::getNicknameRecordado(){return this->nicknameRecordado;}
 int UsuarioController::getCodigoRecordado(){return this->codigoRecordado;}
@@ -107,11 +113,11 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
         TipoLibreta libretaAm;
         TipoLibreta libretaProf;
         if (tipo == Auto){
-            libretaAm = AutoAmateur; 
-            libretaProf = AutoProfesional; 
+            libretaAm = AutoAmateur;
+            libretaProf = AutoProfesional;
         } else if (tipo == Moto){
-            libretaAm = MotoAmateur; 
-            libretaProf = MotoProfesional; 
+            libretaAm = MotoAmateur;
+            libretaProf = MotoProfesional;
         }
         bool tieneL = (c->tieneLibreta(libretaAm) || c->tieneLibreta(libretaProf));
         if (tieneL){
@@ -129,4 +135,3 @@ std::set<DTVehiculosConductor> UsuarioController::listarVehiculosConductor(std::
         std::set<DTVehiculosConductor> listaVehiculos = c->listarVehiculos();
         return listaVehiculos;
 }
-
