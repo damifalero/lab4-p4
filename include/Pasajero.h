@@ -7,6 +7,9 @@
 #include <set>
 #include <string>
 
+//Dependencia circular :)
+class Reserva;
+
 class Pasajero : public Usuario {
 private:
     std::string ci;

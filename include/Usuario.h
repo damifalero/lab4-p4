@@ -1,11 +1,13 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-#include "../include/DTUsuario.h"
-#include "../include/Calificacion.h"
-#include "../include/TipoUsuario.h"
+#include "DTUsuario.h"
+#include "Calificacion.h"
+#include "TipoUsuario.h"
 #include <string>
 #include <set>
+
+class Calificacion;
 
 class Usuario {
 protected:
@@ -14,8 +16,7 @@ protected:
     std::string contrasena;
     std::string email;
     float caliPromedio;
-    std::set<Calificacion> calificaciones;
-    /*TipoUsuario* tipo;*/
+    std::set<Calificacion*> calificaciones;
 
 public:
     Usuario(std::string nickname, std::string nombre, std::string contrasena, std::string email);
@@ -33,8 +34,8 @@ public:
     virtual bool esPasajero() = 0;
 
     DTUsuario getDTUsuario();
-    void asociarCalificacion(Calificacion);
-    void desasociarCalificacion(Calificacion);
+    void asociarCalificacion(Calificacion* cal);
+    void desasociarCalificacion(Calificacion* cal);
     void actualizarPromedio();
 };
 

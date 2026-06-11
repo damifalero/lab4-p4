@@ -27,12 +27,12 @@ DTUsuario Usuario::getDTUsuario(){
     return datos;
 }
 
-void Usuario::asociarCalificacion(Calificacion cal){
-    this->calificaciones.insert(cal);
+void Usuario::asociarCalificacion(Calificacion* cal){
+    this->calificaciones.insert(*cal);
 }
 
-void Usuario::desasociarCalificacion(Calificacion cal) {
-    this->calificaciones.erase(this->calificaciones.find(cal));
+void Usuario::desasociarCalificacion(Calificacion* cal) {
+    this->calificaciones.erase(this->calificaciones.find(*cal));
 }
 
 void Usuario::actualizarPromedio(){

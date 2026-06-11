@@ -27,7 +27,7 @@ Viaje* Reserva::getViaje(){
     return this->viaje;
 }
 
-Usuario* Reserva::getPasajero(){return this->pasajero;} 
+Pasajero* Reserva::getPasajero(){return this->pasajero;} 
 Viaje* Reserva::getViaje(){return this->viaje;}
 
 void Reserva::setViaje(Viaje viaje){

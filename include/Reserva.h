@@ -4,13 +4,14 @@
 #include "DTFecha.h"
 #include "DTListarViaje.h"
 #include "Pasajero.h"
+#include "Viaje.h"
 
 class Reserva {
 private:
     int asientosReservados;
     DTFecha fecha;
     Pasajero* pasajero; 
-    Viaje* viaje; //cuando se hace generarReserva hay que vincular el viaje acá para poder hacer getdtlistariviaje
+    Viaje* viaje; 
     std::set<Calificacion*> calificaciones;
 
 public:
@@ -24,8 +25,7 @@ public:
     Viaje* getViaje();
     DTListarViaje getDTListarViaje();
     std::set<Calificacion*> getCalificaciones();
-    Usuario* getPasajero();
-    Viaje* getViaje();
+    Pasajero* getPasajero();
 
     //setters
     void setAsientosReservados(int cantAsientos);
@@ -44,4 +44,4 @@ public:
     void desasociarCalificacion(Calificacion* c);
 };
 
-#endif RESERVA_H
+#endif 

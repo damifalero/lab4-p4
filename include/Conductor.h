@@ -7,6 +7,8 @@
 #include "Vehiculo.h"
 #include <set>
 
+class Vehiculo;
+
 class Conductor : public Usuario {
 private:
     std::set<TipoLibreta> libretas;
