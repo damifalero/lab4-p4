@@ -1,6 +1,7 @@
 #include "../include/Reserva.h"
 #include "../include/Viaje.h"
 #include "../include/Pasajero.h"
+#include "../include/Calificacion.h"
 
 Reserva::Reserva(int asientosReservados, DTFecha fecha, Pasajero pasajero,Viaje viaje) {
     this->asientosReservados = asientosReservados;

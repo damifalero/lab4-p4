@@ -1,4 +1,5 @@
 #include "../include/Usuario.h"
+#include "../include/Calificacion.h"
 
 //Constructor y Destructor
 Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasena, std::string email) {

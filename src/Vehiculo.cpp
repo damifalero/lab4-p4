@@ -1,4 +1,7 @@
 #include "../include/Vehiculo.h"
+#include "../include/Viaje.h"
+#include "../include/Conductor.h"
+#include "../include/Usuario.h"
 
 //constructor y destructor
 Vehiculo::Vehiculo(std::string matricula, int capacidad, std::string marca, std::string modelo, TipoVehiculo tipo) {
