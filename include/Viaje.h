@@ -10,6 +10,8 @@
 #include <string>
 #include <set>
 
+class Vehiculo;
+
 class Viaje {
 private:
     int codigo;
