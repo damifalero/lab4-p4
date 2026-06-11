@@ -1,17 +1,17 @@
 #include "../include/DTVehiculosConductor.h"
 
-DTVehiculosConductor::DTVehiculosConductor(std::string matricula, std::string modelo, int capacidad) {
+DTVehiculosConductor::DTVehiculosConductor(std::string matricula, std::string marca, int capacidad) {
     this->matricula = matricula;
-    this->modelo = modelo;
+    this->marca = marca;
     this->capacidad = capacidad;
 }
 
 void DTVehiculosConductor::setMatricula(std::string matricula) { this->matricula = matricula; }
-void DTVehiculosConductor::setModelo(std::string modelo) { this->modelo = modelo; }
+void DTVehiculosConductor::setMarca(std::string marca) { this->marca = marca; }
 void DTVehiculosConductor::setCapacidad(int capacidad) { this->capacidad = capacidad; }
 
 std::string DTVehiculosConductor::getMatricula(){ return this->matricula; }
-std::string DTVehiculosConductor::getModelo(){ return this->modelo; }
+std::string DTVehiculosConductor::getMarca(){ return this->marca; }
 int DTVehiculosConductor::getCapacidad(){ return this->capacidad; }
 
 // pa que funcaaa

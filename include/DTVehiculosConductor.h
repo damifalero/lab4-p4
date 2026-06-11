@@ -8,18 +8,18 @@
 class DTVehiculosConductor {
 private:
   std::string matricula;
-  std::string modelo;
+  std::string marca;
   int capacidad;
 
 public:
-  DTVehiculosConductor(std::string matricula, std::string modelo, int capacidad);
+  DTVehiculosConductor(std::string matricula, std::string marca, int capacidad);
 
   void setMatricula(std::string matricula);
-  void setModelo(std::string modelo);
+  void setMarca(std::string marca);
   void setCapacidad(int capacidad);
   
   std::string getMatricula();
-  std::string getModelo();
+  std::string getMarca();
   int getCapacidad();
 
   //pa que funcionaaaa
