@@ -29,7 +29,7 @@ class ManejadorViajes {
         Viaje* obtenerViaje(int codigo);
         void agregarReserva(Reserva* r);
         int generarCodigo();
-        Viaje crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio);
+        Viaje crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precio);
 };
 
 #endif

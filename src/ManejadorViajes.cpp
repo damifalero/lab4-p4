@@ -25,10 +25,9 @@ int ManejadorViajes::generarCodigo(){
     return this->viajes[ultimoCodigo]->obtenerCodigo();
 }
 
-Viaje ManejadorViajes::crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio) {
+Viaje ManejadorViajes::crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precio) {
     int codigo = this->generarCodigo();
-    Viaje* vi = new Viaje(codigo, fecha, origen, destino, asientos, precio);
-    v.asociarViaje(vi);
+    Viaje* vi = new Viaje(codigo, fecha, origen, destino, asientosPublicados, asientosDisponibles, precio, &v);
     this->agregarViaje(vi);
     return *vi;
 }

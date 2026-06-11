@@ -11,6 +11,7 @@
 #include <set>
 
 class Vehiculo;
+class Reserva;
 
 class Viaje {
 private:

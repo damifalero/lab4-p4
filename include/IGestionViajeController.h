@@ -6,6 +6,7 @@
 #include "DTUsuarioViaje.h"
 #include "DTListarViaje.h"
 #include "DTFecha.h"
+#include "Calificacion.h"
 
 #include <set>
 #include <string>

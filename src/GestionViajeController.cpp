@@ -7,6 +7,7 @@
 #include "../include/Reserva.h"
 #include "../include/Pasajero.h"
 #include "../include/Conductor.h"
+#include "../include/Calificacion.h"
 #include <ControladorFechaActual.h>
 
 GestionViajeController* GestionViajeController::instancia = NULL;
@@ -252,8 +253,8 @@ void GestionViajeController::eliminarViaje() {
             (*it)->desasociarCalificacion(calificacion);
             calificacion->desasociarUsuarioCalificado();
             calificacion->desasociarUsuarioCalificador();
-            uCalificado->desasociarCalificacion(*calificacion);
-            uCalificador->desasociarCalificacion(*calificacion);
+            uCalificado->desasociarCalificacion(calificacion);
+            uCalificador->desasociarCalificacion(calificacion);
             delete calificacion;
         }
 

@@ -7,6 +7,7 @@
 #include "Viaje.h"
 
 class Viaje;
+class Pasajero;
 
 class Reserva {
 private:
@@ -37,7 +38,7 @@ public:
     void setPasajero(Pasajero pasajero);
 
     //operaciones
-    bool agregarCalificacion(Calificacion calificacion);
+    void agregarCalificacion(Calificacion calificacion);
     void asociarViaje(Viaje v);
     void desasociarViaje();
     void asociarPasajero(Pasajero p);
