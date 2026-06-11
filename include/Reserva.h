@@ -22,7 +22,8 @@ public:
     DTFecha getDTFecha();
     DTListarViaje getDTListarViaje();
     std::set<Calificacion*> getCalificaciones();
-    Usuario* getPasajero(); 
+    Usuario* getPasajero();
+    Viaje* getViaje();
 
     //setters
     void setAsientosReservados(int cantAsientos);

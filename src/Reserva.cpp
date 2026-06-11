@@ -25,6 +25,7 @@ std::set<Calificacion*> Reserva::getCalificaciones(){return this->calificaciones
 
 
 Usuario* Reserva::getPasajero(){return this->pasajero;} 
+Viaje* Reserva::getViaje(){return this->viaje;}
 
 void Reserva::setViaje(Viaje viaje){
     Viaje* v = new Viaje(viaje.getCodigo(),viaje.getFecha(), viaje.getOrigen(), viaje.getDestino(), viaje.getAsientosPublicados(),viaje.getAsientosDisponibles(), viaje.getPrecioPorAsiento(), viaje.getVehiculo());
