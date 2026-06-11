@@ -78,7 +78,13 @@ void CargaDatos::cargarDatos() {
     //Carga de Vehiculos
     try{
         uc->registrarVehiculo("matil92", "ABJ4586", 4, "Chevrolet", "Onix", TipoVehiculo::Auto);
-        //faltan agregar los demas
+        uc->registrarVehiculo("matil92", "ACM4455", 6, "Toyota", "Rush", TipoVehiculo::Auto);
+        uc->registrarVehiculo("ana_silva", "BAS7895", 4, "Fiat", "Argo", TipoVehiculo::Auto);
+        uc->registrarVehiculo("ana_silva", "BCS4105", 9, "Hyundai", "H1", TipoVehiculo::Auto);
+        uc->registrarVehiculo("greg_m", "LDA4875", 1, "Honda", "CB Twist", TipoVehiculo::Moto);
+        uc->registrarVehiculo("lau_vaz", "PDB1205", 1, "Yumbo", "Max 110", TipoVehiculo::Moto);
+        uc->registrarVehiculo("carlos_r", "SBJ4874", 4, "Volkswagen", "Gol", TipoVehiculo::Auto);
+        uc->registrarVehiculo("carlos_r", "SCF2469", 1, "Yamaha", "FZ S", TipoVehiculo::Moto);
 
     } catch(std::exception& e){
         std::cout << "Error en carga de vehiculos: " << e.what() << "\n";
@@ -124,7 +130,16 @@ void CargaDatos::cargarDatos() {
     try{
         fa->setFecha(DTFecha(14, 3, 2026));
         gv->generarReserva("santi_90", 9, 2);
-        //faltan agregar los demas
+        gv->generarReserva("mari_b", 9, 1);
+        gv->generarReserva("nacho_f", 10, 5);
+        gv->generarReserva("valen_uy", 10, 3);
+        gv->generarReserva("joaco_r", 10, 1);
+        fa->setFecha(DTFecha(13, 3, 2026));
+        gv->generarReserva("mari_b", 12, 1);
+        gv->generarReserva("nacho_f", 12, 1);
+        gv->generarReserva("nacho_f", 9, 1);
+        fa->setFecha(DTFecha(1, 6, 2026));
+        gv->generarReserva("mari_b", 1, 2);
     } catch(std::exception& e){
         std::cout << "Error en carga de reservas: " << e.what() << "\n";
     }
@@ -132,7 +147,15 @@ void CargaDatos::cargarDatos() {
     //Carga de Claificaciones
     try{
         //donde se agrega el nickname y el codigo?
-        uc->calificarUsuario("matil92", 4);
+        uc->calificarUsuario("santi_90", 4);
+        uc->calificarUsuario("mari_b", 4);
+        uc->calificarUsuario("matil92", 3);
+        uc->calificarUsuario("ana_silva", 5);
+        uc->calificarUsuario("ana_silva", 5);
+        uc->calificarUsuario("mari_b", 5);
+        uc->calificarUsuario("carlos_r", 5);
+
+
     } catch(std::exception& e){
         std::cout << "Error en carga de calificaciones: " << e.what() << "\n";
     }
