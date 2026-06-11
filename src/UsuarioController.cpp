@@ -5,6 +5,11 @@
 #include "../include/Conductor.h"
 #include "../include/Pasajero.h"
 
+UsuarioController* UsuarioController::instancia = NULL;
+
+UsuarioController::UsuarioController(){ }
+UsuarioController::~UsuarioController(){ }
+
 UsuarioController* UsuarioController::getInstancia(){
     if (instancia == NULL)
         instancia = new UsuarioController();
