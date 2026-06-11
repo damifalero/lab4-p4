@@ -1,5 +1,7 @@
 #include "../include/CargaDatos.h"
 #include "../include/UsuarioController.h"
+#include "../include/GestionViajeController.h"
+#include "../include/ControladorFechaActual.h"
 #include "../include/Fabrica.h"
 #include <iostream>
 
@@ -29,8 +31,8 @@ void CargaDatos::cargarDatos() {
     // ... (inserción de usuarios, vehículos, viajes, reservas) ...
     
     IUsuarioController* uc = Fabrica::getInstance()->getIUsuarioController();
-    IGestionViajeController* gvc = Fabrica::getInstance()->getIGestionViajeController();
-    IControladorFechaActual* cfa = Fabrica::getInstance()->getIControladorFechaActual();
+    IGestionViajeController* gv = Fabrica::getInstance()->getIGestionViajeController();
+    IControladorFechaActual* fa = Fabrica::getInstance()->getIControladorFechaActual();
 
     //no estoy muy segura peeero
     try{
