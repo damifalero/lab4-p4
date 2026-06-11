@@ -51,7 +51,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     Usuario* uCalificado = ManejadorUsuarios->obtenerUsuario(nicknameCalificado);
     Usuario* uCalificador = ManejadorUsuarios->obtenerUsuario(this->nicknameRecordado);
     
-    ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia(); //en el diagrama de interaccion se comunica con manejadorviajes pero no sé si está bien
+    ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia();
     Viaje* viaje = ManejadorViajes->obtenerViaje(this->codigoRecordado);
     std::set<Reserva*> reservas = viaje->getReservas();
 
@@ -64,14 +64,17 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     }
 
     if (!existe){
-        Calificacion c(viaje->getFecha(),calificacion,);
-
+        
         if((*uCalificador).esPasajero()){
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificador){
                     encontrado = true;
-                    (*i)->agregarCalificacion(c);
+                    Reserva* res = *i; 
+                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
+                    res->asociarCalificacion(&c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
                 }
             }
         }else{
@@ -79,20 +82,22 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificado){
                     encontrado = true;
-                    (*i)->agregarCalificacion(c);
+                    Reserva* res = *i; 
+                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
+                    res->asociarCalificacion(&c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
+                }
                 }
             }
         }
-
-        //cómo debería borrar el código y el nickname recordado siendo que no son punteros? o los hago punteros?
+            //cómo debería borrar el código y el nickname recordado siendo que no son punteros? o los hago punteros?
+        return !existe;
     }
-
-    return !existe;
-}
 
 int UsuarioController::registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo){
     ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
-    ManejadorVehiculo* ManejadorVehiculo = ManejadorVehiculo::getInstancia(); //en el diagrama de interaccion se comunica con manejadorviajes pero no sé si está bien
+    ManejadorVehiculo* ManejadorVehiculo = ManejadorVehiculo::getInstancia(); 
     
     bool existeV = ManejadorVehiculo->existeVehiculo(matricula);
     if (existeV) return -1;
