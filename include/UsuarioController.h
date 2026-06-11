@@ -13,14 +13,14 @@
 class UsuarioController : public IUsuarioController{
 private:
     static UsuarioController* instancia;
-
     std::string nicknameRecordado;
     int codigoRecordado;
 
-    UsuarioController();
 public:
-    //Destructor
+    //Constructor y destructor
+    UsuarioController();
     virtual ~UsuarioController();
+    
 
     //getters
     static UsuarioController* getInstancia();
