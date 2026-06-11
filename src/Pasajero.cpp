@@ -21,3 +21,7 @@ std::set<Reserva*> Pasajero::getReservas(){
 bool Pasajero::esPasajero() {
     return true;
 }
+
+void Pasajero::asociarReserva(Reserva* reserva) {
+    this->reservas.insert(reserva);
+}

@@ -3,21 +3,27 @@
 
 #include <string>
 #include <set>
+#include "GestionViajeController.h"
+#include "IUsuarioController.h"
 #include "TipoVehiculo.h"
 #include "DTUsuario.h"
 #include "TipoLibreta.h"
 #include "DTVehiculosConductor.h"
 
-class UsuarioController{
+class UsuarioController : public IUsuarioController{
 private:
+    static UsuarioController* instancia;
+
     std::string nicknameRecordado;
     int codigoRecordado;
+
+    UsuarioController();
 public:
     //Destructor
-    ~UsuarioController();
-    //el controlador tiene constructor o lo pongo en la interfaz?
+    virtual ~UsuarioController();
 
     //getters
+    static UsuarioController* getInstancia();
     std::string getNicknameRecordado();
     int getCodigoRecordado();
 
@@ -36,4 +42,3 @@ public:
 };
 
 #endif
-

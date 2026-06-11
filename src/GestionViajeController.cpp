@@ -64,8 +64,37 @@ std::set<DTConsultaViaje> GestionViajeController::consultarViaje(DTFecha fecha, 
 }
 
 bool GestionViajeController::generarReserva(std::string nickname, int codigo, int asientos) {
+    ManejadorUsuarios* mu = ManejadorUsuarios::getInstancia();
+    Usuario* usuario = mu->obtenerUsuario(nickname);
 
-    return false;
+    ManejadorViajes* mv = ManejadorViajes::getInstancia();
+    Viaje* viaje = mv->obtenerViaje(codigo);
+
+    if (usuario == NULL || viaje == NULL)
+        return false;
+
+    if (!viaje->cantAsientosValida(asientos, viaje->getAsientosDisponibles(), viaje->getAsientosPublicados()))
+        return false;
+
+    std::map<int, Reserva*> reservas = mv->getReservas();
+    std::map<int, Reserva*>::iterator it;
+    for (it = reservas.begin(); it != reservas.end(); ++it) {       
+        Reserva* reserva = it->second;
+        if (reserva->getPasajero()->getNickname() == nickname && reserva->getViaje()->getCodigo() == codigo) {
+            return false; // El pasajero ya tiene una reserva para ese viaje
+        }
+    }
+
+    if (!usuario->esPasajero())
+        return false;
+    
+    Reserva* reserva = new Reserva(asientos, viaje->getFecha(), *usuario, *viaje);
+    mv->agregarReserva(reserva);
+    viaje->agregarReserva(reserva);
+    
+    Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
+    pas->asociarReserva(reserva);
+    return true;
 }
 
 /**********CASO DE USO ALTA VIAJE**********/
@@ -81,7 +110,7 @@ bool GestionViajeController::altaViaje(std::string matricula, DTFecha fecha, std
         return false;
 
     // Obtener conductor asociado al vehículo
-    Conductor* conductor = dynamic_cast<Conductor*>(vehiculo->getConductor());
+    Conductor* conductor = vehiculo->getConductor();
 
     // Si el conductor ya tiene un viaje ese día
     if (conductor != NULL && conductor->hayViajesFechaConductor(fecha)){
@@ -202,7 +231,6 @@ void GestionViajeController::eliminarViaje() {
 
     Vehiculo* vehiculo = viaje->getVehiculo();
 
-    // quitar asociación viaje-vehículo
 
     delete viaje;
 }

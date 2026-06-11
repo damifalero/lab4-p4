@@ -8,7 +8,7 @@ class Reserva {
 private:
     int asientosReservados;
     DTFecha fecha;
-    Usuario* pasajero; 
+    Pasajero* pasajero; 
     Viaje* viaje; //cuando se hace generarReserva hay que vincular el viaje acá para poder hacer getdtlistariviaje
     std::set<Calificacion*> calificaciones;
 
@@ -23,7 +23,8 @@ public:
     Viaje* getViaje();
     DTListarViaje getDTListarViaje();
     std::set<Calificacion*> getCalificaciones();
-    Usuario* getPasajero(); 
+    Usuario* getPasajero();
+    Viaje* getViaje();
 
     //setters
     void setAsientosReservados(int cantAsientos);
@@ -34,7 +35,12 @@ public:
 
     //operaciones
     bool agregarCalificacion(Calificacion calificacion);
-    
+    void Reserva::asociarViaje(Viaje v);
+    void Reserva::desasociarViaje();
+    void Reserva::asociarPasajero(Pasajero p);
+    void Reserva::desasociarPasajero();
+    void Reserva::asociarCalificacion(Calificacion* c);
+    void Reserva::desasociarCalificacion(Calificacion* c);
 };
 
 #endif RESERVA_H

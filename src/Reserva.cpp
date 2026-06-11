@@ -28,6 +28,7 @@ Viaje* Reserva::getViaje(){
 }
 
 Usuario* Reserva::getPasajero(){return this->pasajero;} 
+Viaje* Reserva::getViaje(){return this->viaje;}
 
 void Reserva::setViaje(Viaje viaje){
     Viaje* v = new Viaje(viaje.getCodigo(),viaje.getFecha(), viaje.getOrigen(), viaje.getDestino(), viaje.getAsientosPublicados(),viaje.getAsientosDisponibles(), viaje.getPrecioPorAsiento(), viaje.getVehiculo());
@@ -52,3 +53,14 @@ Reserva::~Reserva(){
     this->viaje = NULL;
     this->calificaciones.clear();
 }
+void Reserva::asociarViaje(Viaje v){this->viaje = &v;}
+
+void Reserva::desasociarViaje(){this->viaje = NULL;}
+
+void Reserva::asociarPasajero(Pasajero p){this->pasajero = &p;}
+
+void Reserva::desasociarPasajero(){this->pasajero = NULL;}
+
+void Reserva::asociarCalificacion(Calificacion* c){this->calificaciones.insert(c);}
+
+void Reserva::desasociarCalificacion(Calificacion* c){this->calificaciones.erase(c);}
