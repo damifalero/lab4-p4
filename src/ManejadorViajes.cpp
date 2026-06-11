@@ -22,7 +22,8 @@ Viaje* ManejadorViajes::obtenerViaje(int codigo){ return this->viajes[codigo]; }
 void ManejadorViajes::agregarReserva(Reserva* r){ reservas[r->getViaje()->getCodigo()] = r;}   //que numero identifica la reserva?la cedula del pasajero?
 
 int ManejadorViajes::generarCodigo(){
-    return this->viajes[ultimoCodigo]->obtenerCodigo();
+    if (this->viajes.empty()) return 1;
+    else return this->viajes[ultimoCodigo]->obtenerCodigo();
 }
 
 Viaje ManejadorViajes::crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precio) {

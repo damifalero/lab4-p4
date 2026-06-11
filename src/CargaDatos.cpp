@@ -86,9 +86,35 @@ void CargaDatos::cargarDatos() {
     
     //Carga de Viajes
     try{
-        fa->setFecha(DTFecha(/*21, 10, 2026*/));
+        //fa->setFecha(DTFecha(/*21, 10, 2026*/));
+        DTFecha f1(21,10,2026);
         //no falta agregar el codigo?
-        gv->altaViaje("ABJ4586", DTFecha(21, 10, 2026), "montevideo", "mercedes", 4, 200);
+        gv->altaViaje("ABJ4586", f1, "montevideo", "mercedes", 4, 200);
+        DTFecha f2(20,10,2026);
+        gv->altaViaje("ACM4455", f2, "young", "montevideo", 5, 250);
+        DTFecha f3(20,10,2026);
+        gv->altaViaje("BAS7895", f3, "young", "montevideo", 4, 200);
+        DTFecha f4(21,10,2026);
+        gv->altaViaje("BCS4105", f4, "montevideo", "mercedes", 9, 200);
+        DTFecha f5(21,10,2026);
+        gv->altaViaje("LDA4875", f5, "montevideo", "mercedes", 1, 300);
+        DTFecha f6(21,10,2026);
+        gv->altaViaje("PDB1205", f6, "montevideo", "mercedes", 1, 350);
+        DTFecha f7(21,10,2026);
+        gv->altaViaje("SBJ4874", f7, "montevideo", "mercedes", 4, 260);
+        DTFecha f8(20,10,2026);
+        gv->altaViaje("SCF2469", f8, "montevideo", "cerro chato", 1, 150);
+        DTFecha f9(15,3,2026);
+        gv->altaViaje("ABJ4586", f9, "montevideo", "colonia", 4, 140);
+        DTFecha f10(15,3,2026);
+        gv->altaViaje("BCS4105", f10, "montevideo", "colonia", 9, 180);
+        DTFecha f11(15,3,2026);
+        gv->altaViaje("SBJ4874", f11, "montevideo", "colonia", 1, 100);
+        DTFecha f12(14,3,2026);
+        gv->altaViaje("SBJ4874", f12, "montevideo", "colonia", 4, 600);
+        DTFecha f13(20,10,2026);
+        gv->altaViaje("LDA4875", f13, "young", "montevideo", 1, 250);
+
         //faltan agregar los demas
     } catch(std::exception& e){
         std::cout << "Error en carga de viajes: " << e.what() << "\n";
