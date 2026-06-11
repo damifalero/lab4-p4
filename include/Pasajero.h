@@ -19,6 +19,7 @@ public:
     std::set<Reserva*> getReservas();
     bool esPasajero();
     void asociarReserva(Reserva* reserva);
+    void desasociarReserva(Reserva* reserva);
 };
 
 #endif

@@ -8,6 +8,7 @@
 #include "TipoVehiculo.h"
 #include "DTListarViaje.h"
 #include "Conductor.h"
+#include "Viaje.h"
 
 class Viaje;
 class Vehiculo {

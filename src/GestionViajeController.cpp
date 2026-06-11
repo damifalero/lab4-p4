@@ -7,6 +7,7 @@
 #include "../include/Reserva.h"
 #include "../include/Pasajero.h"
 #include "../include/Conductor.h"
+#include <ControladorFechaActual.h>
 
 GestionViajeController* GestionViajeController::instancia = NULL;
 
@@ -88,11 +89,14 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     if (!usuario->esPasajero())
         return false;
     
-    Reserva* reserva = new Reserva(asientos, viaje->getFecha(), *usuario, *viaje);
-    mv->agregarReserva(reserva);
-    viaje->agregarReserva(reserva);
-    
     Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
+
+    ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
+    DTFecha fechaActual = cfa->getFecha();
+
+    Reserva* reserva = new Reserva(asientos, fechaActual, *pas, *viaje);
+    mv->agregarReserva(reserva);
+    viaje->addReserva(reserva);    
     pas->asociarReserva(reserva);
     return true;
 }
@@ -231,11 +235,42 @@ void GestionViajeController::eliminarViaje() {
 
     Vehiculo* vehiculo = viaje->getVehiculo();
 
+    // Desasociar el viaje del vehículo
+    vehiculo->desasociarViaje(viaje);
+    viaje->desasociarVehiculo();
 
+    std::set<Reserva*> reservas = viaje->getReservas();
+    std::set<Reserva*>::iterator it;
+    for (it = reservas.begin(); it != reservas.end(); ++it) {
+        std::set<Calificacion*> calificaciones = (*it)->getCalificaciones();    
+        std::set<Calificacion*>::iterator itCal;
+        for (itCal = calificaciones.begin(); itCal != calificaciones.end(); ++itCal) {
+            Calificacion* calificacion = *itCal;
+            Usuario* uCalificado = calificacion->getUCalificado();
+            Usuario* uCalificador = calificacion->getUCalificador();
+            calificacion->desasociarReserva();
+            (*it)->desasociarCalificacion(calificacion);
+            calificacion->desasociarUsuarioCalificado();
+            calificacion->desasociarUsuarioCalificador();
+            uCalificado->desasociarCalificacion(*calificacion);
+            uCalificador->desasociarCalificacion(*calificacion);
+            delete calificacion;
+        }
+
+        Pasajero* pas = dynamic_cast<Pasajero*>((*it)->getPasajero());
+        pas->desasociarReserva(*it);
+        (*it)->desasociarViaje();
+        (*it)->desasociarPasajero();
+        viaje->desasociarReserva(*it);
+        delete (*it);
+
+        
+    }
     delete viaje;
+    this->codigoRecordado = -1;
 }
 
 void GestionViajeController::cancelarEliminarViaje() {
-    this->codigoRecordado = 0;
+    this->codigoRecordado = -1;
 }
 

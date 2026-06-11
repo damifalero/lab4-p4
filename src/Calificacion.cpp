@@ -39,5 +39,6 @@ void Calificacion::desasociarReserva(){this->res = NULL;}
 Calificacion::~Calificacion() {
     this->uCalificado = NULL;
     this->uCalificador = NULL;
+    this->res = NULL;
 }
 

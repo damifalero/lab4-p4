@@ -3,6 +3,7 @@
 
 #include "DTFecha.h"
 #include "DTListarViaje.h"
+#include "Pasajero.h"
 
 class Reserva {
 private:

@@ -51,8 +51,17 @@ bool Reserva::agregarCalificacion(Calificacion calificacion){
 Reserva::~Reserva(){
     this->pasajero = NULL;
     this->viaje = NULL;
+    for (std::set<Calificacion*>::iterator itCal = this->calificaciones.begin(); itCal != this->calificaciones.end(); ++itCal) {
+        Calificacion* calificacion = *itCal;
+        Usuario* uCalificado = calificacion->getUCalificado();
+        Usuario* uCalificador = calificacion->getUCalificador();
+        uCalificado->desasociarCalificacion(*calificacion);
+        uCalificador->desasociarCalificacion(*calificacion);
+        delete calificacion;
+    }
     this->calificaciones.clear();
 }
+
 void Reserva::asociarViaje(Viaje v){this->viaje = &v;}
 
 void Reserva::desasociarViaje(){this->viaje = NULL;}
