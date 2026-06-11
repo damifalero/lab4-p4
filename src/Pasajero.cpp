@@ -25,3 +25,7 @@ bool Pasajero::esPasajero() {
 void Pasajero::asociarReserva(Reserva* reserva) {
     this->reservas.insert(reserva);
 }
+
+void Pasajero::desasociarReserva(Reserva* reserva) {
+    this->reservas.erase(reserva);
+}

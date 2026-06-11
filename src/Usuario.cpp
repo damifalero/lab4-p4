@@ -31,7 +31,7 @@ void Usuario::asociarCalificacion(Calificacion cal){
     this->calificaciones.insert(cal);
 }
 
-void Usuario::desasociarCalificaion(Calificacion cal) {
+void Usuario::desasociarCalificacion(Calificacion cal) {
     this->calificaciones.erase(this->calificaciones.find(cal));
 }
 

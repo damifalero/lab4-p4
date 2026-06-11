@@ -34,7 +34,7 @@ public:
 
     DTUsuario getDTUsuario();
     void asociarCalificacion(Calificacion);
-    void desasociarCalificaion(Calificacion);
+    void desasociarCalificacion(Calificacion);
     void actualizarPromedio();
 };
 
