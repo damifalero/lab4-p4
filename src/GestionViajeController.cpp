@@ -7,6 +7,7 @@
 #include "../include/Reserva.h"
 #include "../include/Pasajero.h"
 #include "../include/Conductor.h"
+#include <ControladorFechaActual.h>
 
 GestionViajeController* GestionViajeController::instancia = NULL;
 
@@ -88,11 +89,14 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     if (!usuario->esPasajero())
         return false;
     
-    Reserva* reserva = new Reserva(asientos, viaje->getFecha(), *usuario, *viaje);
-    mv->agregarReserva(reserva);
-    viaje->agregarReserva(reserva);
-    
     Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
+
+    ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
+    DTFecha fechaActual = cfa->getFecha();
+
+    Reserva* reserva = new Reserva(asientos, fechaActual, *pas, *viaje);
+    mv->agregarReserva(reserva);
+    viaje->addReserva(reserva);    
     pas->asociarReserva(reserva);
     return true;
 }
@@ -230,7 +234,7 @@ void GestionViajeController::eliminarViaje() {
     Viaje* viaje = mv->obtenerViaje(codigoRecordado);
 
     Vehiculo* vehiculo = viaje->getVehiculo();
-
+    
 
     delete viaje;
 }
