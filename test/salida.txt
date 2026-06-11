@@ -1,51 +1,51 @@
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: Cargando datos harcodeados del sistema...
+8. Salir
+Ingrese una opcion: Cargando datos harcodeados del sistema...
 Datos cargados exitosamente.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: 1. Ver fecha actual
+8. Salir
+Ingrese una opcion: 1. Ver fecha actual
 2. Modificar fecha actual
 Seleccione: Ingrese dia: Ingrese mes: Ingrese anio: Fecha modificada exitosamente a 10/6/2026
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: 1. Alta Pasajero
+8. Salir
+Ingrese una opcion: 1. Alta Pasajero
 2. Alta Conductor
 Seleccione: Ingrese nickname: Ingrese nombre: Ingrese contrasena: Ingrese email: Ingrese CI: 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: 1. Alta Pasajero
+8. Salir
+Ingrese una opcion: 1. Alta Pasajero
 2. Alta Conductor
 Seleccione: Ingrese nickname: Ingrese nombre: Ingrese contrasena: Ingrese email: 
 === Registrar Libreta ===
@@ -58,46 +58,46 @@ Seleccione el tipo de libreta: Libreta agregada.
 === Registrar Vehiculo ===
 Ingrese matricula: Ingrese capacidad: Ingrese marca: Ingrese modelo: Ingrese tipo (0: Auto, 1: Moto): Vehiculo registrado exitosamente.
 ¿Desea agregar otro vehiculo? (1: Si, 0: No): 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: Ingrese nickname del conductor: > Matricula: qtr1515, Modelo: Ninja, Capacidad: 1
+8. Salir
+Ingrese una opcion: Ingrese nickname del conductor: > Matricula: qtr1515, Modelo: Ninja, Capacidad: 1
 Ingrese matricula del vehiculo a utilizar: Ingrese fecha del viaje (dia mes anio): Ingrese origen: Ingrese destino: Ingrese cantidad de asientos: Ingrese precio por asiento: Viaje registrado exitosamente.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: > joaco_r
+8. Salir
+Ingrese una opcion: > joaco_r
 > juan_p
 > mari_b
 > nacho_f
 > santi_90
 > valen_uy
-Ingrese nickname del pasajero: Ingrese fecha del viaje a consultar (dia mes anio): Ingrese origen: Ingrese destino: Ingrese cantidad de asientos a reservar: > Codigo: 14, Marca: Kawasaki, Modelo: Ninja, Conductor: pedro_c, CalificacionPromedio: 5, PrecioTotal: 100
+Ingrese nickname del pasajero: Ingrese fecha del viaje a consultar (dia mes anio): Ingrese origen: Ingrese destino: Ingrese cantidad de asientos a reservar: > Codigo: 14, Marca: Kawasaki, Modelo: Ninja, Conductor: pedro, CalificacionPromedio: 5, PrecioTotal: 100
 Ingrese codigo del viaje a reservar: Reserva realizada exitosamente.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: > Nickname: ana_silva, Nombre: Ana Silva
+8. Salir
+Ingrese una opcion: > Nickname: ana_silva, Nombre: Ana Silva
 > Nickname: carlos_r, Nombre: Carlos Rossi
 > Nickname: greg_m, Nombre: Diego Rodriguez
 > Nickname: lau_vaz, Nombre: Laura Vazquez
@@ -117,16 +117,16 @@ Ingrese codigo del viaje: > Nickname: nacho_f, Tipo: Pasajero
 > Nickname: joaco_r, Tipo: Pasajero
 Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: > Codigo: 1, Fecha: 21/10/2026, Origen: montevideo, Destino: mercedes, Conductor: matil92
+8. Salir
+Ingrese una opcion: > Codigo: 1, Fecha: 21/10/2026, Origen: montevideo, Destino: mercedes, Conductor: matil92
 > Codigo: 2, Fecha: 20/10/2026, Origen: young, Destino: montevideo, Conductor: matil92
 > Codigo: 3, Fecha: 20/10/2026, Origen: young, Destino: montevideo, Conductor: ana_silva
 > Codigo: 4, Fecha: 21/10/2026, Origen: montevideo, Destino: mercedes, Conductor: ana_silva
@@ -150,16 +150,16 @@ Ingrese codigo del viaje a eliminar: >> Viaje <<
 --- AsientosReservados: 1, Fecha: 14/3/2026, Pasajero: joaco_r
 ¿Confirmar eliminacion? (1: Si, 0: No): Viaje eliminado exitosamente.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: > Nickname: ana_silva, Nombre: Ana Silva
+8. Salir
+Ingrese una opcion: > Nickname: ana_silva, Nombre: Ana Silva
 > Nickname: carlos_r, Nombre: Carlos Rossi
 > Nickname: greg_m, Nombre: Diego Rodriguez
 > Nickname: lau_vaz, Nombre: Laura Vazquez
@@ -178,13 +178,13 @@ Ingrese codigo del viaje: > Nickname: matil92, Tipo: Conductor
 > Nickname: mari_b, Tipo: Pasajero
 Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
 
-=== Menu Principal ===
-1. Alta de usuario
-2. Alta de viaje
+=== MENU PRINCIPAL ===
+1. Alta de Usuario
+2. Alta de Viaje
 3. Generar Reserva
-4. Calificar usuario
-5. Eliminar viaje
-6. Modificar fecha del sistema
+4. Calificar Usuario
+5. Eliminar Viaje
+6. Administrar Fecha Actual
 7. Cargar Datos
-0. Salir
-Seleccione una opcion: Saliendo...
+8. Salir
+Ingrese una opcion: Saliendo del sistema...
