@@ -67,7 +67,7 @@ public:
 
     /*Operaciones para asociar y desasociar el link entre Viaje y Reserva*/
     void asociarReserva(Reserva* r);
-    void Viaje::desasociarReserva(Reserva* r);
+    void desasociarReserva(Reserva* r);
     
 };
 
