@@ -25,7 +25,7 @@ public:
   //pa que funcionaaaa
   /*std::set<DTDetalleVehiculo> getVehiculos();*/
 
-  bool operator<(const DTVehiculosConductor& other) const;
+  bool operator<(const DTVehiculosConductor& otro) const;
 };
 
 #endif
