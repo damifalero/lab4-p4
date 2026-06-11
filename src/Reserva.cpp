@@ -31,6 +31,12 @@ Viaje* Reserva::getViaje(){
 
 Pasajero* Reserva::getPasajero(){return this->pasajero;} 
 
+DTDetalleReserva Reserva::getDTDetalleReserva(){
+    DTDetalleReserva dtr(this->asientosReservados,this->fecha,this->pasajero->getNickname());
+    return dtr;
+}
+
+
 void Reserva::setViaje(Viaje viaje){
     Viaje* v = new Viaje(viaje.getCodigo(),viaje.getFecha(), viaje.getOrigen(), viaje.getDestino(), viaje.getAsientosPublicados(),viaje.getAsientosDisponibles(), viaje.getPrecioPorAsiento(), viaje.getVehiculo());
     v->setReservas(viaje.getReservas());
@@ -47,7 +53,6 @@ void Reserva::setPasajero(Pasajero pasajero){this->pasajero = &pasajero;}
 
 void Reserva::agregarCalificacion(Calificacion calificacion){
     this->calificaciones.insert(&calificacion);
-    
 }
 
 Reserva::~Reserva(){
