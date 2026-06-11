@@ -35,6 +35,8 @@ void CargaDatos::cargarDatos() {
     IControladorFechaActual* fa = Fabrica::getInstance()->getIControladorFechaActual();
 
     //no estoy muy segura peeero
+
+    //Carga de Usuarios
     try{
         //Cargar conductores
         std::set<TipoLibreta> libs_matias;
@@ -71,6 +73,42 @@ void CargaDatos::cargarDatos() {
 
     } catch (std::exception& e){
         std::cout << "Error en carga de usuarios: " << e.what() << "\n";
+    }
+
+    //Carga de Vehiculos
+    try{
+        uc->registrarVehiculo("matil92", "ABJ4586", 4, "Chevrolet", "Onix", TipoVehiculo::Auto);
+        //faltan agregar los demas
+
+    } catch(std::exception& e){
+        std::cout << "Error en carga de vehiculos: " << e.what() << "\n";
+    }
+    
+    //Carga de Viajes
+    try{
+        fa->setFecha(DTFecha(/*21, 10, 2026*/));
+        //no falta agregar el codigo?
+        gv->altaViaje("ABJ4586", DTFecha(21, 10, 2026), "montevideo", "mercedes", 4, 200);
+        //faltan agregar los demas
+    } catch(std::exception& e){
+        std::cout << "Error en carga de viajes: " << e.what() << "\n";
+    }
+
+    //Carga de Reservas
+    try{
+        fa->setFecha(DTFecha(14, 3, 2026));
+        gv->generarReserva("santi_90", 9, 2);
+        //faltan agregar los demas
+    } catch(std::exception& e){
+        std::cout << "Error en carga de reservas: " << e.what() << "\n";
+    }
+
+    //Carga de Claificaciones
+    try{
+        //donde se agrega el nickname y el codigo?
+        uc->calificarUsuario("matil92", 4);
+    } catch(std::exception& e){
+        std::cout << "Error en carga de calificaciones: " << e.what() << "\n";
     }
 
     datosCargados = true;
