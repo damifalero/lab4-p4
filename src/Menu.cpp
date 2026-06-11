@@ -1,6 +1,8 @@
 #include "../include/Menu.h"
 #include "../include/Fabrica.h"
 #include "../include/IControladorFechaActual.h"
+#include "../include/IGestionViajeController.h"
+#include "../include/IUsuarioController.h"
 #include "../include/CargaDatos.h"
 #include "../include/DTFecha.h"
 #include <iostream>
