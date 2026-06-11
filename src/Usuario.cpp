@@ -31,12 +31,16 @@ void Usuario::asociarCalificacion(Calificacion cal){
     this->calificaciones.insert(cal);
 }
 
+void Usuario::desasociarCalificaion(Calificacion cal) {
+    this->calificaciones.erase(this->calificaciones.find(cal));
+}
+
 void Usuario::actualizarPromedio(){
     int promedio = 0;
     std::set<Calificacion>::iterator it;
     for(it = this->calificaciones.begin(); it != this->calificaciones.end(); ++it){
         Calificacion current = *it;
-        promedio = promedio + current.getPuntaje();           //Falta el get en calificacion
+        promedio = promedio + current.getPuntaje();
     }
     this->caliPromedio = promedio / calificaciones.size();
 }

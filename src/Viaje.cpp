@@ -16,7 +16,7 @@ Viaje::Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino,
     this->asientosDisponibles = asientosDisponibles;
     this->precioPorAsiento = precioPorAsiento;
     this->vehiculo= vehiculo;
-    //this->reservas=NULL;
+    this->reservas=NULL;
 }
 
 Viaje::~Viaje(){}
@@ -65,7 +65,7 @@ bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, in
     }
     return true;
 }
-int Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){
+bool Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublicados){
     if (asientosRes + asientos <= asientosPublicados) {
         return true;
     } else {
@@ -127,17 +127,14 @@ DTConsultaViaje Viaje::getDataViaje(){
     DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califPromedio, precioT);
     return dtcv;
 }
-void Viaje::agregarReserva(Reserva* r){
+void Viaje::addReserva(Reserva* r){
     this->reservas.insert(r);
 }
 int Viaje::obtenerCodigo(){
     int nuevoCodigo = this->codigo + 1;
     return nuevoCodigo;
 }
-//no es lo mismo que getAsientosPublicados(?
-/*int Viaje::getAsientosOfrecidos(){
-    return this->asientosPublicados;
-}*/
+
 
 
 

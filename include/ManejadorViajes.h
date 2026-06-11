@@ -5,14 +5,14 @@
 #include "Vehiculo.h"
 #include <string>
 #include <map>
-
+#include <set>
 
 class ManejadorViajes {
     private:
         static ManejadorViajes* instancia;
         std::map<int, Viaje*> viajes;
         std::map<int, Reserva*> reservas;
-        int ultimoCodigo; //No se que es(preguntar)
+        int ultimoCodigo;
     
     public:
         //Constructores y Destructores
@@ -29,7 +29,7 @@ class ManejadorViajes {
         Viaje* obtenerViaje(int codigo);
         void agregarReserva(Reserva* r);
         int generarCodigo();
-        Viaje crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio)
+        Viaje crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientos, float precio);
 };
 
 #endif
