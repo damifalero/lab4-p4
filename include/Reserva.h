@@ -45,6 +45,7 @@ public:
     void desasociarPasajero();
     void asociarCalificacion(Calificacion* c);
     void desasociarCalificacion(Calificacion* c);
+    DTDetalleReserva getDTDetalleReserva();
 };
 
 #endif 

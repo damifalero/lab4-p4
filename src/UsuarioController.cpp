@@ -79,8 +79,8 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                     Reserva* res = *i; 
                     Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
                     res->asociarCalificacion(&c);
-                    uCalificado->asociarCalificacion(c);
-                    uCalificador->asociarCalificacion(c);
+                    uCalificado->asociarCalificacion(&c);
+                    uCalificador->asociarCalificacion(&c);
                 }
             }
         }else{
@@ -91,8 +91,8 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                     Reserva* res = *i; 
                     Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
                     res->asociarCalificacion(&c);
-                    uCalificado->asociarCalificacion(c);
-                    uCalificador->asociarCalificacion(c);
+                    uCalificado->asociarCalificacion(&c);
+                    uCalificador->asociarCalificacion(&c);
                 }
                 }
             }

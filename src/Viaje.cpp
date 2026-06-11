@@ -16,7 +16,8 @@ Viaje::Viaje(int codigo, DTFecha fecha, std::string origen, std::string destino,
     this->asientosDisponibles = asientosDisponibles;
     this->precioPorAsiento = precioPorAsiento;
     this->vehiculo= vehiculo;
-    this->reservas=NULL;
+    std::set<Reserva*> reservas;
+    this->reservas= reservas;
 }
 
 Viaje::~Viaje(){}
@@ -74,7 +75,7 @@ bool Viaje::cantAsientosValida(int asientosRes, int asientos, int asientosPublic
 }
 DTListarViaje Viaje::getDTListarViaje(){
     std::string nicknameConductor = this->getConductor();
-    DTListarViaje dtvi(this->codigo, this->fecha, this->origen, this->destino, this->asientosPublicados, nicknameConductor);
+    DTListarViaje dtvi(this->codigo, this->fecha, this->origen, this->destino, nicknameConductor);
     return dtvi;
 }
 

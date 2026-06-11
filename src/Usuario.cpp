@@ -29,19 +29,19 @@ DTUsuario Usuario::getDTUsuario(){
 }
 
 void Usuario::asociarCalificacion(Calificacion* cal){
-    this->calificaciones.insert(*cal);
+    this->calificaciones.insert(cal);
 }
 
 void Usuario::desasociarCalificacion(Calificacion* cal) {
-    this->calificaciones.erase(this->calificaciones.find(*cal));
+    this->calificaciones.erase(this->calificaciones.find(cal));
 }
 
 void Usuario::actualizarPromedio(){
     int promedio = 0;
-    std::set<Calificacion>::iterator it;
+    std::set<Calificacion*>::iterator it;
     for(it = this->calificaciones.begin(); it != this->calificaciones.end(); ++it){
-        Calificacion current = *it;
-        promedio = promedio + current.getPuntaje();
+        Calificacion* current = *it;
+        promedio = promedio + current->getPuntaje();
     }
     this->caliPromedio = promedio / calificaciones.size();
 }

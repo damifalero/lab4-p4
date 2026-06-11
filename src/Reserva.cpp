@@ -57,8 +57,8 @@ Reserva::~Reserva(){
         Calificacion* calificacion = *itCal;
         Usuario* uCalificado = calificacion->getUCalificado();
         Usuario* uCalificador = calificacion->getUCalificador();
-        uCalificado->desasociarCalificacion(*calificacion);
-        uCalificador->desasociarCalificacion(*calificacion);
+        uCalificado->desasociarCalificacion(calificacion);
+        uCalificador->desasociarCalificacion(calificacion);
         delete calificacion;
     }
     this->calificaciones.clear();
