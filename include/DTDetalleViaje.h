@@ -39,6 +39,9 @@ public:
     void setVehiculo(DTDetalleVehiculo vehiculo);
     void setReservas(std::vector<DTDetalleReserva> reservas);
 
+    bool operator<(const DTDetalleViaje& otro) const;
 };
+
+
 
 #endif 

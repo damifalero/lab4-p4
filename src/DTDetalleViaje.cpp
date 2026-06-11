@@ -29,3 +29,8 @@ void DTDetalleViaje::setAsientosPublicados(int asientosPublicados){this->asiento
 void DTDetalleViaje::setPrecio(float precio){this->precio = precio;}
 void DTDetalleViaje::setVehiculo(DTDetalleVehiculo vehiculo){this->vehiculo = vehiculo;}
 void DTDetalleViaje::setReservas(std::vector<DTDetalleReserva> reservas){this->reservas = reservas;}
+
+
+bool DTDetalleViaje::operator<(const DTDetalleViaje& otro) const{
+    return codigo < otro.codigo;
+}
