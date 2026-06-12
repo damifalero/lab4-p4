@@ -151,7 +151,6 @@ void CargaDatos::cargarDatos() {
 
     //Carga de Claificaciones
     try{
-        
         uc->calificarUsuario("santi_90", 4);
         uc->calificarUsuario("mari_b", 4);
         uc->calificarUsuario("matil92", 3);
