@@ -82,7 +82,7 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
          return false;
     }
 
-    std::map<int, Reserva*> reservas = mv->getReservas();
+    /*const std::map<int, Reserva*>& reservas = mv->getReservas();
     std::map<int, Reserva*>::iterator it;
     for (it = reservas.begin(); it != reservas.end(); ++it) {       
         Reserva* reserva = it->second;
@@ -90,12 +90,27 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
             return false; // El pasajero ya tiene una reserva para ese viaje
         }
     }
-
+    
     if (!usuario->esPasajero()){
          return false; // El usuario no es un pasajero
+    }*/
+
+    //Validación clave generada para reserva
+    std::string claveBuscada = std::to_string(codigo) + "-" + nickname;
+    const std::map<std::string, Reserva*>& reservas = mv->getReservas();
+
+    if (reservas.find(claveBuscada) != reservas.end()){
+        return false; //El pasajero ya tiene una reserva para este viaje
+    }
+
+    if (!usuario->esPasajero()){
+        return false;
     }
     
     Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
+    if (pas == NULL){
+        return false; //El dynamic_cast falló, el usuario no es pasajero real
+    }
 
     ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
     DTFecha fechaActual = cfa->getFecha();
@@ -195,14 +210,14 @@ std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo)
     for (it = reservas.begin(); it != reservas.end(); ++it) {
         //hay que castear???
         Pasajero* pas = dynamic_cast<Pasajero*>((*it)->getPasajero());
-        if(pas->getNickname() != this->nicknameRecordado){
+        if(pas != NULL && pas->getNickname() != this->nicknameRecordado){
             DTUsuarioViaje dtuv(pas->getNickname(), TipoUsuario::Tipo_Pasajero);
             resultado.insert(dtuv);
         }
     }
 
     std::string cond = viaje->getConductor();
-    if(cond != this->nicknameRecordado){
+    if(!cond.empty() && cond != this->nicknameRecordado){
         DTUsuarioViaje dtuv(cond, TipoUsuario::Tipo_Conductor);
         resultado.insert(dtuv);
     }
@@ -239,36 +254,58 @@ void GestionViajeController::eliminarViaje() {
     ManejadorViajes* mv = ManejadorViajes::getInstancia();
     Viaje* viaje = mv->obtenerViaje(codigoRecordado);
 
-    Vehiculo* vehiculo = viaje->getVehiculo();
+    if (viaje == NULL){
+        return;
+    }
 
-    // Desasociar el viaje del vehículo
-    vehiculo->desasociarViaje(viaje);
-    viaje->desasociarVehiculo();
+    Vehiculo* vehiculo = viaje->getVehiculo();
+    if (vehiculo != NULL){
+        // Desasociar el viaje del vehículo
+        vehiculo->desasociarViaje(viaje);
+        viaje->desasociarVehiculo();
+    }
+    
 
     std::set<Reserva*> reservas = viaje->getReservas();
     std::set<Reserva*>::iterator it;
     for (it = reservas.begin(); it != reservas.end(); ++it) {
-        std::set<Calificacion*> calificaciones = (*it)->getCalificaciones();    
+        Reserva* res = *it;
+        if (res == NULL){
+            return;
+        }
+        std::set<Calificacion*> calificaciones = res->getCalificaciones();    
         std::set<Calificacion*>::iterator itCal;
         for (itCal = calificaciones.begin(); itCal != calificaciones.end(); ++itCal) {
             Calificacion* calificacion = *itCal;
-            Usuario* uCalificado = calificacion->getUCalificado();
-            Usuario* uCalificador = calificacion->getUCalificador();
-            calificacion->desasociarReserva();
-            (*it)->desasociarCalificacion(calificacion);
-            calificacion->desasociarUsuarioCalificado();
-            calificacion->desasociarUsuarioCalificador();
-            uCalificado->desasociarCalificacion(calificacion);
-            uCalificador->desasociarCalificacion(calificacion);
-            delete calificacion;
+            if (calificacion != NULL){
+                Usuario* uCalificado = calificacion->getUCalificado();
+                Usuario* uCalificador = calificacion->getUCalificador();
+
+                calificacion->desasociarReserva();
+                res->desasociarCalificacion(calificacion);
+                calificacion->desasociarUsuarioCalificado();
+                calificacion->desasociarUsuarioCalificador();
+
+                if (uCalificado!= NULL){
+                    uCalificado->desasociarCalificacion(calificacion);
+                }
+                if (uCalificador != NULL){
+                    uCalificador->desasociarCalificacion(calificacion);
+                }
+
+                delete calificacion;
+            }
+            
         }
 
-        Pasajero* pas = dynamic_cast<Pasajero*>((*it)->getPasajero());
-        pas->desasociarReserva(*it);
-        (*it)->desasociarViaje();
-        (*it)->desasociarPasajero();
-        viaje->desasociarReserva(*it);
-        delete (*it);
+        Pasajero* pas = dynamic_cast<Pasajero*>(res->getPasajero());
+        if (pas != NULL){
+            pas->desasociarReserva(res);
+        }
+        res->desasociarViaje();
+        res->desasociarPasajero();
+        viaje->desasociarReserva(res);
+        delete (res);
 
         
     }

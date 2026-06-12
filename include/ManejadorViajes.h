@@ -11,7 +11,7 @@ class ManejadorViajes {
     private:
         static ManejadorViajes* instancia;
         std::map<int, Viaje*> viajes;
-        std::map<int, Reserva*> reservas;
+        std::map<std::string, Reserva*> reservas;
         int ultimoCodigo;
     
     public:
@@ -21,15 +21,15 @@ class ManejadorViajes {
 
         //Getters
         static ManejadorViajes* getInstancia();
-        std::map<int, Viaje*> getViajes();
-        std::map<int, Reserva*> getReservas();
+        const std::map<int, Viaje*>& getViajes() const;
+        const std::map<std::string, Reserva*>& getReservas() const;
 
         //Funciones
         void agregarViaje(Viaje* v);
         Viaje* obtenerViaje(int codigo);
         void agregarReserva(Reserva* r);
         int generarCodigo();
-        Viaje crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precio);
+        Viaje* crearViaje(Vehiculo v, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, int asientosDisponibles, float precio);
 };
 
 #endif

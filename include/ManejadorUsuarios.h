@@ -18,7 +18,7 @@ class ManejadorUsuarios {
 
         //Getters
         static ManejadorUsuarios* getInstancia();
-        std::map<std::string, Usuario*> getUsuarios();
+        const std::map<std::string, Usuario*>& getUsuarios() const;
 
         //Funciones
         void agregarUsuario(Usuario* u);

@@ -12,7 +12,7 @@ ManejadorUsuarios* ManejadorUsuarios::getInstancia() {
     }
     return instancia;
 }
-std::map<std::string, Usuario*> ManejadorUsuarios::getUsuarios(){ return this->usuarios; }
+const std::map<std::string, Usuario*>& ManejadorUsuarios::getUsuarios() const{ return this->usuarios; }
 
 void ManejadorUsuarios::agregarUsuario(Usuario* u){ usuarios[u->getNickname()] = u;}
 

@@ -92,9 +92,7 @@ void CargaDatos::cargarDatos() {
     
     //Carga de Viajes
     try{
-        //fa->setFecha(DTFecha(/*21, 10, 2026*/));
         DTFecha f1(21,10,2026);
-        //no falta agregar el codigo?
         gv->altaViaje("ABJ4586", f1, "montevideo", "mercedes", 4, 200);
         DTFecha f2(20,10,2026);
         gv->altaViaje("ACM4455", f2, "young", "montevideo", 5, 250);
@@ -121,7 +119,6 @@ void CargaDatos::cargarDatos() {
         DTFecha f13(20,10,2026);
         gv->altaViaje("LDA4875", f13, "young", "montevideo", 1, 250);
 
-        //faltan agregar los demas
     } catch(std::exception& e){
         std::cout << "Error en carga de viajes: " << e.what() << "\n";
     }
@@ -146,7 +143,7 @@ void CargaDatos::cargarDatos() {
 
     //Carga de Claificaciones
     try{
-        //donde se agrega el nickname y el codigo?
+        //quizas hay que usar listarUsuariosViaje antes de calificar
         uc->calificarUsuario("santi_90", 4);
         uc->calificarUsuario("mari_b", 4);
         uc->calificarUsuario("matil92", 3);
