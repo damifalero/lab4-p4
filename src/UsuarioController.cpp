@@ -130,6 +130,7 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
             Vehiculo* ve = new Vehiculo(matricula,capacidad,marca,modelo,tipo);
             mv->agregarVehiculo(ve);
             ve->setUsuario(c);
+            c->agregarVehiculoUsuario(ve);
             return 0;
         } else return -2;
     }

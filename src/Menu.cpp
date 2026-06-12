@@ -153,7 +153,6 @@ void Menu::altaUsuario() {
                 return;
             }
 
-            std::cout << "texto" << tipoV << "\n";
 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             int resultadoRegistrarVehiculo = -3;
@@ -188,7 +187,11 @@ void Menu::altaViaje() {
     //TODO: Recorrer la coleccion y mostrar "> Matricula: xx, Marca: yy, Capacidad: www"
     std::set<DTVehiculosConductor>:: iterator it;
     std::set<std::string> matriculas;
+
+    std::cout << vehiculos.size() << "\n";
+
     for(it = vehiculos.begin(); it != vehiculos.end(); ++it) {
+        std::cout << "Entro al for.\n";
         DTVehiculosConductor vehiculo = *it;
         std::cout << "> Matricula: " << vehiculo.getMatricula() << ", Marca: " << vehiculo.getMarca() << ", Capacidad: " << vehiculo.getCapacidad() << "\n";
         matriculas.insert(vehiculo.getMatricula());
