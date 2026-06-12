@@ -25,26 +25,26 @@ void UsuarioController::setCodigoRecordado(int codigo){this->codigoRecordado = c
 
 bool UsuarioController::altaPasajero(std::string nickname,std::string nombre,std::string contrasena,std::string email,std::string ci){
     ManejadorUsuarios* manejador = ManejadorUsuarios::getInstancia();
-    bool existeUsuario = manejador->existeUsuario(nickname);
 
-    if (existeUsuario) return false;
-    else{
-        Pasajero p(nickname,nombre,contrasena,email,ci);
-        manejador->agregarUsuario(&p);
-        return true;
-    }
+    if (manejador->existeUsuario(nickname))
+        return false;
+
+    Pasajero* p = new Pasajero(nickname, nombre, contrasena, email, ci);
+
+    manejador->agregarUsuario(p);
+    return true;
 }
 
 bool UsuarioController::altaConductor(std::string nickname,std::string nombre,std::string contrasena,std::string email,std::set<TipoLibreta> libretas){
-        ManejadorUsuarios* manejador = ManejadorUsuarios::getInstancia();
-    bool existeUsuario = manejador->existeUsuario(nickname);
+    ManejadorUsuarios* manejador = ManejadorUsuarios::getInstancia();
 
-    if (existeUsuario) return false;
-    else{
-        Conductor c(nickname,nombre,contrasena,email,libretas);
-        manejador->agregarUsuario(&c);
-        return true;
-    }
+    if (manejador->existeUsuario(nickname))
+        return false;
+
+    Conductor* c = new Conductor(nickname, nombre, contrasena, email, libretas);
+
+    manejador->agregarUsuario(c);
+    return true;
 }
 
 std::set<DTUsuario> UsuarioController::listarUsuarios(){
@@ -108,13 +108,13 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     }
 
 int UsuarioController::registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo){
-    ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
-    ManejadorVehiculo* ManejadorVehiculo = ManejadorVehiculo::getInstancia(); 
+    ManejadorUsuarios* mu = ManejadorUsuarios::getInstancia();
+    ManejadorVehiculo* mv = ManejadorVehiculo::getInstancia(); 
     
-    bool existeV = ManejadorVehiculo->existeVehiculo(matricula);
+    bool existeV = mv->existeVehiculo(matricula);
     if (existeV) return -1;
     else{
-        Conductor* c = dynamic_cast<Conductor*>(ManejadorUsuarios->obtenerUsuario(nickname));
+        Conductor* c = dynamic_cast<Conductor*>(mu->obtenerUsuario(nickname));
 
         TipoLibreta libretaAm;
         TipoLibreta libretaProf;
@@ -127,17 +127,17 @@ int UsuarioController::registrarVehiculo(std::string nickname,std::string matric
         }
         bool tieneL = (c->tieneLibreta(libretaAm) || c->tieneLibreta(libretaProf));
         if (tieneL){
-            Vehiculo ve(matricula,capacidad,marca,modelo,tipo);
-            ManejadorVehiculo->agregarVehiculo(&ve);
-            c->agregarVehiculoUsuario(&ve);
+            Vehiculo* ve = new Vehiculo(matricula,capacidad,marca,modelo,tipo);
+            mv->agregarVehiculo(ve);
+            ve->setUsuario(c);
             return 0;
         } else return -2;
     }
 }
 
 std::set<DTVehiculosConductor> UsuarioController::listarVehiculosConductor(std::string nickname){
-        ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
-        Conductor* c = dynamic_cast<Conductor*>(ManejadorUsuarios->obtenerUsuario(nickname));
+        ManejadorUsuarios* mu = ManejadorUsuarios::getInstancia();
+        Conductor* c = dynamic_cast<Conductor*>(mu->obtenerUsuario(nickname));
         std::set<DTVehiculosConductor> listaVehiculos = c->listarVehiculos();
         return listaVehiculos;
 }

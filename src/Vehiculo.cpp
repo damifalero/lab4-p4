@@ -73,12 +73,10 @@ void Vehiculo::setTipo(TipoVehiculo tipo){
     this->tipo = tipo;
 }
 
-void Vehiculo::setUsuario(Usuario* usuario){
-    if (dynamic_cast<Conductor*>(usuario) != nullptr) {
-        dynamic_cast<Conductor*>(usuario)->agregarVehiculoUsuario(this);
-    }
-    this->usuario = dynamic_cast<Conductor*>(usuario);
+void Vehiculo::setUsuario(Conductor* usuario){
+        this->usuario = usuario;
 }
+
 
 //metodos
 bool Vehiculo::hayViajesConductor(){

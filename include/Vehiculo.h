@@ -43,7 +43,7 @@ public:
     void setMarca(std::string marca);
     void setModelo(std::string modelo);
     void setTipo(TipoVehiculo tipo);
-    void setUsuario(Usuario* usuario);
+    void setUsuario(Conductor* usuario);
 
     //metodos
     bool hayViajesConductor();
