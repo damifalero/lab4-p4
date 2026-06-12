@@ -188,10 +188,7 @@ void Menu::altaViaje() {
     std::set<DTVehiculosConductor>:: iterator it;
     std::set<std::string> matriculas;
 
-    std::cout << vehiculos.size() << "\n";
-
     for(it = vehiculos.begin(); it != vehiculos.end(); ++it) {
-        std::cout << "Entro al for.\n";
         DTVehiculosConductor vehiculo = *it;
         std::cout << "> Matricula: " << vehiculo.getMatricula() << ", Marca: " << vehiculo.getMarca() << ", Capacidad: " << vehiculo.getCapacidad() << "\n";
         matriculas.insert(vehiculo.getMatricula());
@@ -225,6 +222,7 @@ void Menu::altaViaje() {
 
 void Menu::generarReserva() {
     //TODO: Colecion de String = controlador->listarPasajeros()
+
     //TODO: Recorrer la colección y mostrar "> xx"
     std::string nickname;
     std::cout << "Ingrese nickname del pasajero: "; std::getline(std::cin, nickname);
