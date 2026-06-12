@@ -64,6 +64,13 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     
     ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia();
     Viaje* viaje = ManejadorViajes->obtenerViaje(this->codigoRecordado);
+
+    //Controlador para verificar que el viaje o los usuarios no existan
+    if (viaje == NULL || uCalificado == NULL || uCalificado == NULL){
+        this->codigoRecordado = -1;
+        this->nicknameRecordado = "";
+        return false;
+    }
     std::set<Reserva*> reservas = viaje->getReservas();
 
     bool existe = false;
@@ -71,21 +78,22 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end(); ++i) {
         std::set<Calificacion*> calificaciones = (*i)->getCalificaciones();
         for (std::set<Calificacion*>::iterator j = calificaciones.begin(); j != calificaciones.end(); ++j)
-            if (!existe && (*j)->getUCalificado() == uCalificado && (*j)->getUCalificador() == uCalificador) existe = true;
+            if (!existe && (*j)->getUCalificado() == uCalificado && (*j)->getUCalificador() == uCalificador){
+                existe = true;
+            } 
     }
 
     if (!existe){
-        
-        if((*uCalificador).esPasajero()){
+        if(uCalificador->esPasajero()){
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {
                 if ((*i)->getPasajero() == uCalificador){
                     encontrado = true;
                     Reserva* res = *i; 
-                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
-                    res->asociarCalificacion(&c);
-                    uCalificado->asociarCalificacion(&c);
-                    uCalificador->asociarCalificacion(&c);
+                    Calificacion* c= new Calificacion(viaje->getFecha(), calificacion, res, uCalificado, uCalificador);
+                    res->asociarCalificacion(c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
                 }
             }
         }else{
@@ -94,10 +102,10 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
                 if ((*i)->getPasajero() == uCalificado){
                     encontrado = true;
                     Reserva* res = *i; 
-                    Calificacion c(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
-                    res->asociarCalificacion(&c);
-                    uCalificado->asociarCalificacion(&c);
-                    uCalificador->asociarCalificacion(&c);
+                    Calificacion* c = new Calificacion(viaje->getFecha(),calificacion,res,uCalificado,uCalificador);
+                    res->asociarCalificacion(c);
+                    uCalificado->asociarCalificacion(c);
+                    uCalificador->asociarCalificacion(c);
                 }
                 }
             }
@@ -105,7 +113,7 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
         this->codigoRecordado = -1;
         this->nicknameRecordado = "";
         return !existe;
-    }
+}
 
 int UsuarioController::registrarVehiculo(std::string nickname,std::string matricula,int capacidad,std::string marca,std::string modelo,TipoVehiculo tipo){
     ManejadorUsuarios* mu = ManejadorUsuarios::getInstancia();
