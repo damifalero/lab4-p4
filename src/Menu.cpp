@@ -222,14 +222,21 @@ void Menu::altaViaje() {
 
 void Menu::generarReserva() {
     //TODO: Colecion de String = controlador->listarPasajeros()
-
+    GestionViajeController* gvc = GestionViajeController::getInstance();
+    std::set<std::string> pasajeros = gvc->listarPasajeros();
+    
     //TODO: Recorrer la colección y mostrar "> xx"
+    std::set<std::string>::iterator it;
+    for (it = pasajeros.begin(); it != pasajeros.end(); ++it) {
+        std::cout << "> " << *it << "\n";
+    }
+
     std::string nickname;
     std::cout << "Ingrese nickname del pasajero: "; std::getline(std::cin, nickname);
 
     bool nicknameValido = false;
     //TODO: Validar nickname en listado
-    if (!nicknameValido) {
+    if (pasajeros.find(nickname) == pasajeros.end()) {
         std::cout << "Nickname invalido.\n";
         return;
     }
@@ -244,9 +251,20 @@ void Menu::generarReserva() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     //TODO: Coleccion de DTConsultaViaje = controlador->consultarViajes(DTFecha(dia, mes, anio), origen, destino, asientos)
+    std::set<DTConsultaViaje> viajes = gvc->consultarViaje(DTFecha(dia, mes, anio), origen, destino, asientos);
+    
     //TODO: Recorrer la coleccion y mostrar: "> Codigo: xx, Marca: yy, Modelo: zzz, Conductor: aaa, CalificacionPromedio: qqq, PrecioTotal: eee"
+    std::set<DTConsultaViaje>::iterator it2;
+    std::set<int> codigos;
+    for (it2 = viajes.begin(); it2 != viajes.end(); ++it2) {
+        std::cout << "> Codigo: " << it2->getCodigo() << ", Marca: " << it2->getMarca() << ", Modelo: " << it2->getModelo() << ", Conductor: " << it2->getConductor() << ", CalificacionPromedio: " << it2->getCalificacionProm() << ", PrecioTotal: " << it2->getPrecioTotal() << "\n";
+        codigos.insert(it2->getCodigo());
+    }
 
     bool hayViajes = false;//TODO: Validar coleccion vacía
+    if (!viajes.empty()) {
+        hayViajes = true;
+    }
     if (!hayViajes) {
         std::cout << "No hay viajes disponibles.\n";
         return;
@@ -257,6 +275,9 @@ void Menu::generarReserva() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     bool codigoValido = false;
     //TODO: Validar codigo en listado
+    if (codigos.find(codigo) != codigos.end()) {
+        codigoValido = true;
+    }
     if (!codigoValido) {
         std::cout << "Codigo invalido.\n";
         return;
@@ -264,6 +285,7 @@ void Menu::generarReserva() {
 
     bool reservaOk = false;
     //TODO: reservaOk = controlador->generarReserva(nickname, codigo, asientos)
+    reservaOk = gvc->generarReserva(nickname, codigo, asientos);
     if (reservaOk) {
         std::cout << "Reserva realizada exitosamente.\n";
     } else {

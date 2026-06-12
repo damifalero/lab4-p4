@@ -10,6 +10,8 @@
 #include "../include/Calificacion.h"
 #include <ControladorFechaActual.h>
 
+
+
 GestionViajeController* GestionViajeController::instancia = NULL;
 
 GestionViajeController::GestionViajeController() {
@@ -72,11 +74,13 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     ManejadorViajes* mv = ManejadorViajes::getInstancia();
     Viaje* viaje = mv->obtenerViaje(codigo);
 
-    if (usuario == NULL || viaje == NULL)
-        return false;
+    if (usuario == NULL || viaje == NULL){
+         return false;
+    }
 
-    if (!viaje->cantAsientosValida(asientos, viaje->getAsientosDisponibles(), viaje->getAsientosPublicados()))
-        return false;
+    if (!viaje->cantAsientosValida(viaje->cantAsientosRes(), asientos, viaje->getAsientosPublicados())){
+         return false;
+    }
 
     std::map<int, Reserva*> reservas = mv->getReservas();
     std::map<int, Reserva*>::iterator it;
@@ -87,17 +91,20 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
         }
     }
 
-    if (!usuario->esPasajero())
-        return false;
+    if (!usuario->esPasajero()){
+         return false; // El usuario no es un pasajero
+    }
     
+    std::cout << "Llego hasta antes del cast\n";
     Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
+   std::cout << "Llego hasta despues del cast\n";
 
     ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
     DTFecha fechaActual = cfa->getFecha();
 
     Reserva* reserva = new Reserva(asientos, fechaActual, *pas, *viaje);
     mv->agregarReserva(reserva);
-    viaje->addReserva(reserva);    
+    viaje->addReserva(reserva);
     pas->asociarReserva(reserva);
     return true;
 }

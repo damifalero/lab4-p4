@@ -9,12 +9,12 @@ DTConsultaViaje::DTConsultaViaje(int codigo, std::string marca, std::string mode
     this->precioTotal = precioTotal;
 }
 
-int DTConsultaViaje::getCodigo() { return codigo; }
-std::string DTConsultaViaje::getMarca() { return marca; }
-std::string DTConsultaViaje::getModelo() { return modelo; }
-std::string DTConsultaViaje::getConductor() { return conductor; }
-float DTConsultaViaje::getCalificacionProm() { return calificacionProm; }
-float DTConsultaViaje::getPrecioTotal() { return precioTotal; }
+int DTConsultaViaje::getCodigo()  const{ return codigo; }
+std::string DTConsultaViaje::getMarca()  const{ return marca; }
+std::string DTConsultaViaje::getModelo()  const{ return modelo; }
+std::string DTConsultaViaje::getConductor()  const{ return conductor; }
+float DTConsultaViaje::getCalificacionProm()  const{ return calificacionProm; }
+float DTConsultaViaje::getPrecioTotal()  const{ return precioTotal; }
 
 void DTConsultaViaje::setCodigo(int codigo){this->codigo = codigo;}
 void DTConsultaViaje::setMarca(std::string marca){this->marca = marca;}
