@@ -145,9 +145,9 @@ void Menu::altaUsuario() {
             std::cout << "Ingrese tipo (0: Auto, 1: Moto): "; std::cin >> tipo;
             TipoVehiculo tipoV;
             if(tipo == 0){
-                tipoV = TipoVehiculo::Auto;
+                tipoV = Auto;
             }else if(tipo == 1){
-                tipoV = TipoVehiculo::Moto;
+                tipoV = Moto;
             } else {
                 std::cout << "Tipo de vehiculo invalido.\n";
                 return;
