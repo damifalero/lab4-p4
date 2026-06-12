@@ -95,9 +95,7 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
          return false; // El usuario no es un pasajero
     }
     
-    std::cout << "Llego hasta antes del cast\n";
     Pasajero* pas = dynamic_cast<Pasajero*>(usuario);
-   std::cout << "Llego hasta despues del cast\n";
 
     ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
     DTFecha fechaActual = cfa->getFecha();
