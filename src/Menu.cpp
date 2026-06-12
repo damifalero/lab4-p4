@@ -417,7 +417,11 @@ void Menu::mostrarMenu() {
         std::cout << "7. Cargar Datos\n";
         std::cout << "8. Salir\n";
         std::cout << "Ingrese una opcion: ";
-        std::cin >> opcion;
+        if (!(std::cin >> opcion)){
+            std::cout << "\n[DEBUG] Fin de archivo detectado o error en lectura. Saliendo...\n";
+            opcion = 8; //Forzamos la salida
+            break; //Rompemos el bucle inmediatamente
+        }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         switch (opcion) {
