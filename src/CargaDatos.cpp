@@ -65,7 +65,7 @@ void CargaDatos::cargarDatos() {
 
         uc->altaPasajero("mari_b", "Maria Noel Barreto", "maribarreto6", "mari.barreto@outlook.com", "41038591");
 
-        uc->altaPasajero("nacho_f", "Igancio Figueroa", "ifigueroa28", "ignacio.figueroa@fing.edu.uy", "38471125");
+        uc->altaPasajero("nacho_f", "Ignacio Figueroa", "ifigueroa28", "ignacio.figueroa@fing.edu.uy", "38471125");
 
         uc-> altaPasajero("valen_uy", "Valentina Mendez", "vmendezQ2", "valen.mendez@fing.edu.uy", "29564030");
 

@@ -13,11 +13,11 @@ Pasajero::~Pasajero() {
 //getters
 std::string Pasajero::getci(){
     return this->ci;
-};
+}
 
 std::set<Reserva*> Pasajero::getReservas(){
     return this->reservas;
-};
+}
 
 bool Pasajero::esPasajero() {
     return true;

@@ -18,9 +18,13 @@ DTFecha Reserva::getDTFecha(){
     return this->fecha;
 }
 
-DTListarViaje Reserva::getDTListarViaje(){
-    DTListarViaje dtlv(this->viaje->getCodigo(), this->viaje->getFecha(), this->viaje->getOrigen(), this->viaje->getDestino(), this->viaje->getConductor());
-    return dtlv;
+DTListarViaje Reserva::getDTListarViaje() {
+    int codigo = this->viaje->getCodigo();
+    DTFecha fecha = this->viaje->getFecha();
+    std::string origen = this->viaje->getOrigen();
+    std::string destino = this->viaje->getDestino();
+    std::string conductor = this->viaje->getConductor();
+    return DTListarViaje(codigo, fecha, origen, destino, conductor);
 } 
 
 std::set<Calificacion*> Reserva::getCalificaciones(){return this->calificaciones;}

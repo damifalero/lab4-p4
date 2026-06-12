@@ -119,6 +119,8 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     mv->agregarReserva(reserva);
     viaje->addReserva(reserva);
     pas->asociarReserva(reserva);
+    reserva->setViaje(*viaje);
+    reserva->setPasajero(*pas);
     return true;
 }
 
