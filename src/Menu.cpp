@@ -315,6 +315,7 @@ void Menu::calificarUsuario() {
     //TODO: Coleccion de DTListarViaje = controlador->listarViajes(nickname)
     GestionViajeController* gvc = GestionViajeController::getInstance();
     std::set<DTListarViaje> viajes = gvc->listarViajes(nickname);
+    std::string nicknameRecordado = gvc->getNicknameRecordado();
     //TODO: Recorrer la coleccion y mostrar "> Codigo: xx, Fecha: dd/mm/aaaa, Origen: zzz, Destino: www, Conductor: aaa"
     std::set<DTListarViaje>::iterator it2;
     std::set<int> codigos;
@@ -335,6 +336,7 @@ void Menu::calificarUsuario() {
 
     //TODO: Coleccion de DTUsuarioViaje = Controlador->listarUsuariosViaje(codigo)
     std::set<DTUsuarioViaje> usuariosViaje = gvc->listarUsuariosViaje(codigo);
+    int codigoRecordado = gvc->getCodigoRecordado();
 
     //TODO: Recorrer la coleccion y mostrar "> Nickname: xx, Tipo: yyy"
     std::set<DTUsuarioViaje>::iterator it3;
@@ -366,6 +368,8 @@ void Menu::calificarUsuario() {
 
     bool calificacionOk = false;
     //TODO: calificacionOk = Controlador->calificarUsuario(nicknameCalificado, calificacion)
+    uc->setNicknameRecordad(nicknameRecordado);
+    uc->setCodigoRecordado(codigoRecordado);
     calificacionOk = uc->calificarUsuario(nicknameCalificado, calificacion);
     if (calificacionOk) {
         std::cout << "Calificacion exitosa.\n";

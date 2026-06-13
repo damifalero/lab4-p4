@@ -322,3 +322,7 @@ void GestionViajeController::cancelarEliminarViaje() {
 std::string GestionViajeController::getNicknameRecordado(){
     return this->nicknameRecordado;
 }
+
+int GestionViajeController::getCodigoRecordado(){
+    return this->codigoRecordado;
+}

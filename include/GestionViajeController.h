@@ -41,6 +41,7 @@ public:
     bool generarReserva(std::string nickname, int codigo, int asientos);
 
     std::string getNicknameRecordado();
+    int getCodigoRecordado();
 };
 
 #endif
