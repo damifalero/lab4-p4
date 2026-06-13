@@ -3,11 +3,13 @@
 #include "../include/Pasajero.h"
 #include "../include/Calificacion.h"
 
-Reserva::Reserva(int asientosReservados, DTFecha fecha, Pasajero pasajero,Viaje viaje) {
+Reserva::Reserva(int asientosReservados, DTFecha fecha,Pasajero* pasajero,Viaje* viaje){
     this->asientosReservados = asientosReservados;
     this->fecha = fecha;
-    this->pasajero = &pasajero;
-    this->viaje = &viaje;
+    this->pasajero = pasajero;
+    this->viaje = viaje;
+    std::set<Calificacion*> calificaciones;
+    this->calificaciones = calificaciones;
 }
 
 int Reserva::getAsientosReservados(){
@@ -36,15 +38,17 @@ Viaje* Reserva::getViaje(){
 Pasajero* Reserva::getPasajero(){return this->pasajero;} 
 
 DTDetalleReserva Reserva::getDTDetalleReserva(){
+    std::cout << "Reserva: " << this << std::endl;
+    std::cout << "Pasajero: " << this->pasajero << std::endl;
+      if (this->pasajero == NULL)
+        std::cout << "PASAJERO NULL" << std::endl;
     DTDetalleReserva dtr(this->asientosReservados,this->fecha,this->pasajero->getNickname());
     return dtr;
 }
 
 
-void Reserva::setViaje(Viaje viaje){
-    Viaje* v = new Viaje(viaje.getCodigo(),viaje.getFecha(), viaje.getOrigen(), viaje.getDestino(), viaje.getAsientosPublicados(),viaje.getAsientosDisponibles(), viaje.getPrecioPorAsiento(), viaje.getVehiculo());
-    v->setReservas(viaje.getReservas());
-    this->viaje = v;
+void Reserva::setViaje(Viaje* viaje){
+    this->viaje = viaje;
 }
 
 void Reserva::setAsientosReservados(int asientosReservados){this->asientosReservados = asientosReservados;}
@@ -53,7 +57,7 @@ void Reserva::setDTFecha(DTFecha fecha){this->fecha = fecha;}
 
 void Reserva::setCalificaciones(std::set<Calificacion*> calificaciones){this->calificaciones = calificaciones;}
 
-void Reserva::setPasajero(Pasajero pasajero){this->pasajero = &pasajero;}
+void Reserva::setPasajero(Pasajero* pasajero){this->pasajero = pasajero;}
 
 void Reserva::agregarCalificacion(Calificacion calificacion){
     this->calificaciones.insert(&calificacion);

@@ -115,12 +115,11 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     ControladorFechaActual* cfa = ControladorFechaActual::getInstance();
     DTFecha fechaActual = cfa->getFecha();
 
-    Reserva* reserva = new Reserva(asientos, fechaActual, *pas, *viaje);
-    mv->agregarReserva(reserva);
+    Reserva* reserva = new Reserva(asientos, fechaActual, pas, viaje);
+    reserva->setViaje(viaje);
+    reserva->setPasajero(pas);
     viaje->addReserva(reserva);
     pas->asociarReserva(reserva);
-    reserva->setViaje(*viaje);
-    reserva->setPasajero(*pas);
     return true;
 }
 
