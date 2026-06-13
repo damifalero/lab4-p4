@@ -51,6 +51,7 @@ std::string Viaje::getConductor(){
     }
     return "";
 }
+
 bool Viaje::esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientos){
     if (this->origen != origen){
         return false;
@@ -122,7 +123,7 @@ DTConsultaViaje Viaje::getDataViaje(){
     std::string marcaVehiculo = this->vehiculo->getMarca();
     std::string modeloVehiculo = this->vehiculo->getModelo();
     Conductor* cond = this->vehiculo->getConductor();
-    std::string nicknameConductor = cond->getNickname();
+    std::string nicknameConductor = cond->getNombre();
     float califPromedio = cond->getPromedio();
     float precioT = this->getPrecioPorAsiento();
     DTConsultaViaje dtcv(this->codigo, marcaVehiculo, modeloVehiculo, nicknameConductor, califPromedio, precioT);

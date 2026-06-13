@@ -8,7 +8,8 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     this->contrasena = contrasena;
     this->email = email;
     this->caliPromedio = 0;
-    //this->calificaciones = std::set<Calificacion*>(); VA O NO VA?
+    std::set<Calificacion*> calificaciones;
+    this->calificaciones = calificaciones;
 
     /*this->tipo = NULL;*/
 }
@@ -32,6 +33,7 @@ DTUsuario Usuario::getDTUsuario(){
 
 void Usuario::asociarCalificacion(Calificacion* cal){
     this->calificaciones.insert(cal);
+    actualizarPromedio();
 }
 
 void Usuario::desasociarCalificacion(Calificacion* cal) {

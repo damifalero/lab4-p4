@@ -55,6 +55,7 @@ public:
 
     //Operaciones de la clase Viaje
     std::string getConductor();
+    std::string getConductorNombre();
     bool esBuscado(DTFecha fecha, std::string origen, std::string destino, int asientosPublicados);
     bool cantAsientosValida(int asientosRes, int asientos, int asientosPublicados);
     DTListarViaje getDTListarViaje();  

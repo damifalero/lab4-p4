@@ -1,0 +1,64 @@
+59c59,61
+< Ingrese matricula: Ingrese capacidad: Ingrese marca: Ingrese modelo: Ingrese tipo (0: Auto, 1: Moto): Vehiculo registrado exitosamente.
+---
+> Ingrese matricula: Ingrese capacidad: Ingrese marca: Ingrese modelo: Ingrese tipo (0: Auto, 1: Moto): 
+> 0
+> Vehiculo registrado exitosamente.
+88c90
+< Ingrese nickname del pasajero: Ingrese fecha del viaje a consultar (dia mes anio): Ingrese origen: Ingrese destino: Ingrese cantidad de asientos a reservar: > Codigo: 14, Marca: Kawasaki, Modelo: Ninja, Conductor: pedro, CalificacionPromedio: 5, PrecioTotal: 100
+---
+> Ingrese nickname del pasajero: Ingrese fecha del viaje a consultar (dia mes anio): Ingrese origen: Ingrese destino: Ingrese cantidad de asientos a reservar: > Codigo: 14, Marca: Kawasaki, Modelo: Ninja, Conductor: pedro, CalificacionPromedio: 0, PrecioTotal: 100
+103,105d104
+< > Nickname: lau_vaz, Nombre: Laura Vazquez
+< > Nickname: matil92, Nombre: Matias Lopez
+< > Nickname: pedro_c, Nombre: pedro
+107a107
+> > Nickname: lau_vaz, Nombre: Laura Vazquez
+108a109
+> > Nickname: matil92, Nombre: Matias Lopez
+109a111
+> > Nickname: pedro_c, Nombre: pedro
+115c117,118
+< Ingrese codigo del viaje: > Nickname: nacho_f, Tipo: Pasajero
+---
+> Ingrese codigo del viaje: > Nickname: joaco_r, Tipo: Pasajero
+> > Nickname: nacho_f, Tipo: Pasajero
+117,118c120,121
+< > Nickname: joaco_r, Tipo: Pasajero
+< Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
+---
+> Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Creando calificacion...
+> Calificacion exitosa.
+143,144c146,153
+< Ingrese codigo del viaje a eliminar: >> Viaje <<
+< --- Codigo: 10, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, AsientosPublicados: 9, Precio por asiento: 180
+---
+> Ingrese codigo del viaje a eliminar: Reserva: 0x635f3a54f010
+> Pasajero: 0x635f3a54d300
+> Reserva: 0x635f3a54f0d0
+> Pasajero: 0x635f3a54d4d0
+> Reserva: 0x635f3a54f190
+> Pasajero: 0x635f3a54d6a0
+> >> Viaje <<
+> --- Matrícula: BCS4105, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, Capacidad: 9, Precio por asiento: 180
+165,167d173
+< > Nickname: lau_vaz, Nombre: Laura Vazquez
+< > Nickname: matil92, Nombre: Matias Lopez
+< > Nickname: pedro_c, Nombre: pedro
+169a176
+> > Nickname: lau_vaz, Nombre: Laura Vazquez
+170a178
+> > Nickname: matil92, Nombre: Matias Lopez
+171a180
+> > Nickname: pedro_c, Nombre: pedro
+176c185,186
+< Ingrese codigo del viaje: > Nickname: matil92, Tipo: Conductor
+---
+> Ingrese codigo del viaje: > Nickname: mari_b, Tipo: Pasajero
+> > Nickname: matil92, Tipo: Conductor
+178,179c188,189
+< > Nickname: mari_b, Tipo: Pasajero
+< Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
+---
+> Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Creando calificacion...
+> Calificacion exitosa.

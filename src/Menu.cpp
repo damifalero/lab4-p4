@@ -143,6 +143,7 @@ void Menu::altaUsuario() {
             std::cout << "Ingrese marca: "; std::getline(std::cin, marca);
             std::cout << "Ingrese modelo: "; std::getline(std::cin, modelo);
             std::cout << "Ingrese tipo (0: Auto, 1: Moto): "; std::cin >> tipo;
+            std::cout << "\n";
             TipoVehiculo tipoV;
             if(tipo == 0){
                 tipoV = Auto;
@@ -190,7 +191,7 @@ void Menu::altaViaje() {
 
     for(it = vehiculos.begin(); it != vehiculos.end(); ++it) {
         DTVehiculosConductor vehiculo = *it;
-        std::cout << "> Matricula: " << vehiculo.getMatricula() << ", Marca: " << vehiculo.getMarca() << ", Capacidad: " << vehiculo.getCapacidad() << "\n";
+        std::cout << "> Matricula: " << vehiculo.getMatricula() << ", Modelo: " << vehiculo.getModelo() << ", Capacidad: " << vehiculo.getCapacidad() << "\n";
         matriculas.insert(vehiculo.getMatricula());
     }
 

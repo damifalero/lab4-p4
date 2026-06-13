@@ -33,3 +33,4 @@ bool DTConsultaViaje::operator<(const DTConsultaViaje& otro) const {
 
     return codigo < otro.codigo;
 }
+
