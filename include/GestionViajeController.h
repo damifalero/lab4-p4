@@ -42,6 +42,7 @@ public:
 
     std::string getNicknameRecordado();
     int getCodigoRecordado();
+    void setCodigoRecordado(int codigo);
 };
 
 #endif

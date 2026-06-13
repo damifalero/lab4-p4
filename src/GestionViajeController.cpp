@@ -257,6 +257,7 @@ void GestionViajeController::eliminarViaje() {
     Viaje* viaje = mv->obtenerViaje(codigoRecordado);
 
     if (viaje == NULL){
+        std::cout << "Viaje no encontrado.\n";
         return;
     }
 
@@ -275,7 +276,7 @@ void GestionViajeController::eliminarViaje() {
         if (res == NULL){
             return;
         }
-        std::set<Calificacion*> calificaciones = res->getCalificaciones();    
+        /*std::set<Calificacion*> calificaciones = res->getCalificaciones();    
         std::set<Calificacion*>::iterator itCal;
         for (itCal = calificaciones.begin(); itCal != calificaciones.end(); ++itCal) {
             Calificacion* calificacion = *itCal;
@@ -298,14 +299,14 @@ void GestionViajeController::eliminarViaje() {
                 delete calificacion;
             }
             
-        }
+        }*/
 
         Pasajero* pas = dynamic_cast<Pasajero*>(res->getPasajero());
         if (pas != NULL){
             pas->desasociarReserva(res);
         }
-        res->desasociarViaje();
-        res->desasociarPasajero();
+        /*res->desasociarViaje();
+        res->desasociarPasajero();*/
         viaje->desasociarReserva(res);
         delete (res);
 
@@ -326,3 +327,5 @@ std::string GestionViajeController::getNicknameRecordado(){
 int GestionViajeController::getCodigoRecordado(){
     return this->codigoRecordado;
 }
+
+void GestionViajeController::setCodigoRecordado(int codigo){this->codigoRecordado = codigo;}
