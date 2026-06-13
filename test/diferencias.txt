@@ -19,10 +19,6 @@
 > > Nickname: nacho_f, Tipo: Pasajero
 117d117
 < > Nickname: joaco_r, Tipo: Pasajero
-144c144
-< --- Codigo: 10, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, AsientosPublicados: 9, Precio por asiento: 180
----
-> --- Matrícula: BCS4105, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, Capacidad: 9, Precio por asiento: 180
 165,167d164
 < > Nickname: lau_vaz, Nombre: Laura Vazquez
 < > Nickname: matil92, Nombre: Matias Lopez

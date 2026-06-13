@@ -411,7 +411,7 @@ void Menu::eliminarViaje() {
     //>> Reservas <<
     //--- AsientosReservados: xx, Fecha: dd/mm/aaaa, Pasajero: aaa
     std::cout << ">> Viaje <<\n";
-    std::cout << "--- Matrícula: " << detalleViaje.getVehiculo().getMatricula() << ", Fecha: " << detalleViaje.getFecha() << ", Origen: " << detalleViaje.getOrigen() << ", Destino: " << detalleViaje.getDestino() << ", Capacidad: " << detalleViaje.getAsientosPublicados() << ", Precio por asiento: " << detalleViaje.getPrecio() << "\n";
+    std::cout << "--- Codigo: " << detalleViaje.getCodigo() << ", Fecha: " << detalleViaje.getFecha() << ", Origen: " << detalleViaje.getOrigen() << ", Destino: " << detalleViaje.getDestino() << ", AsientosPublicados: " << detalleViaje.getAsientosPublicados() << ", Precio por asiento: " << detalleViaje.getPrecio() << "\n";
     std::cout << ">> Vehiculo <<\n";
     std::cout << "--- Matricula: " << detalleViaje.getVehiculo().getMatricula() << ", Capacidad: " << detalleViaje.getVehiculo().getCapacidad() << ", Marca: " << detalleViaje.getVehiculo().getMarca() << ", Modelo: " << detalleViaje.getVehiculo().getModelo() << ", Tipo: " << ((detalleViaje.getVehiculo().getTipo() == TipoVehiculo::Auto) ? "Auto" : "Moto") << "\n";
     std::cout << ">> Reservas <<\n";
