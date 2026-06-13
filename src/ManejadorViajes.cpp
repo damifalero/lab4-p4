@@ -52,3 +52,10 @@ Viaje* ManejadorViajes::crearViaje(Vehiculo v, DTFecha fecha, std::string origen
     this->agregarViaje(vi);
     return vi;
 }
+void ManejadorViajes::eliminarViaje(int codigo) {
+    auto it = this->viajes.find(codigo);
+    if (it != this->viajes.end()) {
+        delete it->second; // Liberar memoria del viaje
+        this->viajes.erase(it); // Eliminar el viaje del mapa
+    }
+}

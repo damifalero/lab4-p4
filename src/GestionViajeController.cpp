@@ -311,7 +311,7 @@ void GestionViajeController::eliminarViaje() {
 
         
     }
-    delete viaje;
+    mv->eliminarViaje(codigoRecordado);
     this->codigoRecordado = -1;
 }
 
