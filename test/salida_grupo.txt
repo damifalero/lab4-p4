@@ -56,9 +56,7 @@ Seleccione: Ingrese nickname: Ingrese nombre: Ingrese contrasena: Ingrese email:
 Seleccione el tipo de libreta: Libreta agregada.
 ¿Desea agregar otra libreta? (1: Si, 0: No): 
 === Registrar Vehiculo ===
-Ingrese matricula: Ingrese capacidad: Ingrese marca: Ingrese modelo: Ingrese tipo (0: Auto, 1: Moto): 
-0
-Vehiculo registrado exitosamente.
+Ingrese matricula: Ingrese capacidad: Ingrese marca: Ingrese modelo: Ingrese tipo (0: Auto, 1: Moto): Vehiculo registrado exitosamente.
 ¿Desea agregar otro vehiculo? (1: Si, 0: No): 
 === MENU PRINCIPAL ===
 1. Alta de Usuario
@@ -117,8 +115,7 @@ Ingrese su nickname: > Codigo: 3, Fecha: 20/10/2026, Origen: young, Destino: mon
 Ingrese codigo del viaje: > Nickname: joaco_r, Tipo: Pasajero
 > Nickname: nacho_f, Tipo: Pasajero
 > Nickname: valen_uy, Tipo: Pasajero
-Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Creando calificacion...
-Calificacion exitosa.
+Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
 
 === MENU PRINCIPAL ===
 1. Alta de Usuario
@@ -143,12 +140,12 @@ Ingrese una opcion: > Codigo: 1, Fecha: 21/10/2026, Origen: montevideo, Destino:
 > Codigo: 12, Fecha: 14/3/2026, Origen: montevideo, Destino: colonia, Conductor: carlos_r
 > Codigo: 13, Fecha: 20/10/2026, Origen: young, Destino: montevideo, Conductor: greg_m
 > Codigo: 14, Fecha: 10/10/2026, Origen: montevideo, Destino: salto, Conductor: pedro_c
-Ingrese codigo del viaje a eliminar: Reserva: 0x635f3a54f010
-Pasajero: 0x635f3a54d300
-Reserva: 0x635f3a54f0d0
-Pasajero: 0x635f3a54d4d0
-Reserva: 0x635f3a54f190
-Pasajero: 0x635f3a54d6a0
+Ingrese codigo del viaje a eliminar: Reserva: 0x5ce6068b6010
+Pasajero: 0x5ce6068b4300
+Reserva: 0x5ce6068b60d0
+Pasajero: 0x5ce6068b44d0
+Reserva: 0x5ce6068b6190
+Pasajero: 0x5ce6068b46a0
 >> Viaje <<
 --- Matrícula: BCS4105, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, Capacidad: 9, Precio por asiento: 180
 >> Vehiculo <<
@@ -185,8 +182,7 @@ Ingrese su nickname: > Codigo: 9, Fecha: 15/3/2026, Origen: montevideo, Destino:
 Ingrese codigo del viaje: > Nickname: mari_b, Tipo: Pasajero
 > Nickname: matil92, Tipo: Conductor
 > Nickname: santi_90, Tipo: Pasajero
-Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Creando calificacion...
-Calificacion exitosa.
+Ingrese nickname del usuario a calificar: Ingrese calificacion (1-5): Calificacion exitosa.
 
 === MENU PRINCIPAL ===
 1. Alta de Usuario

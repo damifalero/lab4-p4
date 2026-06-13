@@ -84,7 +84,6 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     }
 
     if (!existe){
-        std::cout << "Creando calificacion...\n";
         if(uCalificador->esPasajero()){
             bool encontrado = false;
             for (std::set<Reserva*>::iterator i = reservas.begin(); i != reservas.end() && !encontrado; ++i) {

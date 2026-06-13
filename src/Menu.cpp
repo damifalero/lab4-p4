@@ -143,7 +143,6 @@ void Menu::altaUsuario() {
             std::cout << "Ingrese marca: "; std::getline(std::cin, marca);
             std::cout << "Ingrese modelo: "; std::getline(std::cin, modelo);
             std::cout << "Ingrese tipo (0: Auto, 1: Moto): "; std::cin >> tipo;
-            std::cout << "\n";
             TipoVehiculo tipoV;
             if(tipo == 0){
                 tipoV = Auto;
@@ -160,7 +159,7 @@ void Menu::altaUsuario() {
             //TODO: resultadoRegistrarVehiculo = controlador->registrarVehiculo(nickname, matricula, capacidad, marca, modelo, tipo)
             UsuarioController* uc = UsuarioController::getInstancia();
             resultadoRegistrarVehiculo = uc->registrarVehiculo(nickname, matricula, capacidad, marca, modelo, tipoV);
-            std::cout << resultadoRegistrarVehiculo << "\n";
+            //std::cout << resultadoRegistrarVehiculo << "\n";
             if (resultadoRegistrarVehiculo == -1) {
                 std::cout << "Ya existe un vehiculo con esa matricula.\n";
             } else if (resultadoRegistrarVehiculo == -2) {
