@@ -61,9 +61,6 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     ManejadorUsuarios* ManejadorUsuarios = ManejadorUsuarios::getInstancia();
     Usuario* uCalificado = ManejadorUsuarios->obtenerUsuario(nicknameCalificado);
     Usuario* uCalificador = ManejadorUsuarios->obtenerUsuario(this->nicknameRecordado);
-
-    std::cout << "Nickname calificado: " << nicknameCalificado << "\n";
-    std::cout << "Nickname calificador: " << this->nicknameRecordado << "\n";
     
     ManejadorViajes* ManejadorViajes = ManejadorViajes::getInstancia();
     Viaje* viaje = ManejadorViajes->obtenerViaje(this->codigoRecordado);
@@ -72,7 +69,6 @@ bool UsuarioController::calificarUsuario(std::string nicknameCalificado,int cali
     if (viaje == NULL || uCalificado == NULL || uCalificador == NULL){
         this->codigoRecordado = -1;
         this->nicknameRecordado = "";
-        std::cout << "Viaje o usuarios no encontrados.\n";
         return false;
     }
     std::set<Reserva*> reservas = viaje->getReservas();
