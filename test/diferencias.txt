@@ -19,32 +19,24 @@
 > > Nickname: nacho_f, Tipo: Pasajero
 117d117
 < > Nickname: joaco_r, Tipo: Pasajero
-143,144c143,150
-< Ingrese codigo del viaje a eliminar: >> Viaje <<
+144c144
 < --- Codigo: 10, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, AsientosPublicados: 9, Precio por asiento: 180
 ---
-> Ingrese codigo del viaje a eliminar: Reserva: 0x5ce6068b6010
-> Pasajero: 0x5ce6068b4300
-> Reserva: 0x5ce6068b60d0
-> Pasajero: 0x5ce6068b44d0
-> Reserva: 0x5ce6068b6190
-> Pasajero: 0x5ce6068b46a0
-> >> Viaje <<
 > --- Matrícula: BCS4105, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, Capacidad: 9, Precio por asiento: 180
-165,167d170
+165,167d164
 < > Nickname: lau_vaz, Nombre: Laura Vazquez
 < > Nickname: matil92, Nombre: Matias Lopez
 < > Nickname: pedro_c, Nombre: pedro
-169a173
+169a167
 > > Nickname: lau_vaz, Nombre: Laura Vazquez
-170a175
+170a169
 > > Nickname: matil92, Nombre: Matias Lopez
-171a177
+171a171
 > > Nickname: pedro_c, Nombre: pedro
-176c182,183
+176c176,177
 < Ingrese codigo del viaje: > Nickname: matil92, Tipo: Conductor
 ---
 > Ingrese codigo del viaje: > Nickname: mari_b, Tipo: Pasajero
 > > Nickname: matil92, Tipo: Conductor
-178d184
+178d178
 < > Nickname: mari_b, Tipo: Pasajero

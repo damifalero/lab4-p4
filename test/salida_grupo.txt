@@ -140,13 +140,7 @@ Ingrese una opcion: > Codigo: 1, Fecha: 21/10/2026, Origen: montevideo, Destino:
 > Codigo: 12, Fecha: 14/3/2026, Origen: montevideo, Destino: colonia, Conductor: carlos_r
 > Codigo: 13, Fecha: 20/10/2026, Origen: young, Destino: montevideo, Conductor: greg_m
 > Codigo: 14, Fecha: 10/10/2026, Origen: montevideo, Destino: salto, Conductor: pedro_c
-Ingrese codigo del viaje a eliminar: Reserva: 0x5ce6068b6010
-Pasajero: 0x5ce6068b4300
-Reserva: 0x5ce6068b60d0
-Pasajero: 0x5ce6068b44d0
-Reserva: 0x5ce6068b6190
-Pasajero: 0x5ce6068b46a0
->> Viaje <<
+Ingrese codigo del viaje a eliminar: >> Viaje <<
 --- Matrícula: BCS4105, Fecha: 15/3/2026, Origen: montevideo, Destino: colonia, Capacidad: 9, Precio por asiento: 180
 >> Vehiculo <<
 --- Matricula: BCS4105, Capacidad: 9, Marca: Hyundai, Modelo: H1, Tipo: Auto

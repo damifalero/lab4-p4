@@ -38,10 +38,6 @@ Viaje* Reserva::getViaje(){
 Pasajero* Reserva::getPasajero(){return this->pasajero;} 
 
 DTDetalleReserva Reserva::getDTDetalleReserva(){
-    std::cout << "Reserva: " << this << std::endl;
-    std::cout << "Pasajero: " << this->pasajero << std::endl;
-      if (this->pasajero == NULL)
-        std::cout << "PASAJERO NULL" << std::endl;
     DTDetalleReserva dtr(this->asientosReservados,this->fecha,this->pasajero->getNickname());
     return dtr;
 }
