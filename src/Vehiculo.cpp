@@ -11,6 +11,7 @@ Vehiculo::Vehiculo(std::string matricula, int capacidad, std::string marca, std:
     this->modelo = modelo;
     this->tipo = tipo;
     this->usuario = nullptr;
+    //this->viajes = std::set<Viaje*>(); VA O NO VA?
 }
 
 Vehiculo::~Vehiculo() {}

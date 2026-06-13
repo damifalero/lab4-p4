@@ -39,6 +39,8 @@ public:
     void cancelarEliminarViaje();
 
     bool generarReserva(std::string nickname, int codigo, int asientos);
+
+    std::string getNicknameRecordado();
 };
 
 #endif

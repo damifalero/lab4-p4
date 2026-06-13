@@ -8,6 +8,8 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     this->contrasena = contrasena;
     this->email = email;
     this->caliPromedio = 0;
+    //this->calificaciones = std::set<Calificacion*>(); VA O NO VA?
+
     /*this->tipo = NULL;*/
 }
 
