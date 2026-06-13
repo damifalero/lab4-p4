@@ -179,7 +179,8 @@ void Menu::altaViaje() {
     int dia, mes, anio, asientos;
     float precio;
 
-    std::cout << "Ingrese nickname del conductor: "; std::getline(std::cin, nickname);
+    std::cout << "Ingrese nickname del conductor: "; 
+    std::getline(std::cin, nickname);
     //TODO: Coleccion de DTVehiculosConductor = controlador->listarVehiculosConductor(nickname)
     UsuarioController* uc = UsuarioController::getInstancia();
     std::set<DTVehiculosConductor> vehiculos = uc->listarVehiculosConductor(nickname);
@@ -195,7 +196,7 @@ void Menu::altaViaje() {
     }
 
     std::cout << "Ingrese matricula del vehiculo a utilizar: "; std::getline(std::cin, matricula);
-    bool matriculaValida = false;
+    //bool matriculaValida = false;
     //TODO: Validar matricula en listado
     if (matriculas.find(matricula) == matriculas.end()) {
         std::cout << "Matricula invalida.\n";
@@ -234,7 +235,7 @@ void Menu::generarReserva() {
     std::string nickname;
     std::cout << "Ingrese nickname del pasajero: "; std::getline(std::cin, nickname);
 
-    bool nicknameValido = false;
+    //bool nicknameValido = false;
     //TODO: Validar nickname en listado
     if (pasajeros.find(nickname) == pasajeros.end()) {
         std::cout << "Nickname invalido.\n";
@@ -305,7 +306,7 @@ void Menu::calificarUsuario() {
     }
     std::string nickname;
     std::cout << "Ingrese su nickname: "; std::getline(std::cin, nickname);
-    bool nicknameValido = false;
+    //bool nicknameValido = false;
     //TODO: Validar nickname en listado
     if (usuarios.find(DTUsuario(nickname, "")) == usuarios.end()) {
         std::cout << "Nickname invalido.\n";
@@ -327,7 +328,7 @@ void Menu::calificarUsuario() {
     int codigo;
     std::cout << "Ingrese codigo del viaje: "; std::cin >> codigo;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    bool codigoValido = false;
+    //bool codigoValido = false;
     //TODO: Validar codigo en listado
     if (codigos.find(codigo) == codigos.end()) {
         std::cout << "Codigo invalido.\n";
@@ -359,7 +360,7 @@ void Menu::calificarUsuario() {
         return;
     }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    bool nicknameCalificadoValido = false;
+    //bool nicknameCalificadoValido = false;
     //TODO: Validar nickname en listado
     /*if (!nicknameCalificadoValido) {
         std::cout << "Nickname invalido.\n";
@@ -393,7 +394,7 @@ void Menu::eliminarViaje() {
     int codigo;
     std::cout << "Ingrese codigo del viaje a eliminar: "; std::cin >> codigo;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    bool codigoValido = false;
+    //bool codigoValido = false;
     //TODO: Validar codigo en listado
     if (codigos.find(codigo) == codigos.end()) {
         std::cout << "Codigo invalido.\n";
