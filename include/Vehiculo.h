@@ -11,6 +11,7 @@
 #include "Viaje.h"
 #include "Usuario.h"
 
+//Dependencia circular 
 class Viaje;
 class Conductor; 
 class Usuario;

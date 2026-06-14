@@ -10,6 +10,7 @@
 #include <string>
 #include <set>
 
+//Dependencia circular 
 class Vehiculo;
 class Reserva;
 

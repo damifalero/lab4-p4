@@ -6,6 +6,7 @@
 #include "Pasajero.h"
 #include "Viaje.h"
 
+//Dependencia circular 
 class Viaje;
 class Pasajero;
 
@@ -18,11 +19,11 @@ private:
     std::set<Calificacion*> calificaciones;
 
 public:
-    // constructor y destructor
+    //Constructor y Destructor
     Reserva(int asientosReservados, DTFecha fecha,Pasajero* pasajero,Viaje* viaje);    
     ~Reserva();
 
-    // getters 
+    //Getters 
     int getAsientosReservados();
     DTFecha getDTFecha();
     Viaje* getViaje();
@@ -30,14 +31,14 @@ public:
     std::set<Calificacion*> getCalificaciones();
     Pasajero* getPasajero();
 
-    //setters
+    //Setters
     void setAsientosReservados(int cantAsientos);
     void setDTFecha(DTFecha fecha);
     void setViaje(Viaje* viaje);
     void setCalificaciones(std::set<Calificacion*> calificaciones);
     void setPasajero(Pasajero* pasajero);
 
-    //operaciones
+    //Operaciones
     void agregarCalificacion(Calificacion calificacion);
     void asociarViaje(Viaje v);
     void desasociarViaje();

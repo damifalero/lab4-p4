@@ -2,8 +2,6 @@
 #include "../include/ManejadorUsuarios.h"
 #include "../include/ManejadorViajes.h"
 #include "../include/ManejadorVehiculo.h"
-
-/**********NO ESTOY SEGURO SI VAN O NO *********/
 #include "../include/Reserva.h"
 #include "../include/Pasajero.h"
 #include "../include/Conductor.h"
@@ -81,19 +79,6 @@ bool GestionViajeController::generarReserva(std::string nickname, int codigo, in
     if (!viaje->cantAsientosValida(viaje->cantAsientosRes(), asientos, viaje->getAsientosPublicados())){
          return false;
     }
-
-    /*const std::map<int, Reserva*>& reservas = mv->getReservas();
-    std::map<int, Reserva*>::iterator it;
-    for (it = reservas.begin(); it != reservas.end(); ++it) {       
-        Reserva* reserva = it->second;
-        if (reserva->getPasajero()->getNickname() == nickname && reserva->getViaje()->getCodigo() == codigo) {
-            return false; // El pasajero ya tiene una reserva para ese viaje
-        }
-    }
-    
-    if (!usuario->esPasajero()){
-         return false; // El usuario no es un pasajero
-    }*/
 
     //Validación clave generada para reserva
     std::string claveBuscada = std::to_string(codigo) + "-" + nickname;
@@ -173,7 +158,7 @@ std::set<DTListarViaje> GestionViajeController::listarViajes(std::string nick) {
     ManejadorUsuarios* mu = ManejadorUsuarios::getInstancia();
     Usuario* usuario = mu->obtenerUsuario(nick);
 
-    //guardo nick en memoria
+    //Guardo nickmane en memoria
     this->nicknameRecordado = nick;
 
     std::set<DTListarViaje> resultado;
@@ -201,7 +186,7 @@ std::set<DTListarViaje> GestionViajeController::listarViajes(std::string nick) {
 std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo) {
     ManejadorViajes* mv = ManejadorViajes::getInstancia();
     Viaje* viaje = mv->obtenerViaje(codigo);
-    //guardo codigo en memoria
+    //Guardo codigo en memoria
     this->codigoRecordado = codigo;
 
     std::set<DTUsuarioViaje> resultado;
@@ -209,7 +194,6 @@ std::set<DTUsuarioViaje> GestionViajeController::listarUsuariosViaje(int codigo)
     std::set<Reserva*> reservas = viaje->getReservas();
     std::set<Reserva*>::iterator it;
     for (it = reservas.begin(); it != reservas.end(); ++it) {
-        //hay que castear???
         Pasajero* pas = dynamic_cast<Pasajero*>((*it)->getPasajero());
         if(pas != NULL && pas->getNickname() != this->nicknameRecordado){
             DTUsuarioViaje dtuv(pas->getNickname(), TipoUsuario::Tipo_Pasajero);
@@ -245,7 +229,7 @@ std::set<DTListarViaje> GestionViajeController::listarViajes() {
 DTDetalleViaje GestionViajeController::detalleViaje(int codigo) {
     ManejadorViajes* mv = ManejadorViajes::getInstancia();
     Viaje* viaje = mv->obtenerViaje(codigo);
-    //guardo codigo en memoria
+    //Guardo codigo en memoria
     this->codigoRecordado = codigo;
 
     return viaje->getDTDetalleViaje();
@@ -275,37 +259,12 @@ void GestionViajeController::eliminarViaje() {
         if (res == NULL){
             return;
         }
-        /*std::set<Calificacion*> calificaciones = res->getCalificaciones();    
-        std::set<Calificacion*>::iterator itCal;
-        for (itCal = calificaciones.begin(); itCal != calificaciones.end(); ++itCal) {
-            Calificacion* calificacion = *itCal;
-            if (calificacion != NULL){
-                Usuario* uCalificado = calificacion->getUCalificado();
-                Usuario* uCalificador = calificacion->getUCalificador();
-
-                calificacion->desasociarReserva();
-                res->desasociarCalificacion(calificacion);
-                calificacion->desasociarUsuarioCalificado();
-                calificacion->desasociarUsuarioCalificador();
-
-                if (uCalificado!= NULL){
-                    uCalificado->desasociarCalificacion(calificacion);
-                }
-                if (uCalificador != NULL){
-                    uCalificador->desasociarCalificacion(calificacion);
-                }
-
-                delete calificacion;
-            }
-            
-        }*/
 
         Pasajero* pas = dynamic_cast<Pasajero*>(res->getPasajero());
         if (pas != NULL){
             pas->desasociarReserva(res);
         }
-        /*res->desasociarViaje();
-        res->desasociarPasajero();*/
+        
         viaje->desasociarReserva(res);
         delete (res);
 

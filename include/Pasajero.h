@@ -7,7 +7,7 @@
 #include <set>
 #include <string>
 
-//Dependencia circular :)
+//Dependencia circular 
 class Reserva;
 
 class Pasajero : public Usuario {

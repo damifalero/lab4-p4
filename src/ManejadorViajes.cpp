@@ -40,8 +40,6 @@ void ManejadorViajes::agregarReserva(Reserva* r){
 }   
 
 int ManejadorViajes::generarCodigo(){
-    /*if (this->viajes.empty()) return 1;
-    else return this->viajes[ultimoCodigo]->obtenerCodigo();*/
     this->ultimoCodigo++;
     return this->ultimoCodigo;
 }

@@ -2,11 +2,11 @@
 #define USUARIO_H
 
 #include "DTUsuario.h"
-//#include "Calificacion.h"
 #include "TipoUsuario.h"
 #include <string>
 #include <set>
 
+//Dependencia circular 
 class Calificacion;
 
 class Usuario {

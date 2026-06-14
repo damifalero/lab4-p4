@@ -19,8 +19,10 @@ private:
     std::vector<DTDetalleReserva> reservas;
 
 public:
+    //Constructor
     DTDetalleViaje(int codigo, DTFecha fecha, std::string origen, std::string destino, int asientosPublicados, float precio, DTDetalleVehiculo vehi, std::vector<DTDetalleReserva> res);
 
+    //Getters
     int getCodigo();
     DTFecha getFecha();
     std::string getOrigen();
@@ -30,6 +32,7 @@ public:
     DTDetalleVehiculo getVehiculo();
     std::vector<DTDetalleReserva> getReservas();
 
+    //Setters
     void setCodigo(int codigo);
     void setFecha(DTFecha fecha);
     void setOrigen(std::string origen);
@@ -39,6 +42,7 @@ public:
     void setVehiculo(DTDetalleVehiculo vehiculo);
     void setReservas(std::vector<DTDetalleReserva> reservas);
 
+    //Para el orden de insercción en el set, segun el código.
     bool operator<(const DTDetalleViaje& otro) const;
 };
 

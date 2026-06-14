@@ -7,6 +7,7 @@
 #include "Vehiculo.h"
 #include <set>
 
+//Dependencia circular 
 class Vehiculo;
 
 class Conductor : public Usuario {
@@ -16,18 +17,19 @@ private:
 public:
     Conductor(std::string nickname, std::string nombre, std::string contrasena, std::string email, std::set<TipoLibreta> libs);
     ~Conductor();
-    //getters
+
+    //Getters
     std::set<TipoLibreta> getLibretas();
     std::set<Vehiculo*> getVehiculos();
 
-    //setters
+    //Setters
     void setLibretas(std::set<TipoLibreta> libretas);
     void setVehiculos(std::set<Vehiculo*> vehiculos);
 
-    //metodos usuario
+    //Metodos usuario
     bool esPasajero();
 
-    // metodos conductor
+    //Metodos conductor
     void agregarVehiculoUsuario(Vehiculo* vehiculo);
     bool tieneLibreta(TipoLibreta libreta);
     std::set<DTVehiculosConductor> listarVehiculos();

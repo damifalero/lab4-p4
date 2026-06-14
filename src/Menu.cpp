@@ -159,7 +159,6 @@ void Menu::altaUsuario() {
             //TODO: resultadoRegistrarVehiculo = controlador->registrarVehiculo(nickname, matricula, capacidad, marca, modelo, tipo)
             UsuarioController* uc = UsuarioController::getInstancia();
             resultadoRegistrarVehiculo = uc->registrarVehiculo(nickname, matricula, capacidad, marca, modelo, tipoV);
-            //std::cout << resultadoRegistrarVehiculo << "\n";
             if (resultadoRegistrarVehiculo == -1) {
                 std::cout << "Ya existe un vehiculo con esa matricula.\n";
             } else if (resultadoRegistrarVehiculo == -2) {
@@ -196,7 +195,6 @@ void Menu::altaViaje() {
     }
 
     std::cout << "Ingrese matricula del vehiculo a utilizar: "; std::getline(std::cin, matricula);
-    //bool matriculaValida = false;
     //TODO: Validar matricula en listado
     if (matriculas.find(matricula) == matriculas.end()) {
         std::cout << "Matricula invalida.\n";
@@ -235,7 +233,6 @@ void Menu::generarReserva() {
     std::string nickname;
     std::cout << "Ingrese nickname del pasajero: "; std::getline(std::cin, nickname);
 
-    //bool nicknameValido = false;
     //TODO: Validar nickname en listado
     if (pasajeros.find(nickname) == pasajeros.end()) {
         std::cout << "Nickname invalido.\n";
@@ -306,7 +303,6 @@ void Menu::calificarUsuario() {
     }
     std::string nickname;
     std::cout << "Ingrese su nickname: "; std::getline(std::cin, nickname);
-    //bool nicknameValido = false;
     //TODO: Validar nickname en listado
     if (usuarios.find(DTUsuario(nickname, "")) == usuarios.end()) {
         std::cout << "Nickname invalido.\n";
@@ -328,7 +324,6 @@ void Menu::calificarUsuario() {
     int codigo;
     std::cout << "Ingrese codigo del viaje: "; std::cin >> codigo;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //bool codigoValido = false;
     //TODO: Validar codigo en listado
     if (codigos.find(codigo) == codigos.end()) {
         std::cout << "Codigo invalido.\n";
@@ -360,13 +355,7 @@ void Menu::calificarUsuario() {
         return;
     }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //bool nicknameCalificadoValido = false;
     //TODO: Validar nickname en listado
-    /*if (!nicknameCalificadoValido) {
-        std::cout << "Nickname invalido.\n";
-        return;
-    }*/
-
     bool calificacionOk = false;
     //TODO: calificacionOk = Controlador->calificarUsuario(nicknameCalificado, calificacion)
     uc->setNicknameRecordad(nicknameRecordado);
@@ -394,7 +383,6 @@ void Menu::eliminarViaje() {
     int codigo;
     std::cout << "Ingrese codigo del viaje a eliminar: "; std::cin >> codigo;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //bool codigoValido = false;
     //TODO: Validar codigo en listado
     if (codigos.find(codigo) == codigos.end()) {
         std::cout << "Codigo invalido.\n";
@@ -481,15 +469,14 @@ void Menu::mostrarMenu() {
         std::cout << "8. Salir\n";
         std::cout << "Ingrese una opcion: ";
         
-        //Esto es lo que agregue
-        if (!(std::cin >> opcion)){
+        /*if (!(std::cin >> opcion)){
             std::cout << "\n[DEBUG] Fin de archivo detectado o error en lectura. Saliendo...\n";
             opcion = 8; //Forzamos la salida
             break; //Rompemos el bucle inmediatamente
-        }
+        }*/
         //Acá termina
 
-        //Esto era lo que estaba antes ----> std::cin >> opcion;
+        std::cin >> opcion;
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 

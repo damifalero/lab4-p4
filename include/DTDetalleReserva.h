@@ -11,8 +11,11 @@ private:
     std::string pasajero;
 
 public:
+
+    //Constructor
     DTDetalleReserva(int asientosReservados, DTFecha fecha, std::string pasajero);
 
+    //Getters
     int getAsientosReservados();
     DTFecha getFecha();
     std::string getPasajero();

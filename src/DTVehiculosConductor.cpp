@@ -18,9 +18,5 @@ bool DTVehiculosConductor::operator<(const DTVehiculosConductor& otro) const {
    return matricula < otro.matricula;
 }
 
-// pa que funcaaa
-/*std::set<DTDetalleVehiculo> DTVehiculosConductor::getVehiculos() {
-    return vehiculos;
-}*/
 
 

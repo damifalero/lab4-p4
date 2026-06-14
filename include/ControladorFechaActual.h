@@ -8,12 +8,16 @@ private:
     static ControladorFechaActual* instancia;
     DTFecha fechaActual;
 
+    //Constructor
     ControladorFechaActual();
 
 public:
-    static ControladorFechaActual* getInstance();
 
+    //Getters
+    static ControladorFechaActual* getInstance();
     DTFecha getFecha();
+
+    //Setters
     void setFecha(DTFecha nuevaFecha);
 };
 

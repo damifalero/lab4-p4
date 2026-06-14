@@ -11,7 +11,6 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     std::set<Calificacion*> calificaciones;
     this->calificaciones = calificaciones;
 
-    /*this->tipo = NULL;*/
 }
 
 Usuario::~Usuario() {}
@@ -22,7 +21,7 @@ std::string Usuario::getNombre(){ return this->nombre; }
 std::string Usuario::getContrasenia(){ return this->contrasena; }
 std::string Usuario::getEmail(){ return this->email; }
 float Usuario::getPromedio(){ return this->caliPromedio; }
-/*TipoUsuario* Usuario::getTipo(){ return this->tipo; }*/
+
 
 //Funciones
 

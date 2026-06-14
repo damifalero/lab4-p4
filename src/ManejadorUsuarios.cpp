@@ -29,8 +29,3 @@ Usuario* ManejadorUsuarios::obtenerUsuario(std::string nickname){
     return it->second;
 };
 
-/*std::set<Usuario> ManejadorUsuarios::listarUsuarios(){
-    std::set<Usuario> lista;
-    //De donde sale esta funcion?(me refiero en el DCD)
-}
-*/

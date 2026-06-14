@@ -35,7 +35,6 @@ void CargaDatos::cargarDatos() {
     IUsuarioController* uc = f->getIUsuarioController();
     IGestionViajeController* gv = f->getIGestionViajeController();
     IControladorFechaActual* fa = f->getIControladorFechaActual();
-    //std::cout << "Se crearon las instnacias" << std::endl;
 
     //Carga de Usuarios
     try{
@@ -72,8 +71,6 @@ void CargaDatos::cargarDatos() {
 
         uc->altaPasajero("joaco_r", "Joaquin Rivero", "jrivero99x", "joaquin.rivero@hotmail.com", "50217843");
 
-        //std::cout << "bienUsuarios" << std::endl;
-
     } catch (std::exception& e){
         std::cout << "Error en carga de usuarios: " << e.what() << "\n";
     }
@@ -88,8 +85,6 @@ void CargaDatos::cargarDatos() {
         uc->registrarVehiculo("lau_vaz", "PDB1205", 1, "Yumbo", "Max 110", TipoVehiculo::Moto);
         uc->registrarVehiculo("carlos_r", "SBJ4874", 4, "Volkswagen", "Gol", TipoVehiculo::Auto);
         uc->registrarVehiculo("carlos_r", "SCF2469", 1, "Yamaha", "FZ S", TipoVehiculo::Moto);
-
-        //std::cout << "bienVehiculo" << std::endl;
 
     } catch(std::exception& e){
         std::cout << "Error en carga de vehiculos: " << e.what() << "\n";
@@ -124,7 +119,6 @@ void CargaDatos::cargarDatos() {
         DTFecha f13(20,10,2026);
         gv->altaViaje("LDA4875", f13, "young", "montevideo", 1, 250);
 
-        //std::cout << "bienViaje" << std::endl;
     } catch(std::exception& e){
         std::cout << "Error en carga de viajes: " << e.what() << "\n";
     }
@@ -143,8 +137,6 @@ void CargaDatos::cargarDatos() {
         gv->generarReserva("nacho_f", 9, 1);
         fa->setFecha(DTFecha(1, 6, 2026));
         gv->generarReserva("mari_b", 1, 2);
-
-        //std::cout << "bienReserva" << std::endl;
 
     } catch(std::exception& e){
         std::cout << "Error en carga de reservas: " << e.what() << "\n";
@@ -179,8 +171,6 @@ void CargaDatos::cargarDatos() {
         uc->setNicknameRecordad("carlos_r");
         uc->setCodigoRecordado(12);
         uc->calificarUsuario("nacho_f", 5);
-
-       // std::cout << "bienCalificaciones" << std::endl;
 
     } catch(std::exception& e){
         std::cout << "Error en carga de calificaciones: " << e.what() << "\n";

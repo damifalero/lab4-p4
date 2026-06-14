@@ -18,20 +18,20 @@ public:
     Calificacion(DTFecha fecha, int puntaje, Reserva* res, Usuario* uCalificado,Usuario* uCalificador);
     ~Calificacion();
 
-    //getters
+    //Getters
     DTFecha getDTFecha();
     int getPuntaje();
     Usuario* getUCalificador();
     Usuario* getUCalificado();
 
 
-    //setters
+    //Setters
     void setDTFecha(DTFecha fecha);
     void setPuntaje(int puntaje);
     void setUCalificador(Usuario* usuario);
     void setUCalificado(Usuario* usuario);
 
-    //operaciones
+    //Operaciones
     void asociarUsuarioCalificado(Usuario* u);
     void desasociarUsuarioCalificado();
     void asociarUsuarioCalificador(Usuario* u);
