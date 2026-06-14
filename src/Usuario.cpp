@@ -7,7 +7,7 @@ Usuario::Usuario(std::string nickname, std::string nombre, std::string contrasen
     this->nombre = nombre;
     this->contrasena = contrasena;
     this->email = email;
-    this->caliPromedio = 0;
+    this->caliPromedio = 5;
     std::set<Calificacion*> calificaciones;
     this->calificaciones = calificaciones;
 

@@ -1,5 +1,6 @@
 #include "../include/CargaDatos.h"
 #include "../include/UsuarioController.h"
+#include "../include/ManejadorUsuarios.h" //borrar
 #include "../include/GestionViajeController.h"
 #include "../include/ControladorFechaActual.h"
 #include "../include/Fabrica.h"
@@ -151,13 +152,33 @@ void CargaDatos::cargarDatos() {
 
     //Carga de Claificaciones
     try{
-        uc->calificarUsuario("santi_90", 4);
-        uc->calificarUsuario("mari_b", 4);
-        uc->calificarUsuario("matil92", 3);
-        uc->calificarUsuario("ana_silva", 5);
-        uc->calificarUsuario("ana_silva", 5);
-        uc->calificarUsuario("mari_b", 5);
+        uc->setNicknameRecordad("santi_90");
+        uc->setCodigoRecordado(9);
+        uc->calificarUsuario("matil92", 4);
+
+        uc->setNicknameRecordad("mari_b");
+        uc->setCodigoRecordado(9);
+        uc->calificarUsuario("matil92", 4);
+
+        uc->setNicknameRecordad("matil92");
+        uc->setCodigoRecordado(9);
+        uc->calificarUsuario("mari_b", 3);
+
+        uc->setNicknameRecordad("ana_silva");
+        uc->setCodigoRecordado(10);
+        uc->calificarUsuario("valen_uy", 5);
+
+        uc->setNicknameRecordad("ana_silva");
+        uc->setCodigoRecordado(10);
+        uc->calificarUsuario("joaco_r", 5);
+
+        uc->setNicknameRecordad("mari_b");
+        uc->setCodigoRecordado(12);
         uc->calificarUsuario("carlos_r", 5);
+
+        uc->setNicknameRecordad("carlos_r");
+        uc->setCodigoRecordado(12);
+        uc->calificarUsuario("nacho_f", 5);
 
        // std::cout << "bienCalificaciones" << std::endl;
 
